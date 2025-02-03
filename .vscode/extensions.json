@@ -1,0 +1,21 @@
+{
+  "recommendations": [
+    "aaron-bond.better-comments",
+    "biomejs.biome",
+    "esbenp.prettier-vscode",
+    "humao.rest-client",
+    "irongeek.vscode-env",
+    "mhutchie.git-graph",
+    "nrwl.angular-console",
+    "pflannery.vscode-versionlens",
+    "pkief.material-icon-theme",
+    "redhat.vscode-xml",
+    "redhat.vscode-yaml",
+    "tamasfe.even-better-toml",
+    "tyriar.sort-lines",
+    "usernamehw.errorlens",
+    "visualstudioexptteam.intellicode-api-usage-examples",
+    "visualstudioexptteam.vscodeintellicode",
+    "yoavbls.pretty-ts-errors"
+  ]
+}
