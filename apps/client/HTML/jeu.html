@@ -4,8 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jeux</title>
-  <link rel="stylesheet" href="styles/jeu.css">
-  
+  <link rel="stylesheet" href="/styles/jeu.css">
 </head>
 
 <header class="header">
@@ -14,9 +13,9 @@
   </div>
   <nav class="nav">
     <ul class="menu">
-        <li>accueil</li>
-        <li>concerts</li>
-        <li>jeux</li>
+      <li>accueil</li>
+      <li>concerts</li>
+      <li>jeux</li>
     </ul>
     <a class="login-btn">Connexion / S'enregistrer</a>
   </nav>
@@ -32,9 +31,24 @@
       <input type="text" id="search" name="search" placeholder="Rechercher un jeu">
     </div>
     <div id="filter">
-      
+      <div id="btnlist">
+        <button id="all" class="btn-list">Tout</button>
+        <button id="card" class="btn-list">Cartes</button>
+        <button id="strat" class="btn-list">Stratégie</button>
+        <button id="soc" class="btn-list">Société</button>
+      </div>
     </div>
     <div id="sort">
+      <select name="sorter" id="sortlist" title="Trier par">
+        <option value="name">Nom</option>
+        <option value="type">Type</option>
+        <option value="age">Age</option>
+        <option value="time">Durée</option>
+      </select>
+    </div>
+  </div>
+  <div class="cards">
+    <div id="cards">
       
     </div>
   </div>
@@ -43,9 +57,26 @@
       
     </div>
   </div>
+  <div class="contact" id="contact">
+    <h2>Contact</h2>
+    <p>Vous avez une question ou une suggestion ? N'hésitez pas à nous contacter !</p>
+    <form method="post" class="contact-form">
+      <div class="name">
+        <input type="text" id="name" name="name" placeholder="Nom" required>
+        <input type="text" id="firstname" name="firstname" placeholder="Prénom" required>
+      </div>
+      <input type="email" id="email" name="email" class="email-form" placeholder="Email" required>
+      <select name="subject" id="subject" title="Sujet" required>
+        <option value="question">Question</option>
+        <option value="suggestion">Suggestion</option>
+      </select>
+      <textarea name="message" id="message" placeholder="Message" required></textarea>
+      <button type="submit" id="send">Envoyer</button>
+    </form>
+  </div> 
 </body>
 <script src="JS/jeu.js"></script>
 <footer class="footer">
   <span>© 2025 Le Carré d'As - Tous droits réservés</span>
 </footer>
-  </html>
+</html>
