@@ -1,8 +1,24 @@
 .contact-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+.contact-info {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 10px;
+  padding: 10px;
 }
-.contact-form input, .contact-form textarea, .contact-form select{
-  margin-bottom: 1rem;
-  padding: 0.5rem;
+.contact-name{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 20px;
+}
+.contact-info.other textarea, .contact-info.other input{
+  width: 700px;
 }

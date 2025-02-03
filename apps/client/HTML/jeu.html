@@ -13,11 +13,11 @@
   </div>
   <nav class="nav">
     <ul class="menu">
-      <li>accueil</li>
-      <li>concerts</li>
-      <li>jeux</li>
+      <li><a href="#">Bar</a></li>
+      <li><a href="#">Jeux</a></li>
+      <li><a href="#">Concerts</a></li>
     </ul>
-    <a class="login-btn">Connexion / S'enregistrer</a>
+    <a class="login-btn" href="#">Connexion / Inscription</a>
   </nav>
 </header>
 
@@ -57,26 +57,56 @@
       
     </div>
   </div>
-  <div class="contact" id="contact">
-    <h2>Contact</h2>
-    <p>Vous avez une question ou une suggestion ? N'hésitez pas à nous contacter !</p>
-    <form method="post" class="contact-form">
-      <div class="name">
-        <input type="text" id="name" name="name" placeholder="Nom" required>
-        <input type="text" id="firstname" name="firstname" placeholder="Prénom" required>
+  <section>
+    <h2>Nous contacter</h2>
+    <form class="contact-form">
+      <div class="contact-name">
+        <div class="contact-info">
+          <label for="name">Nom</label>
+          <input id="name" class="contact-text" type="text" required>
+        </div>
+        <div class="contact-info">
+          <label for="firstname">Prénom</label>
+          <input id="firstname" class="contact-text" type="text" required>
+        </div>
       </div>
-      <input type="email" id="email" name="email" class="email-form" placeholder="Email" required>
-      <select name="subject" id="subject" title="Sujet" required>
-        <option value="question">Question</option>
-        <option value="suggestion">Suggestion</option>
-      </select>
-      <textarea name="message" id="message" placeholder="Message" required></textarea>
-      <button type="submit" id="send">Envoyer</button>
+      <div class="contact-info other">
+        <label for="email">Email</label>
+        <input id="email" class="contact-text" type="email" required>
+      </div>
+      <div class="contact-info other">
+        <label for="subject">Sujet</label>
+        <input id="subject" class="contact-text" type="text" required>
+      </div>
+      <div class="contact-info other">
+        <label for="message">Message</label>
+        <textarea id="message" class="contact-text" required></textarea>
+      </div>
+      <button class="contact-btn" type="submit">Envoyer</button>
     </form>
-  </div> 
+  </section> 
 </body>
 <script src="JS/jeu.js"></script>
 <footer class="footer">
-  <span>© 2025 Le Carré d'As - Tous droits réservés</span>
+  <div class="footer-content">
+    <p>&#x1f4cd; 123 Rue des Stratèges, Montpellier</p>
+    <p>&#x1f4de; 04 12 34 56 78 | ✉️ contact@carredas.fr</p>
+    <div class="footer-hours">
+      <p>&#x1f552; Lundi - Jeudi : 18h - 00h | Vendredi - Dimanche : 17h - 02h</p>
+    </div>
+
+    <div class="footer-social">
+      <a href="#"><img src="images/facebook-icon.png" alt="Facebook"></a>
+      <a href="#"><img src="images/instagram-icon.png" alt="Instagram"></a>
+      <a href="#"><img src="images/twitter-icon.png" alt="Twitter"></a>
+    </div>
+
+    <div class="footer-legal">
+      <a href="#">Mentions légales</a> | 
+      <a href="#">Politique de confidentialité</a>
+    </div>
+
+    <p>© 2025 Le Carré d'As - Tous droits réservés</p>
+  </div>
 </footer>
 </html>
