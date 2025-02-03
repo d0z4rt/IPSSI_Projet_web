@@ -1,0 +1,17 @@
+{
+  "name": "server",
+  "version": "0.0.0",
+  "description": "",
+  "scripts": {
+    "start:watch": "tsx --watch ./index.ts",
+    "start": "tsx ./index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "check": "biome check --write",
+    "format": "prettier . --write",
+    "lint": "biome lint --write"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {}
+}
