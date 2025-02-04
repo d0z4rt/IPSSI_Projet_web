@@ -28,7 +28,7 @@
   <div class="select">
     <div id="search">
       <label for="search">Rechercher un jeu</label>
-      <input type="text" id="search" name="search" placeholder="Rechercher un jeu">
+      <input type="text" id="search" name="search" onkeyup="search()" placeholder="Rechercher un jeu">
     </div>
     <div id="filter">
       <div id="btnlist">
@@ -36,6 +36,10 @@
         <button id="card" class="btn-list">Cartes</button>
         <button id="strat" class="btn-list">Stratégie</button>
         <button id="soc" class="btn-list">Société</button>
+        <button id="reflex" class="btn-list">Réflexion</button>
+        <button id="arc" class="btn-list">Arcade</button>
+        <button id="role" class="btn-list">Rôle</button>
+        <button id="adrr" class="btn-list">Adresse</button>
       </div>
     </div>
     <div id="sort">
@@ -47,15 +51,8 @@
       </select>
     </div>
   </div>
-  <div class="cards">
-    <div id="cards">
+  <div class="cards" id="cards">
       
-    </div>
-  </div>
-  <div class="cards">
-    <div id="cards">
-      
-    </div>
   </div>
 
   <section class="contact">
@@ -88,7 +85,7 @@
   </section> 
 
 </body>
-<script src="/JS/jeu.js"></script>
+<script src="/script/jeu.js"></script>
 <footer class="footer">
   <div class="footer-content">
     <p>&#x1f4cd; 123 Rue des Stratèges, Montpellier</p>
