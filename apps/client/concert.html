@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Concerts - Le Carré d'As</title>
+  <link rel="stylesheet" href="styles/concert.css">
+</head>
+<body>
+  <header class="header">
+    <div class="logo">
+      <img src="images/logo.png" alt="Logo du Carré d'As">
+    </div>
+    <nav class="nav">
+      <ul class="menu">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="bar.html">Bar</a></li>
+        <li><a href="jeux.html">Jeux</a></li>
+        <li><a href="concerts.html">Concerts</a></li>
+      </ul>
+      <a class="login-btn" href="login.html">Connexion / Inscription</a>
+    </nav>
+  </header>
+
+  <main class="main-content">
+    <aside class="filters">
+      <h2>Filtres</h2>
+      <input type="text" id="search" placeholder="Rechercher un concert...">
+      <select id="filter-date">
+        <option value="">Date</option>
+        <option value="2025-05-01">Mai 2025</option>
+        <option value="2025-06-01">Juin 2025</option>
+      </select>
+      <select id="filter-genre">
+        <option value="">Genre</option>
+        <option value="rock">Rock</option>
+        <option value="jazz">Jazz</option>
+        <option value="electro">Electro</option>
+        <option value="punk">Punk</option>
+      </select>
+    </aside>
+
+    <section class="concerts-grid" id="concerts-list">
+      <div class="concert-card" data-genre="rock" data-date="2025-05-15">
+        <h3>Rock Night</h3>
+        <p>15 Mai 2025 - 20h00</p>
+        <p>Entrée: 15€</p>
+        <button class="btn-buy">Acheter des billets</button>
+      </div>
+      <div class="concert-card" data-genre="jazz" data-date="2025-06-10">
+        <h3>Jazz Vibes</h3>
+        <p>10 Juin 2025 - 19h00</p>
+        <p>Entrée: 20€</p>
+        <button class="btn-buy">Acheter des billets</button>
+      </div>
+      <div class="concert-card" data-genre="electro" data-date="2025-05-22">
+        <h3>Electro Pulse</h3>
+        <p>22 Mai 2025 - 22h00</p>
+        <p>Entrée: 25€</p>
+        <button class="btn-buy">Acheter des billets</button>
+      </div>
+      <div class="concert-card" data-genre="punk" data-date="2025-05-15">
+        <h3>Punky</h3>
+        <p>06 Juin 2025 - 20h00</p>
+        <p>Entrée: 15€</p>
+        <button class="btn-buy">Acheter des billets</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>© 2025 Le Carré d'As - Tous droits réservés</span>
+    <div class="footer-legal">
+      <a href="mentions.html">Mentions légales</a> | 
+      <a href="privacy.html">Politique de confidentialité</a>
+    </div>
+  </footer>
+
+  <script src="scripts/concert.js"></script>
+</body>
+</html>
