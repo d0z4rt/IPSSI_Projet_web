@@ -1,0 +1,90 @@
+.header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--jaune-neon);
+  color: var(--fond-sombre);
+  height: 4rem;
+  padding: 0 1rem;
+
+  svg {
+    height: 100%;
+    width: 266px;
+    flex-shrink: 0;
+    padding: 0.25rem;
+  }
+}
+
+.nav {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  font-family: 'Orbitron', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
+    'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+
+  font-weight: 900;
+  text-transform: uppercase;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    padding: 1rem 1rem;
+  }
+}
+
+.menu {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  list-style: none;
+}
+
+.mobile_nav {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+  font-weight: 900;
+  text-transform: uppercase;
+  font-family: 'Orbitron', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
+    'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  background-color: var(--jaune-neon);
+  color: var(--fond-sombre);
+
+  .menu {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    padding: 1rem 1rem;
+  }
+}
+
+@media (min-width: 1000px) {
+  .burger_button {
+    display: none;
+  }
+}
+@media (max-width: 1000px) {
+  .burger_button {
+    display: flex;
+  }
+  .nav {
+    display: none;
+  }
+}
