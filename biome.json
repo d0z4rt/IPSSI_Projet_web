@@ -16,7 +16,7 @@
   "organizeImports": { "enabled": true },
   "linter": {
     "enabled": true,
-    "ignore": ["**/node_modules/**", "**/css/**"],
+    "ignore": ["**/node_modules/**", "**/css/**", "*.js"],
     "rules": {
       "recommended": true,
       "correctness": { "noUnusedImports": { "level": "warn", "fix": "safe" } },

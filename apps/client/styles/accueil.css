@@ -1,0 +1,237 @@
+/* Variables de couleurs */
+:root {
+  --jaune-neon: #ffea00;
+  --bleu-neon: #00e5ff;
+  --violet-neon: #a700ff;
+  --fond-sombre: #1b1b2a;
+  --texte-clair: #f0f0f0;
+  --accent: #2a2a40;
+}
+
+/* Style global */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--fond-sombre);
+  color: var(--texte-clair);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: var(--accent);
+  border-bottom: 2px solid var(--violet-neon);
+}
+
+/* Centrer les liens du menu */
+.nav {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+  margin: 0;
+  padding: 0;
+}
+
+.menu a {
+  color: var(--jaune-neon);
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.menu a:hover {
+  color: var(--jaune-neon);
+}
+
+.login-btn {
+  background: none;
+  border: 2px solid var(--bleu-neon);
+  color: var(--bleu-neon);
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.login-btn:hover {
+  background-color: var(--bleu-neon);
+  color: var(--fond-sombre);
+}
+
+/* Contenu principal */
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+.bio {
+  width: 80%;
+  margin-bottom: 40px;
+  padding: 20px;
+  background-color: var(--accent);
+  text-align: center;
+  font-size: 1.2rem;
+  border: 2px solid var(--violet-neon);
+  box-shadow: 0 0 10px var(--violet-neon);
+}
+
+.bio h2 {
+  color: var(--jaune-neon);
+  margin-bottom: 10px;
+  font-size: 2rem;
+}
+
+.bio p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--texte-clair);
+}
+
+/* Cartes */
+.cards {
+  display: flex;
+  justify-content: space-between; /* Espace entre les cartes */
+  gap: 20px; /* Espacement entre les cartes */
+  width: 80%;
+}
+
+.card {
+  flex: 1;
+  display: flex;
+  flex-direction: column; /* Organise le contenu en colonne (image au-dessus, texte en dessous) */
+  align-items: center;    /* Centre le contenu horizontalement */
+  padding: 20px;
+  background-color: var(--accent);
+  text-align: center;
+  color: var(--bleu-neon);
+  border: 2px solid var(--jaune-neon);
+  border-radius: 10px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  box-shadow: 0 0 15px rgba(255, 234, 0, 0.3);
+}
+
+.card.show-text {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 15px;  /* Espace entre l'image et le texte */
+}
+
+.card h3 {
+  font-size: 1.5rem;
+  margin: 10px 0 5px;
+  color: var(--jaune-neon);
+}
+
+.card p {
+  font-size: 1rem;
+  color: var(--texte-clair);
+  line-height: 1.5;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  background-color: var(--violet-neon);
+  color: var(--jaune-neon);
+  box-shadow: 0 0 20px var(--violet-neon);
+}
+
+.section-text {
+  width: 50%;
+  padding: 20px;
+  color: var(--texte-clair);
+  transform: translateX(100px);
+  opacity: 0;
+  transition:
+    transform 0.8s ease,
+    opacity 0.8s ease;
+}
+
+.card.show-text .section-text {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.section-text h3 {
+  color: var(--jaune-neon);
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.section-text p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--bleu-neon);
+}
+
+/* Footer */
+.footer {
+  background-color: var(--accent);
+  color: var(--texte-clair);
+  text-align: center;
+  padding: 20px;
+  border-top: 2px solid var(--violet-neon);
+}
+
+.footer a {
+  color: var(--bleu-neon);
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.footer a:hover {
+  color: var(--jaune-neon);
+}
+
+.footer-social img {
+  width: 24px;
+  height: 24px;
+  margin: 0 10px;
+  transition: transform 0.3s;
+}
+
+.footer-social img:hover {
+  transform: scale(1.2);
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .card {
+    flex-direction: column;
+  }
+
+  .card img {
+    width: 100%;
+  }
+
+  .section-text {
+    width: 100%;
+    transform: translateY(20px);
+  }
+
+  .card.show-text .section-text {
+    transform: translateY(0);
+  }
+}
