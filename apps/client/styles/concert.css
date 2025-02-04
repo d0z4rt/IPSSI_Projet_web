@@ -1,0 +1,133 @@
+/* Variables de couleurs pour cohérence avec ton site */
+:root {
+  --jaune-neon: #ffea00;
+  --bleu-neon: #00e5ff;
+  --violet-neon: #a700ff;
+  --fond-sombre: #1b1b2a;
+  --texte-clair: #f0f0f0;
+  --accent: #2a2a40;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: var(--fond-sombre);
+  color: var(--texte-clair);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: var(--accent);
+  border-bottom: 2px solid var(--violet-neon);
+}
+
+.logo-img {
+  height: 60px;
+  width: auto;
+}
+
+.nav {
+  display: flex;
+  gap: 20px;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+.menu li {
+  color: var(--texte-clair);
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.menu li:hover {
+  color: var(--bleu-neon);
+}
+
+.login-btn {
+  background: none;
+  border: 2px solid var(--bleu-neon);
+  color: var(--bleu-neon);
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.login-btn:hover {
+  background-color: var(--bleu-neon);
+  color: var(--fond-sombre);
+}
+
+.main-content {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+h1 {
+  color: var(--jaune-neon);
+  margin-bottom: 20px;
+}
+
+.search-filter {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+#search-bar, #filter {
+  padding: 10px;
+  border: 2px solid var(--violet-neon);
+  border-radius: 5px;
+  background-color: var(--accent);
+  color: var(--texte-clair);
+}
+
+.concerts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.concert-card {
+  background-color: var(--accent);
+  border: 2px solid var(--violet-neon);
+  border-radius: 10px;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  color: var(--texte-clair);
+}
+
+.concert-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 20px var(--violet-neon);
+}
+
+.footer {
+  background-color: var(--accent);
+  text-align: center;
+  padding: 20px;
+  color: var(--texte-clair);
+  border-top: 2px solid var(--violet-neon);
+}
+
+.footer-legal a {
+  color: var(--bleu-neon);
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.footer-legal a:hover {
+  color: var(--jaune-neon);
+}
