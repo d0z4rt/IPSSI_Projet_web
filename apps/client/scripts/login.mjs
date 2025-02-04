@@ -2,6 +2,8 @@ const root = document.querySelector('#root')
 if (!root) {
   throw new Error('root element missing')
 }
+const errorEl = document.createElement('div')
+let errorNode
 
 /**
  * Form mode
@@ -45,10 +47,14 @@ const toggleForm = () => {
   }
 }
 
-const login = async (data) => {
-  const _data = JSON.stringify({
-    email: 'test@test.test',
-    password: 'StrongPassword1'
+/**
+ * Send login request
+ * @param {FormData} data
+ */
+const handleLogin = async (data) => {
+  const body = JSON.stringify({
+    email: data.get('email'),
+    password: data.get('password')
   })
 
   const res = await fetch('http://127.0.0.1:4000/auth/login', {
@@ -56,22 +62,55 @@ const login = async (data) => {
     headers: {
       'Content-Type': 'application/json'
     },
-    body: _data
+    body
   })
+  const resBody = await res.json()
+  if (!res.ok) {
+    throw resBody
+  }
+}
+
+/**
+ * Send register request
+ * @param {FormData} data
+ */
+const handleRegister = async (data) => {
+  const body = JSON.stringify({
+    name: data.get('name'),
+    email: data.get('email'),
+    password: data.get('password'),
+    'repeat-password': data.get('repeat-password')
+  })
+
+  const res = await fetch('http://127.0.0.1:4000/auth/register', {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body
+  })
+  const resBody = await res.json()
+  if (!res.ok) {
+    throw resBody
+  }
 }
 
 /**
  *
  * @param {SubmitEvent} e
  */
-const handleSumbit = (e) => {
+const handleSumbit = async (e) => {
   e.preventDefault()
+  errorNode.innerHTML = ''
   const data = new FormData(e.currentTarget)
-
-  if (CURRENT_MODE === 0) {
-    login(data)
-  } else {
-    register(data)
+  try {
+    if (CURRENT_MODE === 0) {
+      await handleLogin(data)
+    } else {
+      await handleRegister(data)
+    }
+  } catch (err) {
+    errorNode.innerHTML = err.message
   }
 }
 
@@ -80,6 +119,7 @@ const handleSumbit = (e) => {
  */
 const createLoginForm = () => {
   root.innerHTML = ''
+  errorNode = root.appendChild(errorEl)
 
   const formEL = document.createElement('form')
   formEL.addEventListener('submit', handleSumbit)
@@ -94,11 +134,10 @@ const createLoginForm = () => {
   formEL.append(
     ...createInput('email', {
       // type: 'email',
-      onChange: (e) => {
-        console.log(e)
-      }
     }),
-    ...createInput('password'),
+    ...createInput('password', {
+      type: 'password'
+    }),
     submitButtonEL
   )
 
@@ -110,6 +149,7 @@ const createLoginForm = () => {
  */
 const createRegisterForm = () => {
   root.innerHTML = ''
+  errorNode = root.appendChild(errorEl)
 
   const formEL = document.createElement('form')
   formEL.addEventListener('submit', handleSumbit)
@@ -123,9 +163,14 @@ const createRegisterForm = () => {
 
   formEL.append(
     ...createInput('name'),
-    ...createInput('repeat-password'),
-    ...createInput('repeat-password'),
-    ...createInput('password'),
+    ...createInput('email'),
+
+    ...createInput('password', {
+      type: 'password'
+    }),
+    ...createInput('repeat-password', {
+      type: 'password'
+    }),
     submitButtonEL
   )
 

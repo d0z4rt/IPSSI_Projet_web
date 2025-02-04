@@ -1,4 +1,4 @@
-import database from '../database'
+import database, { type TUser } from '../database'
 import { validateEmail } from '../utils/validateEmail.util'
 import { wait } from '../utils/wait.util'
 
@@ -32,7 +32,13 @@ const UserService = () => {
       // hash the password (fake)
       dto.password += 'CRODE_PWOA'
 
-      const user = { id: database.users.length.toString(), ...dto }
+      // ! not using spread operator to avoid unwanted properties
+      const user: TUser = {
+        id: database.users.length.toString(),
+        name: dto.name,
+        email: dto.email,
+        password: dto.password
+      }
       database.users.push(user)
       return user
     },
