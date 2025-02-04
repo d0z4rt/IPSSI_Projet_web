@@ -1,0 +1,28 @@
+.footer {
+  background-color: var(--accent);
+  color: var(--texte-clair);
+  text-align: center;
+  padding: 20px;
+  border-top: 2px solid var(--violet-neon);
+}
+
+.footer a {
+  color: var(--bleu-neon);
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.footer a:hover {
+  color: var(--jaune-neon);
+}
+
+.footer-social img {
+  width: 24px;
+  height: 24px;
+  margin: 0 10px;
+  transition: transform 0.3s;
+}
+
+.footer-social img:hover {
+  transform: scale(1.2);
+}
