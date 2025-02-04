@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "description": "",
   "scripts": {
-    "start:watch": "pnpm run --stream -r start:watch",
+    "start:watch": "pnpm run --stream --parallel start:watch",
+    "start": "pnpm run --stream start",
     "test": "echo \"Error: no test specified\" && exit 1",
     "check": "biome check --write",
     "format": "prettier . --write",
@@ -15,7 +16,8 @@
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
     "@types/node": "^22.13.0",
-    "prettier": "3.4.2"
+    "prettier": "3.4.2",
+    "typescript": "^5.7.3"
   },
   "engines": {
     "node": ">=20",

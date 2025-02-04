@@ -1,0 +1,36 @@
+PUT http://127.0.0.1:4000/auth/register
+Content-Type: application/json
+
+{
+  "name": "Super Test",
+  "email": "tests@test.test",
+  "password": "StrongPassword1"
+}
+
+###
+
+POST http://127.0.0.1:4000/auth/login
+Content-Type: application/json
+
+{
+  "email": "test@test.test",
+  "password": "StrongPassword1"
+}
+
+###
+
+GET http://127.0.0.1:4000/concerts
+
+###
+
+PUT http://127.0.0.1:4000/bookings
+Content-Type: application/json
+
+{
+  "userId": "0",
+  "concertId": "0"
+}
+
+###
+
+GET http://127.0.0.1:4000/bookings/0
