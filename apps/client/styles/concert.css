@@ -1,4 +1,4 @@
-/* Variables de couleurs pour cohérence avec ton site */
+/* Variables de couleurs */
 :root {
   --jaune-neon: #ffea00;
   --bleu-neon: #00e5ff;
@@ -8,12 +8,13 @@
   --accent: #2a2a40;
 }
 
+/* Styles généraux */
 body {
   margin: 0;
   padding: 0;
   font-family: 'Arial', sans-serif;
   background-color: var(--fond-sombre);
-  color: var(--texte-clair);
+  color: var(--jaune-neon);
 }
 
 .header {
@@ -25,32 +26,24 @@ body {
   border-bottom: 2px solid var(--violet-neon);
 }
 
-.logo-img {
-  height: 60px;
-  width: auto;
-}
-
-.nav {
-  display: flex;
-  gap: 20px;
-}
-
+.nav,
 .menu {
-  list-style: none;
   display: flex;
-  gap: 20px;
+  justify-content: center;
+  list-style: none;
   margin: 0;
   padding: 0;
+  gap: 40px;
 }
 
-.menu li {
-  color: var(--texte-clair);
-  cursor: pointer;
-  transition: color 0.3s ease;
+.menu a {
+  color: var(--jaune-neon);
+  text-decoration: none;
+  font-size: 1.2rem;
 }
 
-.menu li:hover {
-  color: var(--bleu-neon);
+.menu a:hover {
+  color: var(--jaune-neon);
 }
 
 .login-btn {
@@ -58,10 +51,9 @@ body {
   border: 2px solid var(--bleu-neon);
   color: var(--bleu-neon);
   padding: 10px 20px;
-  cursor: pointer;
-  transition: all 0.3s ease;
   border-radius: 5px;
   text-decoration: none;
+  transition: all 0.3s ease;
 }
 
 .login-btn:hover {
@@ -69,9 +61,41 @@ body {
   color: var(--fond-sombre);
 }
 
+/* Contenu principal */
 .main-content {
   padding: 40px 20px;
   text-align: center;
+}
+
+.filter-bar {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 20px 0;
+  padding: 15px;
+}
+
+.filter-bar input,
+.filter-bar select {
+  padding: 12px 15px;
+  border: 2px solid var(--jaune-neon);
+  border-radius: 8px;
+  background-color: var(--fond-sombre);
+  color: var(--texte-clair);
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.filter-bar input::placeholder {
+  color: var(--texte-clair);
+  opacity: 0.7;
+}
+
+.filter-bar input:focus,
+.filter-bar select:focus {
+  outline: none;
+  border-color: var(--bleu-neon);
+  box-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
 }
 
 h1 {
@@ -94,40 +118,173 @@ h1 {
   color: var(--texte-clair);
 }
 
+/* Grille des concerts */
 .concerts-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  padding: 20px;
 }
 
 .concert-card {
+  display: flex;
+  align-items: center;
   background-color: var(--accent);
-  border: 2px solid var(--violet-neon);
-  border-radius: 10px;
-  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  padding: 15px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  color: var(--texte-clair);
 }
 
 .concert-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 0 20px var(--violet-neon);
+  transform: translateY(-15px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
 }
 
+.concert-card img {
+  width: 120px;
+  height: 120px;
+  border-radius: 10px;
+  margin-right: 20px;
+  object-fit: cover;
+}
+
+.concert-info {
+  flex: 1;
+  color: var(--texte-clair);
+}
+
+.concert-info h3 {
+  margin: 0 0 10px;
+  font-size: 1.5rem;
+  color: var(--jaune-neon);
+}
+
+.concert-info p {
+  margin: 5px 0;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.btn-buy {
+  background-color: var(--bleu-neon);
+  color: var(--fond-sombre);
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+.btn-buy:hover {
+  background-color: var(--jaune-neon);
+}
+
+/* Footer */
 .footer {
   background-color: var(--accent);
+  color: var(--texte-clair);
   text-align: center;
   padding: 20px;
-  color: var(--texte-clair);
   border-top: 2px solid var(--violet-neon);
 }
 
-.footer-legal a {
+.footer a {
   color: var(--bleu-neon);
   text-decoration: none;
   margin: 0 10px;
 }
 
-.footer-legal a:hover {
+.footer a:hover {
   color: var(--jaune-neon);
+}
+
+.footer-social img {
+  width: 24px;
+  height: 24px;
+  margin: 0 10px;
+  transition: transform 0.3s;
+}
+
+.footer-social img:hover {
+  transform: scale(1.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .menu {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .login-btn {
+    margin-top: 10px;
+  }
+
+  .filter-bar {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .concerts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .concert-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .concert-card img {
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 15px;
+  }
+
+  .menu {
+    gap: 8px;
+  }
+
+  .menu a {
+    font-size: 0.9rem;
+  }
+
+  .login-btn {
+    padding: 8px 15px;
+  }
+
+  .filter-bar input,
+  .filter-bar select {
+    font-size: 0.9rem;
+  }
+
+  .concert-card img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .concert-info h3 {
+    font-size: 1.2rem;
+  }
+
+  .concert-info p {
+    font-size: 0.9rem;
+  }
+
+  .btn-buy {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
 }
