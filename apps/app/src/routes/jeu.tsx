@@ -1,0 +1,105 @@
+const Jeu = () => {
+  return (
+  <>
+  <header class="header">
+    <div class="logo">
+      <img src="/images/logo.png" alt="Logo du Carré d'As" class="logo-img" />
+    </div>
+    <nav class="nav">
+      <ul class="menu">
+        <li><a href="#">Bar</a></li>
+        <li><a href="#">Jeux</a></li>
+        <li><a href="#">Concerts</a></li>
+      </ul>
+      <a class="login-btn" href="#">Connexion / Inscription</a>
+    </nav>
+  </header>
+  
+  <body>
+    <div class="title">
+      <h1>Jeux</h1>
+    </div>
+    <div class="select">
+      <div id="search">
+        <label for="search">Rechercher un jeu</label>
+        <input type="text" id="search" name="search" placeholder="Rechercher un jeu"/>
+      </div>
+      <div id="filter">
+        <div id="btnlist">
+          <button id="all" class="btn-list" type="button">Tout</button>
+          <button id="card" class="btn-list" type="button">Cartes</button>
+          <button id="strat" class="btn-list" type="button">Stratégie</button>
+          <button id="soc" class="btn-list" type="button">Société</button>
+          <button id="reflex" class="btn-list" type="button">Réflexion</button>
+          <button id="arc" class="btn-list" type="button">Arcade</button>
+          <button id="role" class="btn-list" type="button">Rôle</button>
+          <button id="adrr" class="btn-list" type="button">Adresse</button>
+        </div>
+      </div>
+      <div id="sort">
+        <select name="sorter" id="sortlist" title="Trier par">
+          <option value="name">Nom</option>
+          <option value="type">Type</option>
+          <option value="age">Age</option>
+          <option value="time">Durée</option>
+        </select>
+      </div>
+    </div>
+    <div class="cards" id="cards">
+      
+    </div>
+    
+    <section class="contact">
+      <h2>Nous contacter</h2>
+      <form class="contact-form">
+        <div class="contact-name">
+          <div class="contact-info">
+            <label for="name">Nom</label>
+            <input id="name" class="contact-text" type="text" required/>
+          </div>
+          <div class="contact-info">
+            <label for="firstname">Prénom</label>
+            <input id="firstname" class="contact-text" type="text" required/>
+          </div>
+        </div>
+        <div class="contact-info other">
+          <label for="email">Email</label>
+          <input id="email" class="contact-text" type="email" required/>
+        </div>
+        <div class="contact-info other">
+          <label for="subject">Sujet</label>
+          <input id="subject" class="contact-text" type="text" required/>
+        </div>
+        <div class="contact-info other">
+          <label for="message">Message</label>
+          <input id="message" class="contact-text" type="text" required/>
+        </div>
+        <button class="button" type="submit">Envoyer</button>
+      </form>
+    </section> 
+    
+  </body>
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&#x1f4cd; 123 Rue des Stratèges, Montpellier</p>
+      <p>&#x1f4de; 04 12 34 56 78 | ✉️ contact@carredas.fr</p>
+      <div class="footer-hours">
+        <p>&#x1f552; Lundi - Jeudi : 18h - 00h | Vendredi - Dimanche : 17h - 02h</p>
+      </div>
+      <div class="footer-social">
+        <a href="#"><img src="/images/facebook-icon.png" alt="Facebook"/></a>
+        <a href="#"><img src="/images/instagram-icon.png" alt="Instagram"/></a>
+        <a href="#"><img src="/images/twitter-icon.png" alt="Twitter"/></a>
+      </div>
+      <div class="footer-legal">
+        <a href="#">Mentions légales</a> | 
+        <a href="#">Politique de confidentialité</a>
+      </div>
+      <p>© 2025 Le Carré d'As - Tous droits réservés</p>
+    </div>
+  </footer>
+  </>
+  );
+}
+
+export default Jeu;
