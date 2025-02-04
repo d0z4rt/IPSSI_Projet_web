@@ -9,32 +9,41 @@
   background-color: var(--jaune-neon);
   color: var(--fond-sombre);
   height: 4rem;
-  padding: 0 1rem;
+  padding: 0 1rem 0 1rem;
 
   svg {
     height: 100%;
-    width: 266px;
+    width: 230px;
     flex-shrink: 0;
     padding: 0.25rem;
   }
 }
 
+.login_button {
+  text-decoration: none;
+  color: var(--fond-sombre);
+  display: flex;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--fond-sombre);
+
+  font-weight: 800;
+  font-size: 0.8rem;
+}
+
+.login_button:hover {
+  background-color: var(--fond-sombre);
+  color: var(--jaune-neon);
+}
+
 .nav {
   display: flex;
+  align-items: center;
   width: 100%;
   justify-content: space-between;
   font-family: 'Orbitron', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
     'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-
-  font-weight: 900;
   text-transform: uppercase;
-
-  a {
-    text-decoration: none;
-    color: inherit;
-    display: flex;
-    padding: 1rem 1rem;
-  }
 }
 
 .menu {
@@ -42,6 +51,15 @@
   padding: 0;
   display: flex;
   list-style: none;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    padding: 1rem 1rem;
+
+    font-weight: 900;
+  }
 }
 
 .mobile_nav {
@@ -52,13 +70,14 @@
   width: 100%;
   display: flex;
   align-items: center;
-
-  font-weight: 900;
+  justify-content: center;
+  flex-direction: column;
   text-transform: uppercase;
   font-family: 'Orbitron', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
     'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  background-color: var(--jaune-neon);
-  color: var(--fond-sombre);
+  background-color: #13131bce;
+  backdrop-filter: blur(10px);
+  color: var(--texte-clair);
 
   .menu {
     flex-direction: column;
@@ -66,25 +85,21 @@
     justify-content: center;
     width: 100%;
   }
-
-  a {
-    text-decoration: none;
-    color: inherit;
-    display: flex;
-    padding: 1rem 1rem;
-  }
 }
 
-@media (min-width: 1000px) {
-  .burger_button {
-    display: none;
-  }
+.burger_button {
+  display: none;
 }
+
 @media (max-width: 1000px) {
+  .header {
+    padding: 0 1rem 0 0.25rem;
+  }
   .burger_button {
     display: flex;
   }
-  .nav {
+  .nav .menu,
+  .nav .login_button {
     display: none;
   }
 }

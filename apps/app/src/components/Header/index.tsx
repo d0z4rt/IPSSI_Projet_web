@@ -13,8 +13,8 @@ const Header = () => {
   }
   return (
     <header class={styles.header}>
-      <Logo />
       <nav class={styles.nav}>
+        <Logo />
         <ul class={styles.menu}>
           <li>
             <A href="/">Accueil</A>
@@ -33,19 +33,29 @@ const Header = () => {
           when={!authStore.user}
           fallback={<A href="/profile">{authStore.user?.name}</A>}
         >
-          <A href="/login">Connexion / Inscription</A>
+          <A href="/login" class={styles.login_button}>
+            Connexion / Inscription
+          </A>
         </Show>
+        <button
+          class={styles.burger_button}
+          type="button"
+          onClick={handleBurgerClick}
+        >
+          <Show when={showMobileNav()} fallback="=">
+            x
+          </Show>
+        </button>
       </nav>
-      <button
-        class={styles.burger_button}
-        type="button"
-        onClick={handleBurgerClick}
-      >
-        =
-      </button>
       <Show when={showMobileNav()}>
         <Portal>
           <nav classList={{ [styles.mobile_nav]: true }}>
+            <Show
+              when={!authStore.user}
+              fallback={<A href="/profile">{authStore.user?.name}</A>}
+            >
+              <A href="/login">Connexion / Inscription</A>
+            </Show>
             <ul class={styles.menu}>
               <li>
                 <A href="/">Accueil</A>
@@ -60,12 +70,6 @@ const Header = () => {
                 <A href="/concerts">Concerts</A>
               </li>
             </ul>
-            <Show
-              when={!authStore.user}
-              fallback={<A href="/profile">{authStore.user?.name}</A>}
-            >
-              <A href="/login">Connexion / Inscription</A>
-            </Show>
           </nav>
         </Portal>
       </Show>

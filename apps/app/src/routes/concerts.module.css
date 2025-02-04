@@ -1,6 +1,6 @@
 .main-content {
   padding: 40px 20px;
-  text-align: center;
+  text-align: left;
 }
 
 .filter-bar {
@@ -51,51 +51,9 @@ h1 {
 /* Grille des concerts */
 .concerts-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 30px;
-  padding: 20px;
-}
-
-.concert-card {
-  display: flex;
-  align-items: center;
-  background-color: var(--accent);
-  border-radius: 15px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  padding: 15px;
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
-}
-
-.concert-card:hover {
-  transform: translateY(-15px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-}
-
-.concert-card img {
-  width: 120px;
-  height: 120px;
-  border-radius: 10px;
-  margin-right: 20px;
-  object-fit: cover;
-}
-
-.concert-info {
-  flex: 1;
-  color: var(--texte-clair);
-}
-
-.concert-info h3 {
-  margin: 0 0 10px;
-  font-size: 1.5rem;
-  color: var(--jaune-neon);
-}
-
-.concert-info p {
-  margin: 5px 0;
-  font-size: 1rem;
-  line-height: 1.4;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  padding: 1rem;
 }
 
 .btn-buy {
@@ -112,4 +70,20 @@ h1 {
 
 .btn-buy:hover {
   background-color: var(--jaune-neon);
+}
+
+@media (max-width: 1800px) {
+  .concerts-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding: 0.5rem;
+  }
+}
+
+@media (max-width: 1000px) {
+  .concerts-grid {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1rem;
+    padding: 0.5rem;
+  }
 }

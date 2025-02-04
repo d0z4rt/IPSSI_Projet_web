@@ -1,4 +1,5 @@
 import { For, createSignal } from 'solid-js'
+import Card from '../components/Card'
 import { concerts } from '../data/concert'
 import styles from './concerts.module.css'
 
@@ -62,23 +63,20 @@ const Concerts = () => {
       <section class={styles['concerts-grid']} id="concerts-list">
         <For each={filteredConcerts()}>
           {(concert) => (
-            <div class={styles['concert-card']}>
-              <img
-                src={concert.img}
-                alt={concert.name}
-                class={styles['concert-img']}
-              />
-              <div class={styles['concert-info']}>
-                <h3>{concert.name}</h3>
-                <p>{concert.info}</p>
-                <p>
-                  <strong>{concert.date}</strong>
-                </p>
-                <button type="button" class={styles['btn-buy']}>
-                  Acheter des billets
-                </button>
-              </div>
-            </div>
+            <Card
+              horizontal
+              title={concert.name}
+              cover={concert.img}
+              alt={concert.name}
+            >
+              <p>{concert.info}</p>
+              <p>
+                <strong>{concert.date}</strong>
+              </p>
+              <button type="button" class={styles['btn-buy']}>
+                Acheter des billets
+              </button>
+            </Card>
           )}
         </For>
       </section>
