@@ -1,8 +1,11 @@
-import { JSX, Show, createSignal } from 'solid-js'
+import { useNavigate } from '@solidjs/router'
+import { type JSX, Show, createSignal } from 'solid-js'
 import { createStore } from 'solid-js/store'
 import FormInput from '../components/FormInput'
+import { useAuthActions } from '../contexts/auth.context'
 
 const Login = () => {
+  const { setUser } = useAuthActions()
   const [error, setError] = createSignal('')
   const [isLoading, setIsLoading] = createSignal(false)
   const [isRegister, setIsRegister] = createSignal(false)
@@ -14,7 +17,7 @@ const Login = () => {
     'repeat-password': ''
   })
 
-  const [registerName, setName] = createSignal('')
+  const navigate = useNavigate()
 
   const toggleRegister = () => {
     setIsRegister((r) => !r)
@@ -52,6 +55,8 @@ const Login = () => {
         if (!res.ok) {
           throw resBody
         }
+        setUser(resBody)
+        navigate('/')
       }
     } catch (error) {
       // ! Yeah ugly stuff...
