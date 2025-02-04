@@ -1,22 +1,26 @@
+import styles from './privacy.module.css'
+
 const Privacy = () => {
   return (
-    <main class="main-content">
-      <section class="bio">
+    <main class={styles['main-content']}>
+      <section class={styles.bio}>
         <h2>Collecte des données</h2>
         <p>
           Nous collectons des données pour améliorer votre expérience sur notre
           site. Cela inclut :
         </p>
-        <ul>
-          <li>Les cookies essentiels pour le bon fonctionnement du site.</li>
-          <li>
-            Les cookies d'analyse pour comprendre comment vous utilisez notre
-            site.
-          </li>
-          <li>
-            Les cookies publicitaires pour vous proposer des contenus adaptés.
-          </li>
-        </ul>
+        <div class={styles.box}>
+          <ul>
+            <li>Les cookies essentiels pour le bon fonctionnement du site.</li>
+            <li>
+              Les cookies d'analyse pour comprendre comment vous utilisez notre
+              site.
+            </li>
+            <li>
+              Les cookies publicitaires pour vous proposer des contenus adaptés.
+            </li>
+          </ul>
+        </div>
 
         <h2>Gestion des cookies</h2>
         <p>
