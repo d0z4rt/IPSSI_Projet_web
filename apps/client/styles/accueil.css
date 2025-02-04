@@ -88,7 +88,7 @@ img {
   text-align: center;
   font-size: 1.2rem;
   border: 2px solid var(--violet-neon);
-  box-shadow: 0 0 10px rgba(167, 0, 255, 0.5);
+  box-shadow: 0 0 10px var(--violet-neon);
 }
 
 .bio h2 {
@@ -106,24 +106,24 @@ img {
 /* Cartes */
 .cards {
   display: flex;
-  flex-direction: column;
-  gap: 40px;
+  justify-content: space-between; /* Espace entre les cartes */
+  gap: 20px; /* Espacement entre les cartes */
   width: 80%;
 }
 
 .card {
+  flex: 1;
   display: flex;
-  align-items: center;
+  flex-direction: column; /* Organise le contenu en colonne (image au-dessus, texte en dessous) */
+  align-items: center;    /* Centre le contenu horizontalement */
+  padding: 20px;
   background-color: var(--accent);
-  border: 2px solid var(--violet-neon);
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 0 20px rgba(0, 229, 255, 0.3);
-  transform: translateY(50px);
-  opacity: 0;
-  transition:
-    transform 0.8s ease,
-    opacity 0.8s ease;
+  text-align: center;
+  color: var(--bleu-neon);
+  border: 2px solid var(--jaune-neon);
+  border-radius: 10px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  box-shadow: 0 0 15px rgba(255, 234, 0, 0.3);
 }
 
 .card.show-text {
@@ -132,17 +132,29 @@ img {
 }
 
 .card img {
+  width: 100%;
   height: auto;
-  object-fit: cover;
-  filter: grayscale(20%);
-  transition:
-    filter 0.3s ease,
-    transform 0.3s ease;
+  border-radius: 8px;
+  margin-bottom: 15px;  /* Espace entre l'image et le texte */
 }
 
-.card img:hover {
-  filter: grayscale(0%);
-  transform: scale(1.05);
+.card h3 {
+  font-size: 1.5rem;
+  margin: 10px 0 5px;
+  color: var(--jaune-neon);
+}
+
+.card p {
+  font-size: 1rem;
+  color: var(--texte-clair);
+  line-height: 1.5;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  background-color: var(--violet-neon);
+  color: var(--jaune-neon);
+  box-shadow: 0 0 20px var(--violet-neon);
 }
 
 .section-text {
