@@ -57,9 +57,10 @@
   --jaune-neon: #ffea00;
   --bleu-neon: #00e5ff;
   --violet-neon: #a700ff;
-  --fond-sombre: #1b1b2a;
+  --fond-sombre: #13131b; /* #1b1b2a; */
   --texte-clair: #f0f0f0;
-  --accent: #2a2a40;
+  --texte-sombre: #9e9e9e;
+  --accent: #1b1b22;
 }
 
 *,
