@@ -1,39 +1,45 @@
+import {For} from 'solid-js';
+import {jeux} from '../data/jeu';
+import styles from './jeu.module.css';
+
 const Jeu = () => {
+
+
   return (
   <>
-  <header class="header">
-    <div class="logo">
-      <img src="/images/logo.png" alt="Logo du Carré d'As" class="logo-img" />
+  <header class={styles.header}>
+    <div class={styles.logo}>
+      <img src="/images/logo.png" alt="Logo du Carré d'As" class="styles.logo-img" />
     </div>
-    <nav class="nav">
-      <ul class="menu">
+    <nav class={styles.nav}>
+      <ul class={styles.menu}>
         <li><a href="#">Bar</a></li>
         <li><a href="#">Jeux</a></li>
         <li><a href="#">Concerts</a></li>
       </ul>
-      <a class="login-btn" href="#">Connexion / Inscription</a>
+      <a class={styles.login-btn} href="#">Connexion / Inscription</a>
     </nav>
   </header>
   
-  <body>
-    <div class="title">
+  <div>
+    <div class={styles.title}>
       <h1>Jeux</h1>
     </div>
-    <div class="select">
+    <div class={styles.select}>
       <div id="search">
         <label for="search">Rechercher un jeu</label>
         <input type="text" id="search" name="search" placeholder="Rechercher un jeu"/>
       </div>
       <div id="filter">
         <div id="btnlist">
-          <button id="all" class="btn-list" type="button">Tout</button>
-          <button id="card" class="btn-list" type="button">Cartes</button>
-          <button id="strat" class="btn-list" type="button">Stratégie</button>
-          <button id="soc" class="btn-list" type="button">Société</button>
-          <button id="reflex" class="btn-list" type="button">Réflexion</button>
-          <button id="arc" class="btn-list" type="button">Arcade</button>
-          <button id="role" class="btn-list" type="button">Rôle</button>
-          <button id="adrr" class="btn-list" type="button">Adresse</button>
+          <button id="all" class={styles.btnlist} type="button">Tout</button>
+          <button id="card" class={styles.btnlist} type="button">Cartes</button>
+          <button id="strat" class={styles.btnlist} type="button">Stratégie</button>
+          <button id="soc" class={styles.btnlist} type="button">Société</button>
+          <button id="reflex" class={styles.btnlist} type="button">Réflexion</button>
+          <button id="arc" class={styles.btnlist} type="button">Arcade</button>
+          <button id="role" class={styles.btnlist} type="button">Rôle</button>
+          <button id="adrr" class={styles.btnlist} type="button">Adresse</button>
         </div>
       </div>
       <div id="sort">
@@ -45,53 +51,60 @@ const Jeu = () => {
         </select>
       </div>
     </div>
-    <div class="cards" id="cards">
-      
+    <div class={styles.cards} id="cards">
+      <For each={jeux}>{(jeu) => <>
+        <img src={jeu.img} alt={jeu.name}/>
+        <h3>{jeu.name}</h3>
+        <p>{jeu.info}</p>
+        <p>{jeu.time} minutes</p>
+        <p>{jeu.tag}</p>
+        </>
+      }</For>
     </div>
     
-    <section class="contact">
+    <section class={styles.contact}>
       <h2>Nous contacter</h2>
-      <form class="contact-form">
-        <div class="contact-name">
-          <div class="contact-info">
+      <form class={styles.contact-form}>
+        <div class="styles.contact-name">
+          <div class="styles.contact-info">
             <label for="name">Nom</label>
-            <input id="name" class="contact-text" type="text" required/>
+            <input id="name" class="styles.contact-text" type="text" required/>
           </div>
-          <div class="contact-info">
+          <div class="styles.contact-info">
             <label for="firstname">Prénom</label>
-            <input id="firstname" class="contact-text" type="text" required/>
+            <input id="firstname" class="styles.contact-text" type="text" required/>
           </div>
         </div>
-        <div class="contact-info other">
+        <div class="styles.contact-info other">
           <label for="email">Email</label>
-          <input id="email" class="contact-text" type="email" required/>
+          <input id="email" class="styles.contact-text" type="email" required/>
         </div>
-        <div class="contact-info other">
+        <div class="styles.contact-info other">
           <label for="subject">Sujet</label>
-          <input id="subject" class="contact-text" type="text" required/>
+          <input id="subject" class="styles.contact-text" type="text" required/>
         </div>
-        <div class="contact-info other">
+        <div class="styles.contact-info other">
           <label for="message">Message</label>
-          <input id="message" class="contact-text" type="text" required/>
+          <input id="message" class="styles.contact-text" type="text" required/>
         </div>
-        <button class="button" type="submit">Envoyer</button>
+        <button class="styles.button" type="submit">Envoyer</button>
       </form>
     </section> 
     
-  </body>
-  <footer class="footer">
-    <div class="footer-content">
+  </div>
+  <footer class="styles.footer">
+    <div class="styles.footer-content">
       <p>&#x1f4cd; 123 Rue des Stratèges, Montpellier</p>
       <p>&#x1f4de; 04 12 34 56 78 | ✉️ contact@carredas.fr</p>
-      <div class="footer-hours">
+      <div class="styles.footer-hours">
         <p>&#x1f552; Lundi - Jeudi : 18h - 00h | Vendredi - Dimanche : 17h - 02h</p>
       </div>
-      <div class="footer-social">
+      <div class="styles.footer-social">
         <a href="#"><img src="/images/facebook-icon.png" alt="Facebook"/></a>
         <a href="#"><img src="/images/instagram-icon.png" alt="Instagram"/></a>
         <a href="#"><img src="/images/twitter-icon.png" alt="Twitter"/></a>
       </div>
-      <div class="footer-legal">
+      <div class="styles.footer-legal">
         <a href="#">Mentions légales</a> | 
         <a href="#">Politique de confidentialité</a>
       </div>
