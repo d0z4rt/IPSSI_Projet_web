@@ -1,8 +1,49 @@
-import { JSX, Show, createSignal } from 'solid-js'
+import { useNavigate } from '@solidjs/router'
+import { type JSX, Show, createSignal } from 'solid-js'
 import { createStore } from 'solid-js/store'
 import FormInput from '../components/FormInput'
+import { useAuthActions } from '../contexts/auth.context'
+
+const handleLogin = async (loginFields: {
+  email: string
+  password: string
+}) => {
+  const res = await fetch('http://127.0.0.1:4000/auth/login', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(loginFields)
+  })
+  const resBody = await res.json()
+  if (!res.ok) {
+    throw resBody
+  }
+  return resBody
+}
+
+const handleRegister = async (registerFields: {
+  name: string
+  email: string
+  password: string
+  'repeat-password': string
+}) => {
+  const res = await fetch('http://127.0.0.1:4000/auth/register', {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(registerFields)
+  })
+  const resBody = await res.json()
+  if (!res.ok) {
+    throw resBody
+  }
+  return resBody
+}
 
 const Login = () => {
+  const { setUser } = useAuthActions()
   const [error, setError] = createSignal('')
   const [isLoading, setIsLoading] = createSignal(false)
   const [isRegister, setIsRegister] = createSignal(false)
@@ -14,7 +55,7 @@ const Login = () => {
     'repeat-password': ''
   })
 
-  const [registerName, setName] = createSignal('')
+  const navigate = useNavigate()
 
   const toggleRegister = () => {
     setIsRegister((r) => !r)
@@ -28,30 +69,12 @@ const Login = () => {
     setError('')
     try {
       if (isRegister()) {
-        const res = await fetch('http://127.0.0.1:4000/auth/register', {
-          method: 'PUT',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(registerFields)
-        })
-        const resBody = await res.json()
-        if (!res.ok) {
-          throw resBody
-        }
+        await handleRegister(registerFields)
         toggleRegister()
       } else {
-        const res = await fetch('http://127.0.0.1:4000/auth/login', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(loginFields)
-        })
-        const resBody = await res.json()
-        if (!res.ok) {
-          throw resBody
-        }
+        const user = await handleLogin(loginFields)
+        setUser(user)
+        navigate('/')
       }
     } catch (error) {
       // ! Yeah ugly stuff...
