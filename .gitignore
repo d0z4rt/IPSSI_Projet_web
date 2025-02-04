@@ -29,6 +29,7 @@ dist
 .output
 .vinxi
 .vercel
+app.config.timestamp_*.js
 .netlify
 netlify
 
@@ -50,3 +51,4 @@ pnpm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
+
