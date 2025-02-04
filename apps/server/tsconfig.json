@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "moduleDetection": "force",
+    "module": "Preserve",
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "target": "es2016",
+    "skipLibCheck": true,
+    "removeComments": true,
+    "strict": true,
+    "declaration": true,
+    "declarationMap": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["**/*.ts"],
+  "exclude": ["node_modules", "dist"]
+}

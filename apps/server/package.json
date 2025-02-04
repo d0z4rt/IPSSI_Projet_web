@@ -2,16 +2,19 @@
   "name": "server",
   "version": "0.0.0",
   "description": "",
+  "type": "module",
   "scripts": {
-    "start:watch": "tsx --watch ./index.ts",
-    "start": "tsx ./index.ts",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "check": "biome check --write",
-    "format": "prettier . --write",
-    "lint": "biome lint --write"
+    "start:watch": "tsx --watch ./src/index.ts",
+    "build": "tsc --project ./tsconfig.json",
+    "start": "node ./dist/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {}
+  "dependencies": {
+    "@fastify/type-provider-typebox": "^5.1.0",
+    "@sinclair/typebox": "^0.34.15",
+    "fastify": "^5.2.1"
+  }
 }
