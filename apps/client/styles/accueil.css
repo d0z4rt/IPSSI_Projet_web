@@ -34,7 +34,6 @@ img {
 
 /* Centrer les liens du menu */
 .nav {
-  flex: 1;
   display: flex;
   justify-content: center;
 }
@@ -45,12 +44,11 @@ img {
   gap: 40px;
   margin: 0;
   padding: 0;
+  display: none;
 }
 
 .menu a {
   color: var(--jaune-neon);
-  text-decoration: none;
-  font-size: 1.2rem;
 }
 
 .menu a:hover {
@@ -58,13 +56,11 @@ img {
 }
 
 .login-btn {
-  background: none;
   border: 2px solid var(--bleu-neon);
   color: var(--bleu-neon);
   padding: 10px 20px;
   border-radius: 5px;
   text-decoration: none;
-  transition: all 0.3s ease;
 }
 
 .login-btn:hover {
@@ -106,16 +102,16 @@ img {
 /* Cartes */
 .cards {
   display: flex;
-  justify-content: space-between; /* Espace entre les cartes */
-  gap: 20px; /* Espacement entre les cartes */
+  justify-content: space-between;
+  gap: 20px;
   width: 80%;
 }
 
 .card {
   flex: 1;
   display: flex;
-  flex-direction: column; /* Organise le contenu en colonne (image au-dessus, texte en dessous) */
-  align-items: center;    /* Centre le contenu horizontalement */
+  flex-direction: column;
+  align-items: center;
   padding: 20px;
   background-color: var(--accent);
   text-align: center;
@@ -124,8 +120,10 @@ img {
   border-radius: 10px;
   transition: transform 0.3s ease, background-color 0.3s ease;
   box-shadow: 0 0 15px rgba(255, 234, 0, 0.3);
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
 }
-
 .card.show-text {
   transform: translateY(0);
   opacity: 1;
@@ -135,7 +133,7 @@ img {
   width: 100%;
   height: auto;
   border-radius: 8px;
-  margin-bottom: 15px;  /* Espace entre l'image et le texte */
+  margin-bottom: 15px;
 }
 
 .card h3 {
@@ -158,7 +156,6 @@ img {
 }
 
 .section-text {
-  width: 50%;
   padding: 20px;
   color: var(--texte-clair);
   transform: translateX(100px);
