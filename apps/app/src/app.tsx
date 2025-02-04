@@ -3,6 +3,7 @@ import { Router } from '@solidjs/router'
 import { FileRoutes } from '@solidjs/start/router'
 import { Suspense } from 'solid-js'
 import './app.css'
+import Cookies from './components/Cookies'
 import Footer from './components/Footer'
 import Header from './components/Header'
 import AuthProvider from './contexts/auth.context'
@@ -16,6 +17,7 @@ export default function App() {
             <Title>SolidStart - Basic</Title>
             <Header />
             <Suspense>{props.children}</Suspense>
+            <Cookies />
             <Footer />
           </AuthProvider>
         </MetaProvider>
