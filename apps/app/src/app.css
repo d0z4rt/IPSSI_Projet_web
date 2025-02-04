@@ -1,5 +1,25 @@
+/* Variables de couleurs */
+:root {
+  --jaune-neon: #ffea00;
+  --bleu-neon: #00e5ff;
+  --violet-neon: #a700ff;
+  --fond-sombre: #1b1b2a;
+  --texte-clair: #f0f0f0;
+  --accent: #2a2a40;
+}
+
+html,
 body {
-  font-family: Gordita, Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  height: 100dvh; /* Mobile support */
+  width: 100%;
+  font-family: 'Roboto', Gordita, Oxygen, Ubuntu, Cantarell, 'Open Sans',
+    'Helvetica Neue', sans-serif;
+
+  background-color: var(--fond-sombre);
+  color: var(--texte-clair);
 }
 
 a {
@@ -26,6 +46,11 @@ p {
   max-width: 14rem;
   margin: 2rem auto;
   line-height: 1.35;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
 }
 
 @media (min-width: 480px) {
