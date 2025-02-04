@@ -1,4 +1,4 @@
-import { create, findOneByEmail, verifyPassword } from './user.service'
+import UserService from './user.service'
 
 type TRegisterDto = {
   name: string
@@ -11,20 +11,27 @@ type TLoginDto = {
   password: string
 }
 
-export const register = async (dto: TRegisterDto) => {
-  const user = await create(dto)
-  const { password, ...publicUser } = user
-  return publicUser
-}
+const AuthService = () => {
+  const userService = UserService()
 
-export const login = async (dto: TLoginDto) => {
-  // ! Try catch here to hide what went wrong (prevents brutforce)
-  try {
-    const user = await findOneByEmail(dto.email)
-    await verifyPassword(dto.password, user.password)
-    const { password, ...publicUser } = user
-    return publicUser
-  } catch (err) {
-    throw new Error('Email or password incorrect')
+  return {
+    register: async (dto: TRegisterDto) => {
+      const user = await userService.create(dto)
+      const { password, ...publicUser } = user
+      return publicUser
+    },
+    login: async (dto: TLoginDto) => {
+      // ! Try catch here to hide what went wrong (prevents brutforce)
+      try {
+        const user = await userService.findOneByEmail(dto.email)
+        await userService.verifyPassword(dto.password, user.password)
+        const { password, ...publicUser } = user
+        return publicUser
+      } catch (err) {
+        throw new Error('Email or password incorrect')
+      }
+    }
   }
 }
+
+export default AuthService

@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "moduleDetection": "force",
-    "module": "Preserve",
+    "module": "CommonJS",
     "resolveJsonModule": true,
     "allowJs": true,
     "esModuleInterop": true,
