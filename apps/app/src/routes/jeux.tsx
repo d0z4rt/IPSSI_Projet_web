@@ -2,28 +2,16 @@ import {For} from 'solid-js';
 import {jeux} from '../data/jeu';
 import styles from './jeu.module.css';
 
+
 const Jeu = () => {
 
 
   return (
   <>
-  <header class={styles.header}>
-    <div class={styles.logo}>
-      <img src="/images/logo.png" alt="Logo du Carré d'As" class="styles.logo-img" />
-    </div>
-    <nav class={styles.nav}>
-      <ul class={styles.menu}>
-        <li><a href="#">Bar</a></li>
-        <li><a href="#">Jeux</a></li>
-        <li><a href="#">Concerts</a></li>
-      </ul>
-      <a class={styles.login-btn} href="#">Connexion / Inscription</a>
-    </nav>
-  </header>
   
   <div>
     <div class={styles.title}>
-      <h1>Jeux</h1>
+       <h1>Jeux</h1>
     </div>
     <div class={styles.select}>
       <div id="search">
@@ -32,14 +20,12 @@ const Jeu = () => {
       </div>
       <div id="filter">
         <div id="btnlist">
-          <button id="all" class={styles.btnlist} type="button">Tout</button>
-          <button id="card" class={styles.btnlist} type="button">Cartes</button>
-          <button id="strat" class={styles.btnlist} type="button">Stratégie</button>
-          <button id="soc" class={styles.btnlist} type="button">Société</button>
-          <button id="reflex" class={styles.btnlist} type="button">Réflexion</button>
-          <button id="arc" class={styles.btnlist} type="button">Arcade</button>
-          <button id="role" class={styles.btnlist} type="button">Rôle</button>
-          <button id="adrr" class={styles.btnlist} type="button">Adresse</button>
+          <button id="all" class={'styles.btn-list'} type="button">Tout</button>
+          <button id="card" class={'styles.btn-list'} type="button">Société</button>
+          <button id="reflex" class={'styles.btn-list'} type="button">Réflexion</button>
+          <button id="arc" class={'styles.btn-list'} type="button">Arcade</button>
+          <button id="role" class={'styles.btn-list'} type="button">Rôle</button>
+          <button id="adrr" class={'styles.btn-list'} type="button">Adresse</button>
         </div>
       </div>
       <div id="sort">
@@ -64,28 +50,28 @@ const Jeu = () => {
     
     <section class={styles.contact}>
       <h2>Nous contacter</h2>
-      <form class={styles.contact-form}>
-        <div class="styles.contact-name">
-          <div class="styles.contact-info">
+      <form class={'styles.contact-form'}>
+        <div class={'styles.contact-name'}>
+          <div class={'styles.contact-info'}>
             <label for="name">Nom</label>
-            <input id="name" class="styles.contact-text" type="text" required/>
+            <input id="name" class={'styles.contact-text'} type="text" required/>
           </div>
-          <div class="styles.contact-info">
+          <div class={'styles.contact-info'}>
             <label for="firstname">Prénom</label>
-            <input id="firstname" class="styles.contact-text" type="text" required/>
+            <input id="firstname" class={'styles.contact-text'} type="text" required/>
           </div>
         </div>
-        <div class="styles.contact-info other">
+        <div classList={{styles['contact-info']:true, [styles.othe]:true}}>
           <label for="email">Email</label>
-          <input id="email" class="styles.contact-text" type="email" required/>
+          <input id="email" class={"styles.contact-text"} type="email" required/>
         </div>
-        <div class="styles.contact-info other">
+        <div class={"styles.contact-info other"}>
           <label for="subject">Sujet</label>
-          <input id="subject" class="styles.contact-text" type="text" required/>
+          <input id="subject" class={"styles.contact-text"} type="text" required/>
         </div>
-        <div class="styles.contact-info other">
+        <div class="styles.contactinfo other">
           <label for="message">Message</label>
-          <input id="message" class="styles.contact-text" type="text" required/>
+          <input id="message" class="styles.contacttext" type="text" required/>
         </div>
         <button class="styles.button" type="submit">Envoyer</button>
       </form>
@@ -96,7 +82,7 @@ const Jeu = () => {
     <div class="styles.footer-content">
       <p>&#x1f4cd; 123 Rue des Stratèges, Montpellier</p>
       <p>&#x1f4de; 04 12 34 56 78 | ✉️ contact@carredas.fr</p>
-      <div class="styles.footer-hours">
+      <div class="'styles.footerho'urs">
         <p>&#x1f552; Lundi - Jeudi : 18h - 00h | Vendredi - Dimanche : 17h - 02h</p>
       </div>
       <div class="styles.footer-social">
