@@ -76,7 +76,7 @@ const Jeu = () => {
             <For each={allMainTags}>
               {(tag) => (
                 <button
-                  class={`${styles.btn_list} ${selectedMainTag() === tag ? styles.selected : ''}`}
+                  class={`${styles.btn_list} ${styles.mainTag} ${styles[tag.toLowerCase().replace(/\s+/g, '-')]} ${selectedMainTag() === tag ? styles.selected : ''}`}
                   type="button"
                   onClick={() => {
                     setSelectedMainTag(selectedMainTag() === tag ? '' : tag);
@@ -93,7 +93,7 @@ const Jeu = () => {
             <For each={availableSubTags()}>
               {(tag) => (
                 <button
-                  class={`${styles.btn_list} ${selectedSubTag() === tag ? styles.selected : ''}`}
+                  class={`${styles.btn_list} ${styles.subTag} ${selectedSubTag() === tag ? styles.selected : ''}`}
                   type="button"
                   onClick={() => {
                     setSelectedSubTag(selectedSubTag() === tag ? '' : tag);
@@ -110,10 +110,12 @@ const Jeu = () => {
       <div class={styles.cards} id="cards">
         <For each={sortedJeux()}>
           {(jeu) => (
-            <Card title={jeu.name} cover={jeu.img} alt={jeu.name}>
+            <Card title={jeu.name} alt={jeu.name}>
+              <img src={jeu.img} alt={jeu.name} class={styles.imgcard} />
               <p>{jeu.info}</p>
-              <p>{jeu.time} minutes</p>
-              <p>{jeu.mainTag}: {jeu.subTag}</p>
+              <p>⏲{jeu.time} minutes</p>
+              <p class={`${styles.mainTag} ${styles[jeu.mainTag.toLowerCase().replace(/\s+/g, '-')]}`}>{jeu.mainTag}</p>
+              <p class={styles.subTag}>{jeu.subTag}</p>
             </Card>
           )}
         </For>
@@ -142,7 +144,7 @@ const Jeu = () => {
           </div>
           <div classList={{[styles.contact_info]:true,  [styles.other]:true}}>
             <label for="message">Message</label>
-            <input id="message" class={styles.contact_text} type="text" required/>
+            <textarea id="message" class={styles.contact_mess} required/>
           </div>
           <button class={styles.button} type="submit">Envoyer</button>
         </form>

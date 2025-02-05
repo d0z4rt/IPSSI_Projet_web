@@ -5,6 +5,7 @@
     align-items: center;
     justify-content: center;
     margin-top: 10px;
+    margin-bottom: 10px;
   }
 
   .contact_info {
@@ -23,22 +24,50 @@
     margin-top: 10px;
   }
 
-  .contact_name input {
-    width: 290px;
+  .contact_mess,
+  .contact_text {
+    border: 2px solid var(--jaune-neon);
+    border-radius: 8px;
+    background-color: var(--fond-sombre);
+    color: var(--texte-clair);
   }
 
-  .contact_info.other textarea,
-  .contact_info.other input {
-    width: 600px;
+  .contact_mess:focus,
+  .contact_text:focus {
+    outline: none;
+    border-color: var(--bleu-neon);
+    box-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
   }
 
+  .button {
+    background-color: var(--bleu-neon);
+    color: var(--fond-sombre);
+    border: none;
+    padding: 10px 15px;
+    margin: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+
+  .button:hover {
+    background-color: var(--jaune-neon);
+  }
+  .contact_mess,
   .contact_info input {
-    height: 1.5em;
+    width: 800px;
+    height: 2.5em;
     text-align: left;
   }
-
-  .contact_info textarea {
-    height: 10em;
+  .contact_name input {
+    width: 392px;
+  }
+  .contact_mess {
+    height: 6em !important;
+    text-align: start;
+    vertical-align: top;
+    resize: vertical;
     resize: none;
   }
 
@@ -46,7 +75,24 @@
     text-align: center;
     margin-bottom: -20px;
   }
-  
+  @media (max-width: 500px) {
+    .contact_mess,
+    .contact_info input {
+      width: 300px;
+    }
+    .contact_name input {
+      width: 142px;
+    }
+  }
+  @media (max-width: 1000px) {
+    .contact_mess,
+    .contact_info input {
+      width: 600px;
+    }
+    .contact_name input {
+      width: 292px;
+    }
+  }
 }
 
 .cards {
@@ -54,6 +100,14 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
   padding: 1rem;
+}
+
+.imgcard {
+  width: auto;
+  height: 100%;
+  object-fit: cover;
+  float: left;
+  margin-right: 10px;
 }
 
 @media (max-width: 1800px) {
@@ -184,4 +238,39 @@
   justify-content: center;
   gap: 10px;
   margin-bottom: 20px;
+}
+
+.mainTag,
+.subTag {
+  display: inline-block;
+  padding: 5px 15px;
+  color: var(--fond-sombre);
+  clip-path: polygon(
+    100% 50%,
+    75% 93.3%,
+    25% 93.3%,
+    0% 50%,
+    25% 6.7%,
+    75% 6.7%
+  );
+  width: 120px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.mainTag.cartes {
+  background-color: var(--violet-neon);
+}
+
+.mainTag.société {
+  background-color: #1ac5b0;
+}
+
+.mainTag.réflexion {
+  background-color: var(--jaune-neon);
+}
+
+.subTag {
+  background-color: #9370db;
 }

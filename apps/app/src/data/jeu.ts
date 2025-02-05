@@ -8,14 +8,6 @@ export const jeux = [
     time: "30"
 },
 { 
-    name: "Poker",
-    info: "Un jeu de cartes stratégique et psychologique où les joueurs misent et bluffent pour obtenir la meilleure combinaison possible.",
-    img: "./images/poker.png",
-    mainTag: "Cartes",
-    subTag: "Stratégie",
-    time: "45"
-},
-{ 
     name: "Tarot",
     info: "Un jeu de cartes classique français où un joueur affronte les autres en tant que preneur en tentant de remporter des plis stratégiques.",
     img: "./images/tarot.png",
@@ -30,14 +22,6 @@ export const jeux = [
     mainTag: "Société",
     subTag: "Rôle",
     time: "30"
-},
-{ 
-    name: "Échecs",
-    info: "Un jeu de réflexion et de stratégie où deux joueurs s'affrontent en déplaçant leurs pièces sur un échiquier pour mettre le roi adverse en échec et mat.",
-    img: "./images/echecs.png",
-    mainTag: "Réflexion",
-    subTag: "Stratégie",
-    time: "90"
 },
 { 
     name: "Dames",
@@ -64,22 +48,6 @@ export const jeux = [
     time: "120"
 },
 { 
-    name: "Shuffleboard",
-    info: "Un jeu d'adresse où les joueurs lancent des disques sur une surface pour marquer des points en atteignant certaines zones.",
-    img: "./images/shuffleboard.png",
-    mainTag: "Société",
-    subTag: "Adresse",
-    time: "60"
-},
-{ 
-    name: "Baby-Foot",
-    info: "Un jeu de société compétitif où deux équipes contrôlent des figurines pour marquer des buts avec une petite balle.",
-    img: "./images/baby-foot.png",
-    mainTag: "Société",
-    subTag: "Adresse",
-    time: "10"
-},
-{ 
     name: "Dobble",
     info: "Un jeu de rapidité et d'observation où les joueurs doivent trouver le symbole commun entre deux cartes le plus vite possible.",
     img: "./images/dobble.png",
@@ -102,22 +70,6 @@ export const jeux = [
     mainTag: "Société",
     subTag: "Adresse",
     time: "20"
-},
-{ 
-    name: "Fléchettes",
-    info: "Un jeu de précision où les joueurs lancent des fléchettes sur une cible pour marquer des points.",
-    img: "./images/flechettes.png",
-    mainTag: "Société",
-    subTag: "Adresse",
-    time: "30"
-},
-{ 
-    name: "Machine à poing",
-    info: "Un jeu d'arcade où les joueurs testent leur force en frappant un sac pour obtenir le meilleur score.",
-    img: "./images/machine-a-poing.png",
-    mainTag: "Société",
-    subTag: "Arcade",
-    time: "5"
 },
 { 
     name: "Puissance 4",
@@ -168,28 +120,12 @@ export const jeux = [
     time: "30"
 },
 { 
-    name: "Twister",
-    info: "Un jeu physique où les joueurs doivent placer leurs mains et pieds sur des cercles de couleur sans tomber.",
-    img: "./images/twister.png",
-    mainTag: "Société",
-    subTag: "Physique",
-    time: "20"
-},
-{ 
     name: "Trivial Pursuit",
     info: "Un jeu de culture générale où les joueurs répondent à des questions dans différentes catégories pour remplir leur camembert.",
     img: "./images/trivial-pursuit.png",
     mainTag: "Réflexion",
-    subTag: "Culture générale",
+    subTag: "Culture g.",
     time: "90"
-},
-{ 
-    name: "Beer Pong",
-    info: "Un jeu d'adresse où les joueurs lancent une balle de ping-pong dans des gobelets remplis de boisson.",
-    img: "./images/beer-pong.png",
-    mainTag: "Société",
-    subTag: "Fête",
-    time: "20"
 },
 { 
     name: "Catan",
@@ -207,12 +143,4 @@ export const jeux = [
     subTag: "Coopératif",
     time: "60"
 },
-{ 
-    name: "BlackJack",
-    info: "Un jeu de cartes populaire où les joueurs tentent d'obtenir une main dont la valeur est la plus proche possible de 21 sans la dépasser.",
-    img: "./images/blackjack.png",
-    mainTag: "Cartes",
-    subTag: "Casino",
-    time: "30"
-}
 ]
