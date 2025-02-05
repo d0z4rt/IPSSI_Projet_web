@@ -110,7 +110,7 @@ const Jeu = () => {
       <div class={styles.cards} id="cards">
         <For each={sortedJeux()}>
           {(jeu) => (
-            <Card title={jeu.name} alt={jeu.name}>
+            <Card title={jeu.name} alt={jeu.name} >
               <img src={jeu.img} alt={jeu.name} class={styles.imgcard} />
               <p>{jeu.info}</p>
               <p>⏲{jeu.time} minutes</p>
