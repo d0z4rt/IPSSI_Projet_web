@@ -2,24 +2,12 @@ import {For} from 'solid-js';
 import {jeux} from '../data/jeu';
 import styles from './jeu.module.css';
 
+
 const Jeu = () => {
 
 
   return (
   <>
-  <header class={styles.header}>
-    <div class={styles.logo}>
-      <img src="/images/logo.png" alt="Logo du Carré d'As" class="styles.logo-img" />
-    </div>
-    <nav class={styles.nav}>
-      <ul class={styles.menu}>
-        <li><a href="#">Bar</a></li>
-        <li><a href="#">Jeux</a></li>
-        <li><a href="#">Concerts</a></li>
-      </ul>
-      <a class={styles.login-btn} href="#">Connexion / Inscription</a>
-    </nav>
-  </header>
   
   <div>
     <div class={styles.title}>
