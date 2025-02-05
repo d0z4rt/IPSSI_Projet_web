@@ -23,14 +23,11 @@ const BookingService = () => {
       await concertService.findOneById(dto.concertId)
 
       // check if there already is a booking
-      const concertIndex = database.bookings.findIndex(
-        (b) => b.concertId === dto.concertId
-      )
-      const userIndex = database.bookings.findIndex(
-        (b) => b.concertId === dto.concertId
+      const bookingIndex = database.bookings.findIndex(
+        (b) => b.concertId === dto.concertId && b.userId === dto.userId
       )
 
-      if (concertIndex !== -1 && userIndex !== -1) {
+      if (bookingIndex !== -1) {
         throw new Error('A booking for this concert already exist for the user')
       }
 

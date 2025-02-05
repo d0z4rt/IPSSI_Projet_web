@@ -1,0 +1,39 @@
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+.bio {
+  margin-bottom: 40px;
+  padding: 20px;
+  background-color: var(--accent);
+  text-align: center;
+  font-size: 1.2rem;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  border-radius: 1rem;
+}
+
+.bio h2 {
+  margin-bottom: 10px;
+  font-size: 2rem;
+}
+
+.bio p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--texte-clair);
+}
+
+.cards {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+@media (max-width: 1000px) {
+  .cards {
+    flex-direction: column;
+  }
+}

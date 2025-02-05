@@ -16,66 +16,58 @@
         <li><a href="index.html">Accueil</a></li>
         <li><a href="bar.html">Bar</a></li>
         <li><a href="jeux.html">Jeux</a></li>
-        <li><a href="concerts.html">Concerts</a></li>
+        <li><a href="concert.html">Concerts</a></li>
       </ul>
       <a class="login-btn" href="login.html">Connexion / Inscription</a>
     </nav>
   </header>
 
   <main class="main-content">
-    <aside class="filters">
-      <h2>Filtres</h2>
-      <input type="text" id="search" placeholder="Rechercher un concert...">
+    <div class="filter-bar">
+      <input type="text" id="search" placeholder="🔍 Rechercher un concert...">
+      
       <select id="filter-date">
-        <option value="">Date</option>
-        <option value="2025-05-01">Mai 2025</option>
-        <option value="2025-06-01">Juin 2025</option>
+        <option value="">📅 Date</option>
+        <option value="mai 2025">Mai 2025</option>
+        <option value="juin 2025">Juin 2025</option>
+        <option value="juillet 2025">Juillet 2025</option>
       </select>
+      
       <select id="filter-genre">
-        <option value="">Genre</option>
-        <option value="rock">Rock</option>
-        <option value="jazz">Jazz</option>
-        <option value="electro">Electro</option>
+        <option value="">🎵 Genre</option>
+        <option value="rap">Rap</option>
+        <option value="pop">Pop</option>
         <option value="punk">Punk</option>
+        <option value="metal">Metal</option>
+        <option value="electro">Electro</option>
+        <option value="reggae">Reggae</option>
       </select>
-    </aside>
-
+    </div>
+    
     <section class="concerts-grid" id="concerts-list">
-      <div class="concert-card" data-genre="rock" data-date="2025-05-15">
-        <h3>Rock Night</h3>
-        <p>15 Mai 2025 - 20h00</p>
-        <p>Entrée: 15€</p>
-        <button class="btn-buy">Acheter des billets</button>
-      </div>
-      <div class="concert-card" data-genre="jazz" data-date="2025-06-10">
-        <h3>Jazz Vibes</h3>
-        <p>10 Juin 2025 - 19h00</p>
-        <p>Entrée: 20€</p>
-        <button class="btn-buy">Acheter des billets</button>
-      </div>
-      <div class="concert-card" data-genre="electro" data-date="2025-05-22">
-        <h3>Electro Pulse</h3>
-        <p>22 Mai 2025 - 22h00</p>
-        <p>Entrée: 25€</p>
-        <button class="btn-buy">Acheter des billets</button>
-      </div>
-      <div class="concert-card" data-genre="punk" data-date="2025-05-15">
-        <h3>Punky</h3>
-        <p>06 Juin 2025 - 20h00</p>
-        <p>Entrée: 15€</p>
-        <button class="btn-buy">Acheter des billets</button>
-      </div>
     </section>
   </main>
 
   <footer class="footer">
-    <span>© 2025 Le Carré d'As - Tous droits réservés</span>
-    <div class="footer-legal">
-      <a href="mentions.html">Mentions légales</a> | 
-      <a href="privacy.html">Politique de confidentialité</a>
+    <div class="footer-content">
+      <p>📍 123 Rue des Stratèges, Montpellier</p>
+      <p>📞 04 12 34 56 78 | ✉️ contact@carredas.fr</p>
+      <div class="footer-hours">
+        <p>🕒 Lundi - Jeudi : 18h - 00h | Vendredi - Dimanche : 17h - 02h</p>
+      </div>
+      <div class="footer-social">
+        <a href="#"><img src="images/facebook-icon.png" alt="Facebook"></a>
+        <a href="#"><img src="images/instagram-icon.png" alt="Instagram"></a>
+        <a href="#"><img src="images/twitter-icon.png" alt="Twitter"></a>
+      </div>
+      <div class="footer-legal">
+        <a href="mentions.html">Mentions légales</a> | 
+        <a href="privacy.html">Politique de confidentialité</a>
+      </div>
+      <p>© 2025 Le Carré d'As - Tous droits réservés</p>
     </div>
   </footer>
 
-  <script src="scripts/concert.js"></script>
+  <script type="module" src="scripts/concert.js"></script>
 </body>
 </html>
