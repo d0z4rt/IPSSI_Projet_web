@@ -1,7 +1,7 @@
 # IPSSI Projet Web
 
 - DAUDEL Clarisse
-- RANK Yanis
+- RANQUE Yanis
 - CASTEL Maxime
 - TONELO Hugo
 
