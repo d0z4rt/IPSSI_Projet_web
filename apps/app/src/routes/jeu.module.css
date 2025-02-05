@@ -128,14 +128,15 @@
   display: flex;
   justify-content: center;
   align-items: center; /* Ajouté pour aligner verticalement les éléments */
-  gap: 15px;
   margin: 20px 0;
-  padding: 15px;
+  padding: 8px;
+  height: 47px;
 }
 
 .filter-bar input,
 .filter-bar select,
 .filter_btn {
+  height: 47px;
   padding: 8px 10px; /* Réduit la hauteur */
   border: 2px solid var(--jaune-neon);
   border-radius: 8px;
@@ -161,11 +162,12 @@
 }
 
 .filter-select {
-  height: auto; /* Ajuste automatiquement la hauteur */
-}
+  height: auto;
+ }
 
 .filter_btn {
-  height: auto; /* Ajuste automatiquement la hauteur */
+  height: 47px;
+   /* Ajuste automatiquement la hauteur */
 }
 
 .search-filter {
@@ -243,14 +245,7 @@
   display: inline-block;
   padding: 5px 15px;
   color: var(--fond-sombre);
-  clip-path: polygon(
-    100% 50%,
-    75% 93.3%,
-    25% 93.3%,
-    0% 50%,
-    25% 6.7%,
-    75% 6.7%
-  );
+    clip-path: polygon(8.75% 0%, 88.75% 0%, 100% 11.25%, 99.75% 46.72%, 88.75% 46.72%, 88.75% 56.83%, 99.75% 56.83%, 100% 100%, 67.92% 100%, 67.92% 94.49%, 59.17% 94.49%, 59.17% 100%, 31% 100%, 8.75% 61.57%);
   width: 120px;
   text-align: center;
   position: relative;
