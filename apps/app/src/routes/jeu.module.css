@@ -41,14 +41,16 @@
 
   .button {
     background-color: var(--bleu-neon);
-    color: var(--fond-sombre);
-    border: none;
-    padding: 10px 15px;
-    margin: 5px;
-    font-size: 1rem;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+  color: var(--fond-sombre);
+  border: none;
+  padding: 5px 10px;
+  margin: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  clip-path: polygon(8.75% 0%, 88.75% 0%, 100% 11.25%, 99.75% 46.72%, 88.75% 46.72%, 88.75% 56.83%, 99.75% 56.83%, 100% 100%, 67.92% 100%, 67.92% 94.49%, 59.17% 94.49%, 59.17% 100%, 31% 100%, 8.75% 61.57%);
+
   }
 
   .button:hover {
@@ -131,15 +133,14 @@
   margin: 20px 0;
   padding: 8px;
   height: 47px;
+  
 }
 
 .filter-bar input,
-.filter-bar select,
 .filter_btn {
   height: 47px;
   padding: 8px 10px; /* Réduit la hauteur */
   border: 2px solid var(--jaune-neon);
-  border-radius: 8px;
   background-color: var(--fond-sombre);
   color: var(--texte-clair);
   font-size: 1rem;
@@ -161,12 +162,32 @@
   box-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
 }
 
-.filter-select {
-  height: auto;
+.filter_select {
+  height: 47px;
+  background-color: var(--jaune-neon);
+  color: var(--fond-sombre);
+  border: none;
+  padding: 5px 10px;
+  margin: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  clip-path: polygon(0% 0%, 88.75% 0%, 100% 11.25%, 99.75% 46.72%, 88.75% 46.72%, 88.75% 56.83%, 99.75% 56.83%, 100% 100%, 67.92% 100%, 67.92% 94.49%, 59.17% 94.49%, 59.17% 100%, 31% 100%, 0% 61.57%);
+
  }
 
 .filter_btn {
   height: 47px;
+  background-color: var(--jaune-neon);
+  color: var(--fond-sombre);
+  border: none;
+  padding: 5px 10px;
+  margin: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  clip-path: polygon(8.75% 0%, 88.75% 0%, 100% 11.25%, 99.75% 46.72%, 88.75% 46.72%, 88.75% 56.83%, 99.75% 56.83%, 100% 100%, 67.92% 100%, 67.92% 94.49%, 59.17% 94.49%, 59.17% 100%, 31% 100%, 8.75% 61.57%);
+
    /* Ajuste automatiquement la hauteur */
 }
 

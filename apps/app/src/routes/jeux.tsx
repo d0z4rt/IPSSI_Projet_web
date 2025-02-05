@@ -43,24 +43,24 @@ const Jeu = () => {
   return (
   <>
   <div class={styles['filter-bar']}>
-    <div class={styles['filter-bar']}>
+    
       <input
       type="text"
       id={styles.search}
       onInput={(e) => setSearchValue(e.currentTarget.value.toLowerCase())}
       placeholder="🔍 Rechercher un jeu..."
       />
-    </div>
-    <div class={styles['filter-bar']}>
+    
+
       <button class={styles.filter_btn} type="button" onClick={() => setShowFilterPage(true)}>Filtres</button>
-    </div>
-    <div class={styles['filter-bar']}>
-      <select id="sort" aria-label="sort" class={styles['filter-bar']} onChange={(e) => setSortCriteria(e.currentTarget.value)}>
+    
+    
+      <select id="sort" aria-label="sort" class={styles['filter_select']} onChange={(e) => setSortCriteria(e.currentTarget.value)}>
         <option value="default" disabled selected hidden>Trier par</option>
         <option value="name">Nom</option>
         <option value="time">Temps</option>
       </select>
-    </div>
+  
   </div>
   
   <Show when={showFilterPage()}>
