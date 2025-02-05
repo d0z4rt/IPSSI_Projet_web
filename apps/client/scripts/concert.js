@@ -1,44 +1,62 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const searchInput = document.getElementById('search-bar');
-  const filterSelect = document.getElementById('filter');
-  const concerts = document.querySelectorAll('.concert-card');
-  const loadMoreBtn = document.getElementById('load-more');
-
-  let visibleConcerts = 4;
-
-  searchInput.addEventListener('input', () => {
-    const searchValue = searchInput.value.toLowerCase();
-    concerts.forEach((concert, index) => {
-      const title = concert.querySelector('h3').textContent.toLowerCase();
-      concert.style.display = title.includes(searchValue) ? 'block' : 'none';
-      if (index >= visibleConcerts && title.includes(searchValue)) {
-        concert.style.display = 'none';
-      }
-    });
-  });
-
-  filterSelect.addEventListener('change', () => {
-    const filterValue = filterSelect.value;
-    concerts.forEach((concert, index) => {
-      if (filterValue === 'all' || concert.dataset.category === filterValue) {
-        concert.style.display = index < visibleConcerts ? 'block' : 'none';
-      } else {
-        concert.style.display = 'none';
-      }
-    });
-  });
-
-
-  loadMoreBtn.addEventListener('click', () => {
-    visibleConcerts += 4;
-    concerts.forEach((concert, index) => {
-      if (index < visibleConcerts) {
-        concert.style.display = 'block';
-      }
-    });
-
-    if (visibleConcerts >= concerts.length) {
-      loadMoreBtn.style.display = 'none';
-    }
-  });
+  fetch('data/concert.json')
+    .then(response => response.json())
+    .then(data => {
+      displayConcerts(data);
+      setupFilters(data);
+    })
+    .catch(error => console.error('Erreur de chargement des concerts:', error));
 });
+
+function displayConcerts(concerts) {
+  const concertsList = document.getElementById('concerts-list');
+  concertsList.innerHTML = '';
+
+  concerts.forEach(concert => {
+    const concertCard = document.createElement('div');
+    concertCard.className = 'concert-card';
+
+    concertCard.innerHTML = `
+      <img src="${concert.img}" alt="${concert.name}" class="concert-img">
+      <div class="concert-info">
+        <h3>${concert.name}</h3>
+        <p>${concert.info}</p>
+        <p><strong>${concert.date}</strong></p>
+        <button class="btn-buy">Acheter des billets</button>
+      </div>
+    `;
+
+    concertsList.appendChild(concertCard);
+  });
+}
+
+function setupFilters(concerts) {
+  const searchBar = document.getElementById('search');
+  const filterDate = document.getElementById('filter-date');
+  const filterGenre = document.getElementById('filter-genre');
+
+  function filterConcerts() {
+    const searchValue = searchBar.value.toLowerCase();
+    const selectedDate = filterDate.value.toLowerCase();
+    const selectedGenre = filterGenre.value.toLowerCase();
+
+    const filteredConcerts = concerts.filter(concert => {
+      const nameMatch = concert.name.toLowerCase().includes(searchValue);
+
+      // Extraction de la date (mois année)
+      const concertDateMatch = concert.date.toLowerCase().includes(selectedDate) || selectedDate === "";
+
+      // Vérification du genre
+      const concertGenres = concert.tag.map(genre => genre.toLowerCase());
+      const genreMatch = concertGenres.includes(selectedGenre) || selectedGenre === "";
+
+      return nameMatch && concertDateMatch && genreMatch;
+    });
+
+    displayConcerts(filteredConcerts);
+  }
+
+  searchBar.addEventListener('input', filterConcerts);
+  filterDate.addEventListener('change', filterConcerts);
+  filterGenre.addEventListener('change', filterConcerts);
+}

@@ -43,7 +43,6 @@ const authController = async (fastify: FastifyTypebox) => {
       }
     },
     async (request, reply) => {
-      console.log(request.body)
       const user = await authService.login(request.body)
       reply.code(200).send(user)
     }

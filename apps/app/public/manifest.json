@@ -1,0 +1,25 @@
+{
+  "short_name": "Le Carré d'As",
+  "name": "Le Carré d'As - Bar / Concerts / Jeux ",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#ffea00",
+  "background_color": "#13131b"
+}
