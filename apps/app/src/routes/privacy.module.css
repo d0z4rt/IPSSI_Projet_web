@@ -1,0 +1,37 @@
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+}
+.bio {
+  width: 80%;
+  margin-bottom: 40px;
+  padding: 20px;
+  background-color: var(--accent);
+  text-align: center;
+  font-size: 1.2rem;
+  border: 2px solid var(--violet-neon);
+  box-shadow: 0 0 10px var(--violet-neon);
+}
+.bio h2 {
+  color: var(--jaune-neon);
+  margin-bottom: 10px;
+  font-size: 2rem;
+}
+
+.bio p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--texte-clair);
+}
+
+.box {
+  display: flex;
+  margin-bottom: 2rem;
+}
+
+.box ul {
+  margin: auto;
+  text-align: left;
+}
