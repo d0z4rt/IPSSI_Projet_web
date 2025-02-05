@@ -1,0 +1,160 @@
+/* Variables de couleurs */
+:root {
+  --jaune-neon: #ffea00;
+  --bleu-neon: #00e5ff;
+  --violet-neon: #a700ff;
+  --fond-sombre: #1b1b2a;
+  --texte-clair: #f0f0f0;
+  --accent: #2a2a40;
+}
+
+/* Styles généraux */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: var(--fond-sombre);
+  color: var(--jaune-neon);
+  font-size: 16px;
+}
+
+.header,
+.menu-container,
+.footer {
+  padding: 20px 40px;
+  background-color: var(--accent);
+  border-bottom: 2px solid var(--violet-neon);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav,
+.menu {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 40px;
+}
+
+.menu a,
+.footer a {
+  color: var(--jaune-neon);
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.menu a:hover,
+.footer a:hover {
+  color: var(--jaune-neon);
+}
+
+.login-btn {
+  background: none;
+  border: 2px solid var(--bleu-neon);
+  color: var(--bleu-neon);
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.login-btn:hover {
+  background-color: var(--bleu-neon);
+  color: var(--fond-sombre);
+}
+
+/* Main Content */
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.menu-container {
+  padding: 40px;
+  width: 80%;
+}
+
+.category {
+  margin-bottom: 20px;
+}
+
+.category h2 {
+  color: var(--bleu-neon);
+  border-bottom: 2px solid var(--bleu-neon);
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+  font-size: 2rem;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+  padding: 15px;
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease;
+  background-color: var(--accent);
+}
+
+.item-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.item p,
+.item span {
+  margin: 0;
+}
+
+.item-price,
+.item-name {
+  font-size: 1rem;
+}
+
+.item-price {
+  order: 2;
+  color: var(--bleu-neon);
+}
+
+.item-name {
+  order: 1;
+  font-weight: bold;
+}
+
+.item-description {
+  color: var(--texte-clair);
+  opacity: 0.8;
+}
+
+.item:hover {
+  background-color: var(--fond-sombre);
+  transform: scale(1.05);
+  box-shadow: 0 0 15px var(--violet-neon);
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  border-top: 2px solid var(--violet-neon);
+}
+
+.footer-social img {
+  width: 24px;
+  height: 24px;
+  margin: 0 10px;
+  transition: transform 0.3s;
+}
+
+.footer-social img:hover {
+  transform: scale(1.2);
+}
