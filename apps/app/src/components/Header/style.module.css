@@ -16,6 +16,7 @@
     width: 230px;
     flex-shrink: 0;
     padding: 0.25rem;
+    fill: var(--fond-sombre);
   }
 }
 
@@ -75,7 +76,7 @@
   text-transform: uppercase;
   font-family: 'Orbitron', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
     'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  background-color: #13131bce;
+  background-color: var(--fond-transparent);
   backdrop-filter: blur(10px);
   color: var(--texte-clair);
 

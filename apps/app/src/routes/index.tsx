@@ -1,10 +1,12 @@
 import Card from '../components/Card'
+import Logo from '../components/Logo'
 import styles from './index.module.css'
 
 export default function Home() {
   return (
     <main class={styles['main-content']}>
       <section class={styles.bio}>
+        <Logo noText />
         <h2>Bienvenue au Carré d'As</h2>
         <p>
           Un spot unique où <em>jeux de société</em> et <em>concerts live</em>{' '}

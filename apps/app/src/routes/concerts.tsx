@@ -1,9 +1,9 @@
-import { For, createSignal } from 'solid-js'
+import { For, ParentComponent, createSignal } from 'solid-js'
 import Card from '../components/Card'
 import { concerts } from '../data/concert'
 import styles from './concerts.module.css'
 
-const Concerts = () => {
+const Concerts: ParentComponent = (props) => {
   const [searchValue, setSearchValue] = createSignal('')
   const [selectedDate, setSelectedDate] = createSignal('')
   const [selectedGenre, setSelectedGenre] = createSignal('')
@@ -27,6 +27,7 @@ const Concerts = () => {
 
   return (
     <main class={styles['main-content']}>
+      <div>{props.children}</div>
       <div class={styles['filter-bar']}>
         <input
           type="text"
@@ -64,9 +65,10 @@ const Concerts = () => {
         <For each={filteredConcerts()}>
           {(concert) => (
             <Card
+              href={concert.id}
               horizontal
               title={concert.name}
-              cover={concert.img}
+              cover={`/${concert.img}`}
               alt={concert.name}
             >
               <p>{concert.info}</p>
