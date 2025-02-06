@@ -17,35 +17,32 @@
     box-shadow 0.3s ease;
 }
 
-.button::after {
+.button::after,
+.button::before {
   position: absolute;
-  top: 2rem;
-  left: 0;
   display: flex;
   content: '';
   height: 0.25rem;
   width: 100%;
-  clip-path: polygon(0 0, 50% 0, calc(50% - 0.25rem) 100%, 0.25rem 100%);
   background-color: var(--bleu-neon);
   transition: background-color 0.3s ease;
 }
 
+.button::after {
+  bottom: -0.25rem;
+  left: 0;
+  clip-path: polygon(0 0, 50% 0, calc(50% - 0.25rem) 100%, 0.25rem 100%);
+}
+
 .button::before {
-  position: absolute;
   top: -0.25rem;
   right: 0;
-  display: flex;
-  content: '';
-  height: 0.25rem;
-  width: 100%;
   clip-path: polygon(
     calc(60% + 0.25rem) 0,
     calc(100% - 0.25rem) 0,
     100% 100%,
     60% 100%
   );
-  background-color: var(--bleu-neon);
-  transition: background-color 0.3s ease;
 }
 
 .button:hover {

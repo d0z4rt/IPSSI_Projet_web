@@ -3,8 +3,8 @@ import AuthService from '../services/auth.service'
 import type { FastifyTypebox } from '../utils/types'
 
 /**
- * Encapsulates the routes
- * @param {FastifyInstance} fastify  Encapsulated Fastify Instance
+ * Authentication routes
+ * @param {FastifyTypebox} fastify Encapsulated Fastify Instance
  */
 const authController = async (fastify: FastifyTypebox) => {
   const authService = AuthService()
@@ -19,7 +19,12 @@ const authController = async (fastify: FastifyTypebox) => {
         body: Type.Object({
           name: Type.String(),
           email: Type.String({ format: 'email' }),
-          password: Type.String()
+          phone: Type.String(),
+          street: Type.String(),
+          'postal-code': Type.Number(),
+          city: Type.String(),
+          password: Type.String(),
+          'repeat-password': Type.String()
         })
       }
     },

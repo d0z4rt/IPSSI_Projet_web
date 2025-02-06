@@ -3,7 +3,12 @@ import UserService from './user.service'
 type TRegisterDto = {
   name: string
   email: string
+  phone: string
+  street: string
+  'postal-code': number
+  city: string
   password: string
+  'repeat-password': string
 }
 
 type TLoginDto = {
@@ -16,6 +21,9 @@ const AuthService = () => {
 
   return {
     register: async (dto: TRegisterDto) => {
+      if (dto.password !== dto['repeat-password']) {
+        throw new Error("Password aren't matching")
+      }
       const user = await userService.create(dto)
       const { password, ...publicUser } = user
       return publicUser

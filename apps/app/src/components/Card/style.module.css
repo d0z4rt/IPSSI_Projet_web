@@ -1,4 +1,5 @@
 .card {
+  position: relative;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -17,6 +18,15 @@
   text-decoration: none;
   position: relative;
   margin-bottom: 20px;
+}
+
+.card_type {
+  position: absolute;
+  top: -1.5rem;
+  color: var(--texte-clair);
+  font-family: 'Orbitron', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
+    'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 700;
 }
 
 .card:hover {
