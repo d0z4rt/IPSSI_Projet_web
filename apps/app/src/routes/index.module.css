@@ -1,26 +1,56 @@
 .main-content {
+  background-image: url('/images/test.png');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  height: calc(100vh - 4rem);
+  width: 100%;
+}
+
+.wrapper {
+  background-color: rgba(from var(--fond-sombre) r g b/0.9);
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 40px 20px;
+  justify-content: space-evenly;
+  padding: 1rem 2rem;
+  gap: 1rem;
 }
 
 .bio {
-  margin-bottom: 40px;
-  padding: 20px;
-  background-color: var(--accent);
-  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  grid-template-rows: auto auto;
+  align-items: center;
+  padding: 2rem 3rem 2rem 1rem;
+  gap: 1rem;
+  background-color: rgba(from var(--accent) r g b/0.7);
+  backdrop-filter: blur(10px);
+  text-align: left;
   font-size: 1.2rem;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-  border-radius: 1rem;
+  border-radius: 0.2rem;
+  max-width: 1300px;
+
+  svg {
+    justify-self: center;
+    grid-row: span 2;
+    height: 10rem;
+    padding: 0.25rem;
+    fill: var(--bleu-neon);
+  }
 }
 
 .bio h2 {
-  margin-bottom: 10px;
+  padding: 0;
+  margin: 0;
   font-size: 2rem;
 }
 
 .bio p {
+  padding: 0;
+  margin: 0;
   font-size: 1.1rem;
   line-height: 1.6;
   color: var(--texte-clair);
@@ -29,11 +59,28 @@
 .cards {
   display: flex;
   justify-content: space-between;
-  gap: 20px;
+  gap: 1rem;
+  max-width: 1300px;
 }
 
 @media (max-width: 1000px) {
+  .main-content {
+    height: auto;
+  }
+  .wrapper {
+    padding: 1rem;
+    gap: 1rem;
+  }
+  .bio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+  }
+
   .cards {
     flex-direction: column;
+    gap: 1rem;
   }
 }

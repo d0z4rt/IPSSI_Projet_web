@@ -1,0 +1,59 @@
+.button {
+  display: flex;
+  position: relative;
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  line-height: 1rem;
+  height: 2rem;
+  font-weight: 800;
+  border: none;
+  justify-content: center;
+  background-color: var(--bleu-neon);
+  font-family: 'Orbitron', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
+    'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.button::after {
+  position: absolute;
+  top: 2rem;
+  left: 0;
+  display: flex;
+  content: '';
+  height: 0.25rem;
+  width: 100%;
+  clip-path: polygon(0 0, 50% 0, calc(50% - 0.25rem) 100%, 0.25rem 100%);
+  background-color: var(--bleu-neon);
+  transition: background-color 0.3s ease;
+}
+
+.button::before {
+  position: absolute;
+  top: -0.25rem;
+  right: 0;
+  display: flex;
+  content: '';
+  height: 0.25rem;
+  width: 100%;
+  clip-path: polygon(
+    calc(60% + 0.25rem) 0,
+    calc(100% - 0.25rem) 0,
+    100% 100%,
+    60% 100%
+  );
+  background-color: var(--bleu-neon);
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  box-shadow: 0 0 20px rgba(from var(--violet-neon) r g b/0.2);
+}
+
+.button:hover,
+.button:hover::before,
+.button:hover::after {
+  background-color: var(--violet-neon);
+}

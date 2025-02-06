@@ -28,7 +28,10 @@ type TDatabase = {
  */
 const database: TDatabase = {
   users: [],
-  concerts: [{ id: '0', name: 'Mega' }],
+  concerts: [
+    { id: '0', name: 'Mega' },
+    { id: '1', name: 'Mega' }
+  ],
   bookings: []
 }
 

@@ -13,6 +13,7 @@ type StoreState = {
 type StoreActions = {
   setUser: (user?: TUser) => void
   setAuthToken: (token?: string) => void
+  disconnect: () => void
 }
 
 /**
@@ -43,12 +44,18 @@ const AuthProvider: ParentComponent = (props) => {
     setState('authToken', token)
   }
 
+  const disconnect: StoreActions['disconnect'] = () => {
+    setState('user', undefined)
+    setState('authToken', undefined)
+  }
+
   return (
     <StateContext.Provider value={state}>
       <ActionsContext.Provider
         value={{
           setUser,
-          setAuthToken
+          setAuthToken,
+          disconnect
         }}
       >
         {props.children}
