@@ -19,7 +19,12 @@ const authController = async (fastify: FastifyTypebox) => {
         body: Type.Object({
           name: Type.String(),
           email: Type.String({ format: 'email' }),
-          password: Type.String()
+          phone: Type.String(),
+          street: Type.String(),
+          'postal-code': Type.Number(),
+          city: Type.String(),
+          password: Type.String(),
+          'repeat-password': Type.String()
         })
       }
     },

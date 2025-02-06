@@ -31,6 +31,10 @@ const Register = () => {
   const [registerFields, setRegisterFields] = createStore({
     name: '',
     email: '',
+    phone: '',
+    street: '',
+    'postal-code': '',
+    city: '',
     password: '',
     'repeat-password': ''
   })
@@ -67,9 +71,7 @@ const Register = () => {
             <FormInput
               name="phone"
               disabled={isLoading()}
-              onInput={(e) =>
-                setRegisterFields('password', e.currentTarget.value)
-              }
+              onInput={(e) => setRegisterFields('phone', e.currentTarget.value)}
             />
             <FormInput
               name="email"
@@ -83,7 +85,7 @@ const Register = () => {
               class={styles.span}
               disabled={isLoading()}
               onInput={(e) =>
-                setRegisterFields('password', e.currentTarget.value)
+                setRegisterFields('street', e.currentTarget.value)
               }
             />
             <FormInput
@@ -91,15 +93,13 @@ const Register = () => {
               type="number"
               disabled={isLoading()}
               onInput={(e) =>
-                setRegisterFields('password', e.currentTarget.value)
+                setRegisterFields('postal-code', e.currentTarget.value)
               }
             />
             <FormInput
               name="city"
               disabled={isLoading()}
-              onInput={(e) =>
-                setRegisterFields('password', e.currentTarget.value)
-              }
+              onInput={(e) => setRegisterFields('city', e.currentTarget.value)}
             />
             <FormInput
               name="password"

@@ -38,6 +38,18 @@ const bookingController = async (fastify: FastifyTypebox) => {
     const bookings = await bookingService.findAllByUserId(request.params.userId)
     reply.code(200).send(bookings)
   })
+
+  /**
+   * Delete a booking by id
+   */
+  fastify.delete<{
+    Params: {
+      bookingId: string
+    }
+  }>('/:bookingId', async (request, reply) => {
+    const booking = await bookingService.delete(request.params.bookingId)
+    reply.code(200).send(booking.id)
+  })
 }
 
 export default bookingController

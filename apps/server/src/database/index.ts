@@ -6,12 +6,21 @@
  */
 
 /**
+ * Import MOCK data
+ */
+import { concerts } from './MOCK/concerts'
+
+/**
  * User data format
  */
 export type TUser = {
   id: string
   name: string
   email: string
+  phone: string
+  street: string
+  'postal-code': number
+  city: string
   password: string
 }
 
@@ -21,6 +30,10 @@ export type TUser = {
 export type TConcert = {
   id: string
   name: string
+  info: string
+  img: string
+  tag: string[]
+  date: string
 }
 
 /**
@@ -47,10 +60,7 @@ type TDatabase = {
  */
 const database: TDatabase = {
   users: [],
-  concerts: [
-    { id: '0', name: 'Mega' },
-    { id: '1', name: 'Mega' }
-  ],
+  concerts: concerts,
   bookings: []
 }
 

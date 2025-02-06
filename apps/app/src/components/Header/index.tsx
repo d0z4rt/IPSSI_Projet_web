@@ -58,8 +58,8 @@ const Header = () => {
           type="button"
           onClick={handleBurgerClick}
         >
-          <Show when={showMobileNav()} fallback="=">
-            x
+          <Show when={showMobileNav()} fallback="☰">
+            ✕
           </Show>
         </button>
       </nav>

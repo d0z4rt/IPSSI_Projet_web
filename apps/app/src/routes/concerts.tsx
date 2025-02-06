@@ -1,8 +1,8 @@
-import { For, ParentComponent, createSignal } from 'solid-js'
+import { For, ParentComponent, createResource, createSignal } from 'solid-js'
 import Button from '../components/Button'
 import Card from '../components/Card'
 import FormInput from '../components/FormInput'
-import { concerts } from '../data/concert'
+import { TConcert } from '../entities/concert.entity'
 import styles from './concerts.module.css'
 
 // Composant affichant la liste des concerts avec des filtres de recherche
@@ -11,10 +11,14 @@ const Concerts: ParentComponent = (props) => {
   const [searchValue, setSearchValue] = createSignal('') // Stocke le terme de recherche saisi par l'utilisateur
   const [selectedDate, setSelectedDate] = createSignal('') // Stocke la date sélectionnée
   const [selectedGenre, setSelectedGenre] = createSignal('') // Stocke le genre musical sélectionné
+  const [concerts, { refetch }] = createResource(async () => {
+    const response = await fetch('http://127.0.0.1:4000/concerts/')
+    return (await response.json()) as TConcert[]
+  })
 
   // Fonction retournant la liste des concerts filtrés
   const filteredConcerts = () =>
-    concerts.filter((concert) => {
+    concerts()?.filter((concert) => {
       const nameMatch = concert.name.toLowerCase().includes(searchValue()) // Vérifie si le nom du concert contient le terme recherché
 
       // Vérification de la date : soit elle correspond, soit aucun filtre n'est appliqué

@@ -75,6 +75,7 @@
 
 .button:hover {
   border: 1px solid var(--violet-neon);
+  color: var(--violet-neon);
   box-shadow: 0 0 20px rgba(from var(--violet-neon) r g b/0.8);
 }
 
