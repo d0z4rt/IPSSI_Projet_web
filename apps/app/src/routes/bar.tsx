@@ -16,18 +16,28 @@ const Bar = () => {
               <h2>{category.name}</h2>
               <div>
                 {/* Boucle sur les items de chaque catégorie */}
-                <For each={category.data}>
-                  {(item) => (
-                    <div class={styles.item}>
-                      {/* En-tête de l'item avec le prix et le nom */}
-                      <div class={styles['item-header']}>
-                        <span class={styles['item-price']}>{item.prix}</span>
-                        <p class={styles['item-name']}>{item.nom}</p>
-                      </div>
-                      {/* Description de l'item, affichée si disponible */}
-                      <p class={styles['item-description']}>
-                        {(item as { description: string }).description || ''}
-                      </p>
+                <For each={category.categories}>
+                  {(subCategory) => (
+                    <div class={styles['sub-category']}>
+                      <h3>{subCategory.name}</h3>
+                      <For each={subCategory.data}>
+                        {(item) => (
+                          <div class={styles.item}>
+                            {/* En-tête de l'item avec le prix et le nom */}
+                            <div class={styles['item-header']}>
+                              <span class={styles['item-price']}>
+                                {item.prix}
+                              </span>
+                              <p class={styles['item-name']}>{item.nom}</p>
+                            </div>
+                            {/* Description de l'item, affichée si disponible */}
+                            <p class={styles['item-description']}>
+                              {(item as { description: string }).description ||
+                                ''}
+                            </p>
+                          </div>
+                        )}
+                      </For>
                     </div>
                   )}
                 </For>
