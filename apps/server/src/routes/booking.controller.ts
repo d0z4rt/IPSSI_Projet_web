@@ -3,8 +3,8 @@ import BookingService from '../services/booking.service'
 import type { FastifyTypebox } from '../utils/types'
 
 /**
- * Encapsulates the routes
- * @param {FastifyInstance} fastify  Encapsulated Fastify Instance
+ * Booking routes
+ * @param {FastifyTypebox} fastify ncapsulated Fastify Instance
  */
 const bookingController = async (fastify: FastifyTypebox) => {
   const bookingService = BookingService()

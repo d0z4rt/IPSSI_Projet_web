@@ -3,8 +3,8 @@ import AuthService from '../services/auth.service'
 import type { FastifyTypebox } from '../utils/types'
 
 /**
- * Encapsulates the routes
- * @param {FastifyInstance} fastify  Encapsulated Fastify Instance
+ * Authentication routes
+ * @param {FastifyTypebox} fastify Encapsulated Fastify Instance
  */
 const authController = async (fastify: FastifyTypebox) => {
   const authService = AuthService()
