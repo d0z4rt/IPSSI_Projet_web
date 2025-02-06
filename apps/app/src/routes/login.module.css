@@ -1,11 +1,26 @@
 .main {
-  height: calc(100vh - 4rem);
+  display: grid;
+  height: 100%;
+  min-height: calc(100vh - 4rem);
   width: 100%;
   background-image: url('/images/test.png');
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
+
+  a {
+    color: var(--bleu-neon);
+    transition:
+      color 0.3s ease,
+      text-shadow 0.3s ease;
+  }
+
+  a:hover {
+    color: var(--jaune-neon);
+    text-shadow: 0px 0px 10px rgba(from var(--jaune-neon) r g b/0.9);
+  }
 }
+
 .wrapper {
   flex-direction: column;
   justify-content: center;
