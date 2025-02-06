@@ -115,11 +115,10 @@ const Jeu = () => {
   <div class={styles.cards} id="cards">
     <For each={sortedJeux()}>
       {(jeu) => (
-        <Card title={jeu.name} alt={jeu.name} >
+        <Card title={jeu.name} alt={jeu.name} type={jeu.mainTag}>
           <img src={jeu.img} alt={jeu.name} class={styles.imgcard} />
           <p>{jeu.info}</p>
           <p>⏲{jeu.time} minutes</p>
-          <p class={`${styles.mainTag} ${styles[jeu.mainTag.toLowerCase().replace(/\s+/g, '-')]}`}>{jeu.mainTag}</p>
           <p class={styles.subTag}>{jeu.subTag}</p>
         </Card>
         )}
