@@ -1,103 +1,5 @@
-.contact {
-  .contact_form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
-
-  .contact_info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    margin-top: 10px;
-    padding: 8px;
-  }
-
-  .contact_name {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-top: 10px;
-  }
-
-  .contact_mess,
-  .contact_text {
-    border: 2px solid var(--jaune-neon);
-    border-radius: 8px;
-    background-color: var(--fond-sombre);
-    color: var(--texte-clair);
-  }
-
-  .contact_mess:focus,
-  .contact_text:focus {
-    outline: none;
-    border-color: var(--bleu-neon);
-    box-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
-  }
-
-  .button {
-    background-color: var(--bleu-neon);
-  color: var(--fond-sombre);
-  border: none;
-  padding: 5px 10px;
-  margin: 5px;
-  font-size: 1rem;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-  clip-path: polygon(8.75% 0%, 88.75% 0%, 100% 11.25%, 99.75% 46.72%, 88.75% 46.72%, 88.75% 56.83%, 99.75% 56.83%, 100% 100%, 67.92% 100%, 67.92% 94.49%, 59.17% 94.49%, 59.17% 100%, 31% 100%, 8.75% 61.57%);
-
-  }
-
-  .button:hover {
-    background-color: var(--jaune-neon);
-  }
-  .contact_mess,
-  .contact_info input {
-    width: 800px;
-    height: 2.5em;
-    text-align: left;
-  }
-  .contact_name input {
-    width: 392px;
-  }
-  .contact_mess {
-    height: 6em !important;
-    text-align: start;
-    vertical-align: top;
-    resize: vertical;
-    resize: none;
-  }
-
-  h2 {
-    text-align: center;
-    margin-bottom: -20px;
-  }
-  @media (max-width: 500px) {
-    .contact_mess,
-    .contact_info input {
-      width: 300px;
-    }
-    .contact_name input {
-      width: 142px;
-    }
-  }
-  @media (max-width: 1000px) {
-    .contact_mess,
-    .contact_info input {
-      width: 600px;
-    }
-    .contact_name input {
-      width: 292px;
-    }
-  }
-}
-:root{
-  --clip:  polygon(
+:root {
+  --clip: polygon(
     0 0,
     calc(100% - 10px) 0%,
     100% 10px,
@@ -114,6 +16,7 @@
     0 calc(100% - 15px)
   );
 }
+
 .cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -123,7 +26,7 @@
 
 .imgcard {
   height: 200px !important;
-  width: 100%; /* Ajustez cette valeur selon vos besoins */
+  width: 100%;
   object-fit: cover;
 }
 
@@ -146,18 +49,12 @@
 .filter-bar {
   display: flex;
   justify-content: center;
-  align-items: center; /* Ajouté pour aligner verticalement les éléments */
-  margin: 20px 0;
+  align-items: center;
+  margin: 70px 0 80px;
   padding: 8px;
   height: 47px;
-  
+  gap: 1rem;
 }
-
-
-
-
-
-
 
 .filter_select {
   height: 47px;
@@ -169,12 +66,8 @@
   font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  clip-path: var(--clip)
- }
-
-
-
-
+  clip-path: var(--clip);
+}
 
 .filter-page {
   position: fixed;
@@ -193,6 +86,7 @@
   z-index: 1000;
   box-shadow: 10px 0 100px #a600ff81;
 }
+
 .filter-page .close-btn {
   position: absolute;
   top: 10px;
@@ -204,6 +98,7 @@
   font-size: 1rem;
   cursor: pointer;
 }
+
 .filter-page .btn_list {
   background-color: var(--bleu-neon);
   color: var(--fond-sombre);
@@ -214,9 +109,11 @@
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
+
 .filter-page .btn_list:hover {
   background-color: var(--jaune-neon);
 }
+
 .filter-page .selected {
   background-color: var(--jaune-neon);
   color: var(--fond-sombre);
@@ -240,9 +137,7 @@
 .subTag {
   display: inline-block;
   padding: 100px 100px;
-  
   color: var(--fond-sombre);
- 
   clip-path: var(--clip);
   width: 120px;
   text-align: center;
@@ -265,3 +160,4 @@
 .subTag {
   background-color: #9370db;
 }
+

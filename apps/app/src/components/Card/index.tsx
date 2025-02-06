@@ -8,17 +8,18 @@ const Card: ParentComponent<{
   cover?: string
   alt?: string
   type?: string
-  typeColor?: string
   horizontal?: boolean
+  class?: string
 }> = (props) => {
   return (
     <A
       href={props.href || ''}
-      classList={{ [styles.card]: true, [styles.horizontal]: props.horizontal }}
-      style={{ 'border-top': `1.5rem solid ${props.typeColor}` }}
+      class={`${styles.card} ${props.horizontal ? styles.horizontal : ''} ${props.class ? props.class : ''} ${styles[props.type?.toLowerCase().replace(/\s+/g, '-') || '']}`}
     >
       <Show when={props.type}>
-        <span class={styles.card_type}>{props.type}</span>
+        <span class={`${styles.card_type} ${styles[props.type?.toLowerCase().replace(/\s+/g, '-') || '']}`}>
+          {props.type}
+        </span>
       </Show>
       <Show when={props.cover}>
         <img src={props.cover} alt={props.alt} loading="lazy" />
