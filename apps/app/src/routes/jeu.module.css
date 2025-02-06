@@ -153,31 +153,11 @@
   
 }
 
-.filter-bar input,
-.filter_btn {
-  height: 47px;
-  padding: 8px 10px; /* Réduit la hauteur */
-  border: 2px solid var(--jaune-neon);
-  background-color: var(--fond-sombre);
-  color: var(--texte-clair);
-  font-size: 1rem;
-  transition:
-    border-color 0.3s ease,
-    box-shadow 0.3s ease;
-}
 
-.filter-bar input::placeholder {
-  color: var(--texte-clair);
-  opacity: 0.7;
-}
 
-.filter-bar input:focus,
-.filter-bar select:focus,
-.filter_btn:focus {
-  outline: none;
-  border-color: var(--bleu-neon);
-  box-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
-}
+
+
+
 
 .filter_select {
   height: 47px;
@@ -192,26 +172,9 @@
   clip-path: var(--clip)
  }
 
-.filter_btn {
-  height: 47px;
-  background-color: var(--jaune-neon);
-  color: var(--fond-sombre);
-  border: none;
-  padding: 5px 10px;
-  margin: 5px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  clip-path: var(--clip)
-   /* Ajuste automatiquement la hauteur */
-}
 
-.search-filter {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 30px;
-}
+
+
 
 .filter-page {
   position: fixed;

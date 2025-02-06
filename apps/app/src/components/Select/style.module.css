@@ -1,0 +1,68 @@
+
+.custom-dropdown {
+  position: relative;
+  width: 200px;
+  font-family: 'Cyberpunk', sans-serif; /* Police futuriste si dispo */
+}
+
+.selected {
+  background:var(--bleu-neon);
+  color: var(--violet-neon);
+  padding: 10px;
+  border: 1px solid var(--violet-neon);
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.dropdown-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background:var(--bleu-neon);
+  border: 1px solid var(--violet-neon);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: none;
+}
+
+.dropdown-list li {
+  padding: 10px;
+  border: 1px solid var(--violet-neon);
+  border-top: none;
+  position: relative;
+  cursor: pointer;
+  color: var(--violet-neon);
+  background: var(--bleu-neon);
+}
+
+/* Effet de découpe : Bordure en forme de pic */
+.dropdown-list li::before {
+  content: "";
+  position: absolute;
+  top: -6px; /* Ajuste pour aligner parfaitement */
+  left: -5px;
+  width: 8px;
+  height: 8px;
+  background: var(--bleu-neon); /* Même couleur que le fond */
+  border-left: 1px solid var(--violet-neon);
+  border-top: 1px solid var(--violet-neon);
+  transform: rotate(45deg);
+  clip-path: polygon(100% 0%, 0% 0%, 100% 100%);
+}
+
+/* Effet hover pour le style Cyberpunk */
+.dropdown-list li:hover {
+  background: var(--jaune-neon);
+  color: black;
+}
+
+.dropdown-list li:hover::before {
+  background: var(--jaune-neon);
+}
+
+/* Afficher la liste quand on clique */
+.custom-dropdown.open .dropdown-list {
+  display: block;
+}

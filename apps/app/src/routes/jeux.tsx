@@ -3,6 +3,7 @@ import {jeux} from '../data/jeu';
 import styles from './jeu.module.css';
 import Card from '../components/Card'
 import FormInput from '../components/FormInput'
+import Button from '../components/Button';
 
 const Jeu = () => {
   const [searchValue, setSearchValue] = createSignal('');
@@ -47,22 +48,22 @@ const Jeu = () => {
   
   <div class={styles['filter-bar']}>
     
-  <FormInput 
-    type="text"
-    id={styles.search}
-    onInput={(e)=> setSearchValue(e.currentTarget.value.toLowerCase())}
-    placeholder="🔍 Rechercher un jeu..."
-  />
+    <FormInput 
+      type="text"
+      id={styles.search}
+      onInput={(e)=> setSearchValue(e.currentTarget.value.toLowerCase())}
+      placeholder="🔍 Rechercher un jeu..."
+    />
 
-  <button class={styles.filter_btn} type="button" onClick={() => setShowFilterPage(true)}>Filtres</button>
-    
-    
+    <Button class={styles.filter_btn} type="button" onClick={() => setShowFilterPage(true)}>Filtres</Button>
+      
+      
       <select id="sort" aria-label="sort" class={styles.filter_select} onChange={(e) => setSortCriteria(e.currentTarget.value)}>
         <option value="default" disabled selected hidden>Trier par</option>
         <option value="name">Nom</option>
         <option value="time">Temps</option>
       </select>
-  
+    
   </div>
   
 
