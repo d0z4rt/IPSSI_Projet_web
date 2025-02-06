@@ -4,6 +4,9 @@
   text-align: center;
   padding: 20px;
   border-top: 2px solid var(--violet-neon);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
 }
 
 .footer a {
@@ -25,4 +28,22 @@
 
 .footer-social img:hover {
   transform: scale(1.2);
+}
+
+.map {
+  border-radius: 5px;
+  height: 100%;
+  width: 100%;
+  max-width: 100%;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(5, min-content);
+  gap: 1rem;
+}
+
+.span {
+  grid-column: span 2 / span 2;
 }
