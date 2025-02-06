@@ -33,8 +33,9 @@ const Jeu = () => {
     return jeuxToSort.sort((a, b) => {
       if (sortCriteria() === 'name') {
         return a.name.localeCompare(b.name);
-      } else if (sortCriteria() === 'time') {
-        return parseInt(a.time) - parseInt(b.time);
+      }
+      if (sortCriteria() === 'time') {
+        return Number.parseInt(a.time) - Number.parseInt(b.time);
       }
       return 0;
     });
@@ -55,7 +56,7 @@ const Jeu = () => {
       <button class={styles.filter_btn} type="button" onClick={() => setShowFilterPage(true)}>Filtres</button>
     
     
-      <select id="sort" aria-label="sort" class={styles['filter_select']} onChange={(e) => setSortCriteria(e.currentTarget.value)}>
+      <select id="sort" aria-label="sort" class={styles.filter_select} onChange={(e) => setSortCriteria(e.currentTarget.value)}>
         <option value="default" disabled selected hidden>Trier par</option>
         <option value="name">Nom</option>
         <option value="time">Temps</option>
