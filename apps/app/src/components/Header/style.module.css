@@ -89,15 +89,15 @@
 }
 
 .burger_button {
-  display: none;
+  display: none !important;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1200px) {
   .header {
     padding: 0 1rem 0 0.25rem;
   }
   .burger_button {
-    display: flex;
+    display: flex !important;
   }
   .nav .menu,
   .nav .login_button {

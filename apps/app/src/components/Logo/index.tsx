@@ -1,7 +1,7 @@
-import { Component, Show } from 'solid-js'
+import { type Component, Show } from 'solid-js'
 import styles from './style.module.css'
 
-const Logo: Component<{ noText: boolean }> = (props) => {
+const Logo: Component<{ noText?: boolean }> = (props) => {
   return (
     <svg
       id="logo"

@@ -1,5 +1,7 @@
 import { For, ParentComponent, createSignal } from 'solid-js'
+import Button from '../components/Button'
 import Card from '../components/Card'
+import FormInput from '../components/FormInput'
 import { concerts } from '../data/concert'
 import styles from './concerts.module.css'
 
@@ -29,7 +31,8 @@ const Concerts: ParentComponent = (props) => {
     <main class={styles['main-content']}>
       <div>{props.children}</div>
       <div class={styles['filter-bar']}>
-        <input
+        <FormInput
+          name="recherche"
           type="text"
           id={styles.search}
           onInput={(e) => setSearchValue(e.currentTarget.value.toLowerCase())}
@@ -75,9 +78,9 @@ const Concerts: ParentComponent = (props) => {
               <p>
                 <strong>{concert.date}</strong>
               </p>
-              <button type="button" class={styles['btn-buy']}>
+              <Button type="button" class={styles['btn-buy']}>
                 Acheter des billets
-              </button>
+              </Button>
             </Card>
           )}
         </For>

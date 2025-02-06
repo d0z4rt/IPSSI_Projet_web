@@ -1,8 +1,10 @@
-import { useNavigate } from '@solidjs/router'
+import { A, useNavigate } from '@solidjs/router'
 import { type JSX, Show, createSignal } from 'solid-js'
 import { createStore } from 'solid-js/store'
+import Button from '../components/Button'
 import FormInput from '../components/FormInput'
 import { useAuthActions } from '../contexts/auth.context'
+import styles from './login.module.css'
 
 const handleLogin = async (loginFields: {
   email: string
@@ -22,44 +24,13 @@ const handleLogin = async (loginFields: {
   return resBody
 }
 
-const handleRegister = async (registerFields: {
-  name: string
-  email: string
-  password: string
-  'repeat-password': string
-}) => {
-  const res = await fetch('http://127.0.0.1:4000/auth/register', {
-    method: 'PUT',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(registerFields)
-  })
-  const resBody = await res.json()
-  if (!res.ok) {
-    throw resBody
-  }
-  return resBody
-}
-
 const Login = () => {
   const { setUser } = useAuthActions()
   const [error, setError] = createSignal('')
   const [isLoading, setIsLoading] = createSignal(false)
-  const [isRegister, setIsRegister] = createSignal(false)
   const [loginFields, setLoginFields] = createStore({ email: '', password: '' })
-  const [registerFields, setRegisterFields] = createStore({
-    name: '',
-    email: '',
-    password: '',
-    'repeat-password': ''
-  })
 
   const navigate = useNavigate()
-
-  const toggleRegister = () => {
-    setIsRegister((r) => !r)
-  }
 
   const handleSubmit: JSX.EventHandler<HTMLFormElement, SubmitEvent> = async (
     e
@@ -68,14 +39,9 @@ const Login = () => {
     setIsLoading(true)
     setError('')
     try {
-      if (isRegister()) {
-        await handleRegister(registerFields)
-        toggleRegister()
-      } else {
-        const user = await handleLogin(loginFields)
-        setUser(user)
-        navigate('/')
-      }
+      const user = await handleLogin(loginFields)
+      setUser(user)
+      navigate('/')
     } catch (error) {
       // ! Yeah ugly stuff...
       setError((error as { message: string }).message)
@@ -84,72 +50,41 @@ const Login = () => {
   }
 
   return (
-    <main>
-      <Show
-        when={isRegister()}
-        fallback={
-          <>
-            <form onSubmit={handleSubmit}>
-              <h1>Login</h1>
-              <FormInput
-                name="email"
-                disabled={isLoading()}
-                onInput={(e) => setLoginFields('email', e.currentTarget.value)}
-              />
-              <FormInput
-                name="password"
-                disabled={isLoading()}
-                onInput={(e) =>
-                  setLoginFields('password', e.currentTarget.value)
-                }
-              />
-              <button type="submit">login</button>
-            </form>
-            <p>
-              Pas de compte ?
-              <button type="button" onClick={toggleRegister}>
-                Register
-              </button>
-            </p>
-          </>
-        }
-      >
-        <h1>Register</h1>
-        <form onSubmit={handleSubmit}>
-          <FormInput
-            name="name"
-            disabled={isLoading()}
-            onInput={(e) => setRegisterFields('name', e.currentTarget.value)}
-          />
-          <FormInput
-            name="email"
-            disabled={isLoading()}
-            onInput={(e) => setRegisterFields('email', e.currentTarget.value)}
-          />
-          <FormInput
-            name="password"
-            disabled={isLoading()}
-            onInput={(e) =>
-              setRegisterFields('password', e.currentTarget.value)
-            }
-          />
-          <FormInput
-            name="repeat-password"
-            disabled={isLoading()}
-            onInput={(e) =>
-              setRegisterFields('repeat-password', e.currentTarget.value)
-            }
-          />
-          <button type="submit">register</button>
-        </form>
-        <p>
-          Vous avez deja un compte
-          <button type="button" onClick={toggleRegister}>
-            Login
-          </button>
-        </p>
-      </Show>
-      <p>{error()}</p>
+    <main class={styles.main}>
+      <div class={styles.wrapper}>
+        <div class={styles.card}>
+          <form onSubmit={handleSubmit} class={styles.form}>
+            <h1 class={styles.span}>Login</h1>
+            <FormInput
+              class={styles.span}
+              type="email"
+              name="email"
+              disabled={isLoading()}
+              onInput={(e) => setLoginFields('email', e.currentTarget.value)}
+            />
+            <FormInput
+              class={styles.span}
+              name="password"
+              type="password"
+              disabled={isLoading()}
+              onInput={(e) => setLoginFields('password', e.currentTarget.value)}
+            />
+            <Button class={styles.span} type="submit">
+              login
+            </Button>
+          </form>
+          <Show when={error()}>
+            <div class={styles.error}>
+              {/* biome-ignore lint/suspicious/noCommentText: Not a comment */}
+              <h3>// ERROR //</h3>
+              <p>{error()}</p>
+            </div>
+          </Show>
+          <p>
+            Tu n'as pas de compte ? <A href="/register">s'inscrire</A>
+          </p>
+        </div>
+      </div>
     </main>
   )
 }

@@ -11,7 +11,6 @@
   padding: 15px;
 }
 
-.filter-bar input,
 .filter-bar select {
   padding: 12px 15px;
   border: 2px solid var(--jaune-neon);
@@ -24,12 +23,6 @@
     box-shadow 0.3s ease;
 }
 
-.filter-bar input::placeholder {
-  color: var(--texte-clair);
-  opacity: 0.7;
-}
-
-.filter-bar input:focus,
 .filter-bar select:focus {
   outline: none;
   border-color: var(--bleu-neon);
@@ -57,19 +50,7 @@ h1 {
 }
 
 .btn-buy {
-  background-color: var(--bleu-neon);
-  color: var(--fond-sombre);
-  border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
   margin-top: 10px;
-}
-
-.btn-buy:hover {
-  background-color: var(--jaune-neon);
 }
 
 @media (max-width: 1800px) {

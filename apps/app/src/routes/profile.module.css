@@ -1,0 +1,32 @@
+.main {
+  height: calc(100vh - 4rem);
+  width: 100%;
+}
+
+.user {
+  display: flex;
+  padding: 1rem;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--accent);
+
+  img {
+    height: 10rem;
+    width: auto;
+  }
+}
+
+.booking_list_title {
+  margin: 0;
+  padding: 1rem;
+}
+
+.booking_list {
+  display: flex;
+  flex-wrap: wrap;
+  width: auto;
+
+  padding: 1rem;
+  gap: 1rem;
+}
