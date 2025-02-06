@@ -59,5 +59,6 @@
 .item:hover {
   background-color: var(--fond-sombre);
   transform: scale(1.05);
+  border-radius: 10px;
   box-shadow: 0 0 15px var(--violet-neon);
 }

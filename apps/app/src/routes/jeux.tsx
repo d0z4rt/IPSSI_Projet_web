@@ -17,7 +17,7 @@ const Jeu = () => {
   // Récupération de tous les tags principaux uniques
   const allMainTags = Array.from(new Set(jeux.map(jeu => jeu.mainTag.toLowerCase())));
   
-  // Calcul des tags secondaires disponibles en fonction du tag principal sélectionné
+  // Recherche des tags secondaires disponibles en fonction du tag principal sélectionné
   const availableSubTags = createMemo(() => {
     if (selectedMainTag() === '') {
       return Array.from(new Set(jeux.map(jeu => jeu.subTag.toLowerCase())));
@@ -128,7 +128,7 @@ const Jeu = () => {
             <Card title={jeu.name} alt={jeu.name} type={jeu.mainTag}>
               <img src={jeu.img} alt={jeu.name} class={styles.imgcard} />
               <p>{jeu.info}</p>
-              <p>⏲{jeu.time} minutes</p>
+              <p>⏲ {jeu.time} minutes</p>
               <p class={styles.subTag}>{jeu.subTag}</p>
             </Card>
           )}
