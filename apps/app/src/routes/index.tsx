@@ -2,10 +2,12 @@ import Card from '../components/Card'
 import Logo from '../components/Logo'
 import styles from './index.module.css'
 
+// Composant principal de la page d'accueil
 export default function Home() {
   return (
     <main class={styles['main-content']}>
       <div class={styles.wrapper}>
+        {/* Section de bienvenue avec logo et description */}
         <section class={styles.bio}>
           <Logo noText />
           <h2>Bienvenue au Carré d'As</h2>
@@ -21,7 +23,9 @@ export default function Home() {
           </p>
         </section>
 
+        {/* Section des cartes présentant différentes activités */}
         <section class={styles.cards}>
+          {/* Carte présentant la carte des boissons et snacks */}
           <Card
             title="Notre Carte"
             href="carte"
@@ -33,6 +37,7 @@ export default function Home() {
             pour accompagner tes soirées.
           </Card>
 
+          {/* Carte présentant les jeux de société disponibles */}
           <Card
             title="Jeux de Société"
             href="jeux"
@@ -43,6 +48,7 @@ export default function Home() {
             Viens défier tes potes dans une ambiance détendue !
           </Card>
 
+          {/* Carte présentant les concerts live */}
           <Card
             title="Concerts Live"
             href="concerts"

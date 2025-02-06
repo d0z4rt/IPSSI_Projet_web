@@ -1,25 +1,29 @@
 .main-content {
+  display: grid;
   background-image: url('/images/test.png');
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
-  height: calc(100vh - 4rem);
+  height: 100%;
+  min-height: calc(100vh - 4rem);
   width: 100%;
 }
 
 .wrapper {
   background-color: rgba(from var(--fond-sombre) r g b/0.9);
-  height: 100%;
-  display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
+  height: 100%;
+  display: grid;
+  justify-items: center;
+  grid-template-rows: auto auto;
+  grid-template-columns: 100%;
   padding: 1rem 2rem;
   gap: 1rem;
 }
 
 .bio {
   display: grid;
+  align-self: self-end;
   grid-template-columns: 1fr 5fr;
   grid-template-rows: auto auto;
   align-items: center;
@@ -28,7 +32,7 @@
   background-color: rgba(from var(--accent) r g b/0.7);
   backdrop-filter: blur(10px);
   text-align: left;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
   border-radius: 0.2rem;
   max-width: 1300px;
@@ -51,12 +55,13 @@
 .bio p {
   padding: 0;
   margin: 0;
-  font-size: 1.1rem;
+  width: 100%;
   line-height: 1.6;
   color: var(--texte-clair);
 }
 
 .cards {
+  align-self: self-start;
   display: flex;
   justify-content: space-between;
   gap: 1rem;
@@ -76,7 +81,8 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 1rem;
+    padding: 1rem 0.5rem;
+    font-size: 1rem;
   }
 
   .cards {

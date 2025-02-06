@@ -1,6 +1,14 @@
 import type { Component, JSX } from 'solid-js'
 import styles from './style.module.css'
 
+/**
+ * Input destiné a s'integrer dans des formulaire
+ *
+ * @param {Object} props
+ * @param {string} props.name Nom utilisé pour `label`, `for`, `name`
+ * @param {string} props.id
+ * @returns
+ */
 const FormInput: Component<{
   name: string
   id?: string
