@@ -2,6 +2,7 @@ import { A } from '@solidjs/router'
 import { Show, createSignal } from 'solid-js'
 import { Portal } from 'solid-js/web'
 import { useAuthState } from '../../contexts/auth.context'
+import Button from '../Button'
 import Logo from '../Logo'
 import styles from './style.module.css'
 
@@ -28,6 +29,12 @@ const Header = () => {
           <li>
             <A href="/concerts">Concerts</A>
           </li>
+          <li>
+            <A href="/blog">Blog</A>
+          </li>
+          <li>
+            <A href="/contact">Contact</A>
+          </li>
         </ul>
         <Show
           when={!authStore.user}
@@ -37,7 +44,7 @@ const Header = () => {
             Connexion / Inscription
           </A>
         </Show>
-        <button
+        <Button
           class={styles.burger_button}
           type="button"
           onClick={handleBurgerClick}
@@ -45,7 +52,7 @@ const Header = () => {
           <Show when={showMobileNav()} fallback="=">
             x
           </Show>
-        </button>
+        </Button>
       </nav>
       <Show when={showMobileNav()}>
         <Portal>

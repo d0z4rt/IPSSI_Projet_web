@@ -1,0 +1,10 @@
+.popup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background-color: var(--fond-transparent);
+  backdrop-filter: blur(10px);
+}

@@ -60,6 +60,7 @@
   --fond-sombre: #13131b; /* #1b1b2a; */
   --texte-clair: #f0f0f0;
   --texte-sombre: #9e9e9e;
+  --fond-transparent: #13131bce;
   --accent: #1b1b22;
 }
 
@@ -83,10 +84,9 @@ body {
   color: var(--texte-clair);
 }
 
-main {
-  text-align: center;
-  padding: 1em;
-  margin: 0 auto;
+#app {
+  height: auto;
+  width: 100%;
 }
 
 h1,
