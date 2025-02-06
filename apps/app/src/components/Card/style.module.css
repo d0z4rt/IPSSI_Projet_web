@@ -8,10 +8,9 @@
   color: var(--bleu-neon);
   border-radius: 0.25rem;
   padding: 0.5rem;
-  transition:
-    transform 0.3s cubic-bezier(0, 0.28, 0.4, 0.66),
-    border 0.3s cubic-bezier(0, 0.28, 0.4, 0.66),
-    box-shadow 0.3s cubic-bezier(0, 0.28, 0.4, 0.66);
+  transition: transform 0.3s cubic-bezier(0, 0.28, 0.4, 0.66),
+              border 0.3s cubic-bezier(0, 0.28, 0.4, 0.66),
+              box-shadow 0.3s cubic-bezier(0, 0.28, 0.4, 0.66);
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
   border: 1px solid transparent;
   cursor: pointer;
@@ -43,36 +42,39 @@
 .card_type {
   position: absolute;
   top: -1.5rem;
-  text-align:left;
-
+  text-align: left;
   width: 100%;
   color: var(--texte-clair);
   font-family: 'Orbitron', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
-    'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+               'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   font-weight: 700;
-  padding: 0.5rem 1rem 0.5rem 6%;
   background-color: var(--fond-sombre);
-  clip-path: polygon(6% 0%, 16% 0%, 20% 50%, 100% 50%, 100% 100%, 0% 100%,0% 50%,2% 50%);
+  border-radius: 0.25rem 0.25rem 0 0;
 }
 
 .card_type.cartes {
   background-color: var(--violet-neon);
-  color:var(--fond-sombre);
+  color: var(--fond-sombre);
   border: 1px solid var(--violet-neon);
+  clip-path: polygon(6% 0%, 16% 0%, 20% 50%, 100% 50%, 100% 100%, 0% 100%, 0% 50%, 2% 50%);
+  padding: 0.5rem 1rem 0.5rem 5.8%;
 }
 
 .card_type.société {
   background-color: #1ac5b0;
-  color:var(--fond-sombre);
+  color: var(--fond-sombre);
   border: 1px solid #1ac5b0;
+  padding: 0.5rem 1rem 0.5rem 23.6%;
+  clip-path: polygon(24% 0%, 35% 0%, 39% 50%, 100% 50%, 100% 100%, 0% 100%, 0% 50%, 20% 50%);
 }
 
 .card_type.réflexion {
   background-color: var(--jaune-neon);
-  color:var(--fond-sombre);
-  border: 2px solid var(--jaune-neon);
+  color: var(--fond-sombre);
+  border: 1px solid var(--jaune-neon);
+  padding: 0.5rem 1rem 0.5rem 42.8%;
+  clip-path: polygon(43% 0%, 57% 0%, 61% 50%, 100% 50%, 100% 100%, 0% 100%, 0% 50%, 39% 50%);
 }
-
 
 .card img {
   width: 100%;

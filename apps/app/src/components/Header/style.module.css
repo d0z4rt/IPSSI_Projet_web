@@ -61,6 +61,25 @@
 
     font-weight: 900;
   }
+  a:hover{
+    background-color: var(--fond-sombre); 
+    color: var(--jaune-neon);
+    clip-path: polygon(
+      0 0,
+      calc(100% - 10px) 0%,
+      100% 10px,
+      100% 46.72%,
+      88.75% 46.72%,
+      88.75% 56.83%,
+      100% 56.83%,
+      100% 100%,
+      67.92% 100%,
+      67.92% 94.49%,
+      59.17% 94.49%,
+      59.17% 100%,
+      15px 100%,
+      0 calc(100% - 15px));
+}
 }
 
 .mobile_nav {

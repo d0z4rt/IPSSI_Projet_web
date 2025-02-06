@@ -1,6 +1,5 @@
-
-:root{
-  --clip:  polygon(
+:root {
+  --clip: polygon(
     0 0,
     calc(100% - 10px) 0%,
     100% 10px,
@@ -17,6 +16,7 @@
     0 calc(100% - 15px)
   );
 }
+
 .cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -26,7 +26,7 @@
 
 .imgcard {
   height: 200px !important;
-  width: 100%; 
+  width: 100%;
   object-fit: cover;
 }
 
@@ -50,11 +50,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 60px;
-  margin-top: 40px;
+  margin: 40px 0 60px;
   padding: 8px;
   height: 47px;
-  
 }
 
 .filter_select {
@@ -67,7 +65,7 @@
   font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  clip-path: var(--clip)
+  clip-path: var(--clip);
 }
 
 .filter-page {
@@ -87,6 +85,7 @@
   z-index: 1000;
   box-shadow: 10px 0 100px #a600ff81;
 }
+
 .filter-page .close-btn {
   position: absolute;
   top: 10px;
@@ -98,6 +97,7 @@
   font-size: 1rem;
   cursor: pointer;
 }
+
 .filter-page .btn_list {
   background-color: var(--bleu-neon);
   color: var(--fond-sombre);
@@ -108,9 +108,11 @@
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
+
 .filter-page .btn_list:hover {
   background-color: var(--jaune-neon);
 }
+
 .filter-page .selected {
   background-color: var(--jaune-neon);
   color: var(--fond-sombre);
@@ -142,8 +144,8 @@
   overflow: hidden;
 }
 
-.mainTag.cartes{
-  background-color: var(--violet-neon)
+.mainTag.cartes {
+  background-color: var(--violet-neon);
 }
 
 .mainTag.société {
