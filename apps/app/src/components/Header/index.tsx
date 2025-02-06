@@ -32,9 +32,6 @@ const Header = () => {
           <li>
             <A href="/blog">Blog</A>
           </li>
-          <li>
-            <A href="/contact">Contact</A>
-          </li>
         </ul>
         <Show
           when={!authStore.user}
