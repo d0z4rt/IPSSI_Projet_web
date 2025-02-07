@@ -48,6 +48,7 @@ const Concerts: ParentComponent = (props) => {
 
       {/* Barre de filtres permettant de rechercher un concert */}
       <div class={styles['filter-bar']}>
+        <h1>Concerts / </h1>
         {/* Champ de recherche par nom */}
         <FormInput
           name="recherche"

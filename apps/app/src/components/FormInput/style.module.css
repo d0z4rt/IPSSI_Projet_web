@@ -26,6 +26,7 @@
     backdrop-filter: blur(10px);
     color: var(--texte-clair);
     font-size: 1rem;
+    font-family: inherit;
 
     transition: border-color 0.3s cubic-bezier(0, 0.28, 0.4, 0.66), box-shadow
       0.3s cubic-bezier(0, 0.28, 0.4, 0.66);

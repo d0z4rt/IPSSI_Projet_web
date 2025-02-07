@@ -65,6 +65,7 @@ const Jeu = () => {
     <>
       {/* Barre de filtre */}
       <div class={styles['filter-bar']}>
+        <h1>Jeux / </h1>
         <FormInput
           type="text"
           name="Recherche"

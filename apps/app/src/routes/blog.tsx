@@ -25,6 +25,7 @@ const Blog: ParentComponent = (props) => {
     <main class={styles['main-content']}>
       {/* Barre de filtres */}
       <div class={styles['filter-bar']}>
+        <h1>Blog / </h1>
         <FormInput
           name="recherche"
           type="text"
