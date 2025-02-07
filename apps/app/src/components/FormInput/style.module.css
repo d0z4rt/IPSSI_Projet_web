@@ -22,14 +22,14 @@
     padding: 0.8rem 1rem;
     width: 100%;
     border: 1px solid var(--bleu-neon);
-    background-color: rgba(from var(--fond-sombre) r g b/0.5);
+    background-color: rgba(from var(--fond-sombre) r g b / 0.5);
     backdrop-filter: blur(10px);
     color: var(--texte-clair);
     font-size: 1rem;
+    font-family: inherit;
 
-    transition:
-      border-color 0.3s cubic-bezier(0, 0.28, 0.4, 0.66),
-      box-shadow 0.3s cubic-bezier(0, 0.28, 0.4, 0.66);
+    transition: border-color 0.3s cubic-bezier(0, 0.28, 0.4, 0.66), box-shadow
+      0.3s cubic-bezier(0, 0.28, 0.4, 0.66);
   }
 
   input::placeholder {
@@ -40,7 +40,7 @@
   input:focus {
     outline: none;
     border-color: var(--violet-neon);
-    box-shadow: 0 0 20px rgba(from var(--violet-neon) r g b/0.7);
+    box-shadow: 0 0 20px rgba(from var(--violet-neon) r g b / 0.7);
   }
 }
 

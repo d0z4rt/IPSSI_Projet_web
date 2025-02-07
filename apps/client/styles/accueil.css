@@ -120,9 +120,9 @@ img {
   border-radius: 10px;
   transition: transform 0.3s ease, background-color 0.3s ease;
   box-shadow: 0 0 15px rgba(255, 234, 0, 0.3);
-    text-decoration: none;
-    color: inherit;
-    cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
 }
 .card.show-text {
   transform: translateY(0);
@@ -160,9 +160,7 @@ img {
   color: var(--texte-clair);
   transform: translateX(100px);
   opacity: 0;
-  transition:
-    transform 0.8s ease,
-    opacity 0.8s ease;
+  transition: transform 0.8s ease, opacity 0.8s ease;
 }
 
 .card.show-text .section-text {
@@ -211,7 +209,6 @@ img {
 .footer-social img:hover {
   transform: scale(1.2);
 }
-
 
 /* Responsive Design */
 @media (max-width: 768px) {

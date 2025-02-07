@@ -1,14 +1,27 @@
 .main-content {
-  padding: 40px 20px;
+  padding: 0 1rem 2rem 1rem;
   text-align: left;
 }
 
 .filter-bar {
   display: flex;
   justify-content: center;
-  gap: 15px;
-  margin: 20px 0;
-  padding: 15px;
+  align-items: end;
+  margin: 0;
+  padding: 3rem 0;
+  gap: 1rem;
+
+  h1 {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 0.25rem;
+    font-size: 3rem;
+    text-wrap: nowrap;
+  }
+
+  input {
+    height: 3rem;
+  }
 }
 
 .filter-bar select {
@@ -18,20 +31,13 @@
   background-color: var(--fond-sombre);
   color: var(--texte-clair);
   font-size: 1rem;
-  transition:
-    border-color 0.3s ease,
-    box-shadow 0.3s ease;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .filter-bar select:focus {
   outline: none;
   border-color: var(--bleu-neon);
   box-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
-}
-
-h1 {
-  color: var(--jaune-neon);
-  margin-bottom: 20px;
 }
 
 .search-filter {
@@ -62,9 +68,26 @@ h1 {
 }
 
 @media (max-width: 1000px) {
+  .filter-bar {
+    display: grid;
+    grid-template-rows: auto;
+    gap: 2rem;
+  }
   .concerts-grid {
     grid-template-columns: repeat(1, 1fr);
     gap: 1rem;
     padding: 0.5rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .concerts-grid > a {
+    text-align: center;
+    flex-direction: column;
+
+    & > img {
+      width: 100%;
+      height: 15rem;
+    }
   }
 }

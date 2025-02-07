@@ -21,13 +21,13 @@ const Footer = () => {
         </div>
 
         <div class={styles['footer-social']}>
-          <a href="#">
+          <a href={'./#'}>
             <img src="images/facebook-icon.png" alt="Facebook" />
           </a>
-          <a href="#">
+          <a href="./#">
             <img src="images/instagram-icon.png" alt="Instagram" />
           </a>
-          <a href="#">
+          <a href="./#">
             <img src="images/twitter-icon.png" alt="Twitter" />
           </a>
         </div>

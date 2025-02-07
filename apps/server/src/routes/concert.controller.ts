@@ -2,8 +2,8 @@ import ConcertService from '../services/concert.service'
 import type { FastifyTypebox } from '../utils/types'
 
 /**
- * Encapsulates the routes
- * @param {FastifyInstance} fastify  Encapsulated Fastify Instance
+ * Concert routes
+ * @param {FastifyTypebox} fastify Encapsulated Fastify Instance
  */
 const concertController = async (fastify: FastifyTypebox) => {
   const concertService = ConcertService()
@@ -13,6 +13,17 @@ const concertController = async (fastify: FastifyTypebox) => {
   fastify.get('/', async (request, reply) => {
     const concerts = await concertService.findAll()
     reply.code(200).send(concerts)
+  })
+  /**
+   * Get one concert by id
+   */
+  fastify.get<{
+    Params: {
+      concertId: string
+    }
+  }>('/:concertId', async (request, reply) => {
+    const concert = await concertService.findOneById(request.params.concertId)
+    reply.code(200).send(concert)
   })
 }
 

@@ -8,6 +8,9 @@ import type {
   RawServerDefault
 } from 'fastify'
 
+/**
+ * Provide autocompletion for fastify plugins
+ */
 export type FastifyTypebox = FastifyInstance<
   RawServerDefault,
   RawRequestDefaultExpression<RawServerDefault>,

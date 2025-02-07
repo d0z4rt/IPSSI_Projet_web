@@ -1,11 +1,11 @@
 fetch('/donnees/jeu.json')
-  .then(response => response.json())
-  .then(data => {
-    const gameCard = data;
+  .then((response) => response.json())
+  .then((data) => {
+    const gameCard = data
 
-    const gameContainer = document.getElementById('cards');
+    const gameContainer = document.getElementById('cards')
 
-    let card = '';
+    let card = ''
 
     gameCard.forEach((gameCard) => {
       card += `
@@ -18,9 +18,8 @@ fetch('/donnees/jeu.json')
           <p>Durée: ${gameCard.time} Minutes</p>
         </div>
       </div>
-      `;
-    });
+      `
+    })
 
-    gameContainer.innerHTML = card;
-  });
-
+    gameContainer.innerHTML = card
+  })

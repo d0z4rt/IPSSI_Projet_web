@@ -10,7 +10,7 @@ export default function Home() {
         {/* Section de bienvenue avec logo et description */}
         <section class={styles.bio}>
           <Logo noText />
-          <h2>Bienvenue au Carré d'As</h2>
+          <h1>Bienvenue au Carré d'As</h1>
           <p>
             Un spot unique où <em>jeux de société</em> et <em>concerts live</em>{' '}
             se rencontrent dans une ambiance électrique. Que tu sois là pour
@@ -28,7 +28,7 @@ export default function Home() {
           {/* Carte présentant la carte des boissons et snacks */}
           <Card
             title="Notre Carte"
-            href="carte"
+            href="bar"
             cover="./images/bar2.png"
             alt="cover"
           >

@@ -1,7 +1,7 @@
 import { A } from '@solidjs/router'
 import { type Component, Show, createSignal } from 'solid-js'
 import { useAuthState } from '../../contexts/auth.context'
-import { concerts } from '../../data/concert'
+import type { TConcert } from '../../entities/concert.entity'
 import Button from '../Button'
 import Card from '../Card'
 import styles from './style.module.css'
@@ -24,10 +24,10 @@ const handleBooking = async (bookingFields: {
   return resBody
 }
 
-const BookingForm: Component<{ concertId: string }> = (props) => {
+const BookingForm: Component<{ concert?: TConcert }> = (props) => {
   const authStore = useAuthState()
-  const concert = () => concerts.find((c) => c.id === props.concertId)
   const [error, setError] = createSignal('')
+  const [success, setSuccess] = createSignal(false)
   const [isLoading, setIsLoading] = createSignal(false)
 
   const handleSubmit = async () => {
@@ -37,10 +37,14 @@ const BookingForm: Component<{ concertId: string }> = (props) => {
       if (!authStore.user) {
         throw new Error('Vous devez vous authentifier')
       }
+      if (!props.concert) {
+        throw new Error('Concert inexistant')
+      }
       const user = await handleBooking({
         userId: authStore.user.id,
-        concertId: props.concertId
+        concertId: props.concert.id
       })
+      setSuccess(true)
     } catch (error) {
       // ! Yeah ugly stuff...
       setError((error as { message: string }).message)
@@ -52,34 +56,57 @@ const BookingForm: Component<{ concertId: string }> = (props) => {
     <div class={styles.wrapper}>
       <div class={styles.header}>
         <h2>Reserver</h2>
-        <A href="/concerts">x</A>
+        <A href="/concerts">✕</A>
       </div>
       <div class={styles.concert_infos}>
-        <Card
-          title={concert()?.name}
-          cover={`/${concert()?.img}`}
-          alt={concert()?.name}
-          horizontal
-        >
-          {concert()?.date}
-        </Card>
+        <Show when={props.concert} fallback="Concert inexistant">
+          <Card
+            title={props.concert?.name}
+            cover={`/${props.concert?.img}`}
+            alt={props.concert?.name}
+            horizontal
+          >
+            {props.concert?.date}
+          </Card>
+        </Show>
       </div>
       <div class={styles.user_infos}>
+        <h3>Reservation au nom de :</h3>
         <Show
           when={authStore.user}
           fallback={'Connectez vous pour reservez ce concert'}
         >
-          <span>{authStore.user?.name}</span>
-          <span>{authStore.user?.email}</span>
-          <Button type="button" onClick={handleSubmit}>
-            reserver
-          </Button>
-          <Show when={error()}>
-            <div class={styles.error}>
-              {/* biome-ignore lint/suspicious/noCommentText: Not a comment */}
-              <h3>// ERROR //</h3>
-              <p>{error()}</p>
-            </div>
+          <h4>{authStore.user?.name}</h4>
+          <Show
+            when={!isLoading()}
+            fallback={
+              <div class={styles.loading}>
+                {/* biome-ignore lint/suspicious/noCommentText: Not a comment */}
+                <h3>// LOADING //</h3>
+              </div>
+            }
+          >
+            <Show
+              when={!success()}
+              fallback={
+                <div class={styles.success}>
+                  {/* biome-ignore lint/suspicious/noCommentText: Not a comment */}
+                  <h3>// SUCCESS //</h3>
+                  <p>Reservation confirmée</p>
+                </div>
+              }
+            >
+              <Button type="button" onClick={handleSubmit}>
+                Confirmer
+              </Button>
+              <Show when={error()}>
+                <div class={styles.error}>
+                  {/* biome-ignore lint/suspicious/noCommentText: Not a comment */}
+                  <h3>// ERROR //</h3>
+                  <p>{error()}</p>
+                </div>
+              </Show>
+            </Show>
           </Show>
         </Show>
       </div>

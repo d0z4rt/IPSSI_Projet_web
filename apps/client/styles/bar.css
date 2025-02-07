@@ -100,9 +100,7 @@ main {
   flex-direction: column;
   margin: 15px 0;
   padding: 15px;
-  transition:
-    background-color 0.3s ease,
-    transform 0.2s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
   background-color: var(--accent);
 }
 

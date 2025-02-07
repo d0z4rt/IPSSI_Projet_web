@@ -41,7 +41,21 @@ const BookingService = () => {
       if (isEmpty(bookings)) {
         throw new Error('No bookings found for this user')
       }
-      return bookings
+      const bookingsWithConcerts = bookings?.map((b) => ({
+        ...b,
+        concert: database.concerts.find((c) => c.id === b.concertId)
+      }))
+      return bookingsWithConcerts
+    },
+    delete: async (bookingId: string) => {
+      const bookingIndex = database.bookings.findIndex(
+        (b) => b.id === bookingId
+      )
+      if (bookingIndex === -1) {
+        throw new Error('Booking not found')
+      }
+      const deleted = database.bookings.splice(bookingIndex, 1)
+      return deleted[0]
     }
   }
 }

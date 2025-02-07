@@ -17,7 +17,9 @@ const Card: ParentComponent<{
       class={`${styles.card} ${props.horizontal ? styles.horizontal : ''} ${props.class ? props.class : ''} ${styles[props.type?.toLowerCase().replace(/\s+/g, '-') || '']}`}
     >
       <Show when={props.type}>
-        <span class={`${styles.card_type} ${styles[props.type?.toLowerCase().replace(/\s+/g, '-') || '']}`}>
+        <span
+          class={`${styles.card_type} ${styles[props.type?.toLowerCase().replace(/\s+/g, '-') || '']}`}
+        >
           {props.type}
         </span>
       </Show>

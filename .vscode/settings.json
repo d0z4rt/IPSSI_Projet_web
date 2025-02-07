@@ -60,7 +60,7 @@
   },
   "[css]": {
     "editor.suggest.insertMode": "replace",
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "biomejs.biome"
   },
   "[xml]": {
     "editor.defaultFormatter": "redhat.vscode-xml"

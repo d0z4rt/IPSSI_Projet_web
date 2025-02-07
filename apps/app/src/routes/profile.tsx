@@ -1,20 +1,38 @@
 import { useNavigate } from '@solidjs/router'
-import { For, Show, createResource } from 'solid-js'
+import { For, Show, createResource, createSignal } from 'solid-js'
 import Button from '../components/Button'
 import Card from '../components/Card'
 import { useAuthActions, useAuthState } from '../contexts/auth.context'
-import { concerts } from '../data/concert'
+import type { TConcert } from '../entities/concert.entity'
 import styles from './profile.module.css'
+
+const handleDeleteBooking = async (bookingId: string) => {
+  const res = await fetch(`http://127.0.0.1:4000/bookings/${bookingId}`, {
+    method: 'DELETE'
+  })
+  const resBody = await res.json()
+  if (!res.ok) {
+    throw resBody
+  }
+  return resBody
+}
 
 const Profile = () => {
   const { disconnect } = useAuthActions()
   const authStore = useAuthState()
   const navigate = useNavigate()
-  const [bookings] = createResource(async () => {
+  const [error, setError] = createSignal('')
+  const [success, setSuccess] = createSignal(false)
+  const [isLoading, setIsLoading] = createSignal(false)
+  const [bookings, { refetch }] = createResource(async () => {
     const response = await fetch(
       `http://127.0.0.1:4000/bookings/${authStore.user?.id}`
     )
-    return (await response.json()) as { userId: string; concertId: string }[]
+    return (await response.json()) as {
+      id: string
+      userId: string
+      concert: TConcert
+    }[]
   })
 
   const handleDisconnect = () => {
@@ -22,24 +40,46 @@ const Profile = () => {
     navigate('/')
   }
 
-  const userConcerts = () => {
-    // biome-ignore lint/style/noNonNullAssertion: We already checked if it was null
-    if (bookings() && bookings()!.length > 0) {
-      return bookings()?.map((b) => concerts.find((c) => c.id === b.concertId))
+  const handleDeleteClick = async (bookingId: string) => {
+    setIsLoading(true)
+    setError('')
+    try {
+      if (!authStore.user) {
+        throw new Error('Vous devez vous authentifier')
+      }
+      const user = await handleDeleteBooking(bookingId)
+      setSuccess(true)
+      refetch()
+    } catch (error) {
+      // ! Yeah ugly stuff...
+      setError((error as { message: string }).message)
     }
+    setIsLoading(false)
   }
 
   return (
     <main class={styles.main}>
-      <Show when={authStore.user}>
+      <Show when={authStore.user} fallback={'You need to login'}>
         <div class={styles.user}>
           <img
             width={512}
             height={512}
             alt="profile"
             src="/images/profile.png"
-          />{' '}
-          <h1>{authStore.user?.name}</h1>
+          />
+          <div class={styles.user_infos}>
+            <h1>{authStore.user?.name}</h1>
+            <span class={styles.label}>Email</span>
+            <span>{authStore.user?.email}</span>
+            <span class={styles.label}>Phone</span>
+            <span>{authStore.user?.phone}</span>
+            <span class={styles.label}>Street</span>
+            <span>{authStore.user?.street}</span>
+            <span class={styles.label}>City</span>{' '}
+            <span>{authStore.user?.city}</span>
+            <span class={styles.label}>Postal Code</span>
+            <span>{authStore.user?.['postal-code']}</span>
+          </div>
           <Button type="button" onClick={handleDisconnect}>
             Deconnexion
           </Button>
@@ -49,23 +89,25 @@ const Profile = () => {
         <div class={styles.booking_list}>
           <Show
             // biome-ignore lint/style/noNonNullAssertion: We already checked if it was null
-            when={userConcerts() && userConcerts()!.length > 0}
+            when={bookings() && bookings()!.length > 0}
             fallback="Tu n'as pas encore de reservations"
           >
-            <For each={userConcerts()}>
-              {(concert) => (
-                <Show when={concert}>
+            <For each={bookings()}>
+              {(booking) => (
+                <Show when={booking}>
                   <Card
                     horizontal
-                    title={concert?.name}
-                    cover={`/${concert?.img}`}
-                    alt={concert?.name}
+                    title={booking.concert.name}
+                    cover={`/${booking.concert.img}`}
+                    alt={booking.concert.name}
                   >
-                    <p>{concert?.info}</p>
+                    <p>{booking.concert.info}</p>
                     <p>
-                      <strong>{concert?.date}</strong>
+                      <strong>{booking.concert.date}</strong>
                     </p>
-                    <Button>Annuler</Button>
+                    <Button onClick={() => handleDeleteClick(booking.id)}>
+                      Annuler
+                    </Button>
                   </Card>
                 </Show>
               )}

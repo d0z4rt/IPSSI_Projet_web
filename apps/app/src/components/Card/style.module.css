@@ -1,79 +1,94 @@
 .card {
   flex: 1;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: var(--accent);
-  text-align: center;
-  color: var(--bleu-neon);
-  border-radius: 0.25rem;
-  padding: 0.5rem;
-  transition: transform 0.3s cubic-bezier(0, 0.28, 0.4, 0.66),
-              border 0.3s cubic-bezier(0, 0.28, 0.4, 0.66),
-              box-shadow 0.3s cubic-bezier(0, 0.28, 0.4, 0.66);
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-  border: 1px solid transparent;
   cursor: pointer;
-  text-decoration: none;
+  padding: 0.5rem;
   position: relative;
-  margin-bottom: 20px;
+  text-align: center;
+  align-items: center;
+  text-decoration: none;
+  border-radius: 0.25rem;
+  flex-direction: column;
+  color: var(--bleu-neon);
+  border: 1px solid transparent;
+  background-color: var(--accent);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s cubic-bezier(0, 0.28, 0.4, 0.66), border 0.3s
+    cubic-bezier(0, 0.28, 0.4, 0.66), box-shadow 0.3s
+    cubic-bezier(0, 0.28, 0.4, 0.66);
+}
+
+.card_type {
+  top: -1.5rem;
+  font-weight: 700;
+  position: absolute;
+  color: var(--texte-clair);
+  font-family: 'Orbitron', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
+    'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 }
 
 .card:hover {
-  transform: translateY(-10px);
   z-index: 1;
+  transform: translateY(-10px);
+  box-shadow: 10px 0 100px rgba(from var(--violet-neon) r g b / 0.3);
+  border: 1px solid var(--violet-neon);
 }
 
+.card.cartes {
+  border-top: 2px solid var(--violet-neon);
+}
+.card.société {
+  border-top: 2px solid #1ac5b0;
+}
+.card.réflexion {
+  border-top: 2px solid var(--jaune-neon);
+}
 .card.cartes:hover {
-  box-shadow: 10px 0 100px #a600ff86;
+  box-shadow: 10px 0 100px rgba(from var(--violet-neon) r g b / 0.3);
   border: 1px solid var(--violet-neon);
 }
 
 .card.société:hover {
-  box-shadow: 10px 0 100px #1ac5b086;
+  box-shadow: 10px 0 100px rgba(26, 197, 176, 0.3);
   border: 1px solid #1ac5b0;
 }
 
 .card.réflexion:hover {
-  box-shadow: 10px 0 100px #ffea0086;
+  box-shadow: 10px 0 100px rgba(from var(--jaune-neon) r g b / 0.3);
   border: 1px solid var(--jaune-neon);
 }
 
 .card_type {
   position: absolute;
-  top: -1.5rem;
-  text-align: left;
-  width: 100%;
+  top: -1.6rem;
+  height: 1.6rem;
+  line-height: 1.6rem;
+  font-size: 1rem;
+  left: 0;
+  padding: 0 1.5rem;
   color: var(--texte-clair);
   font-family: 'Orbitron', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
-               'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   font-weight: 700;
-  background-color: var(--fond-sombre);
-  border-radius: 0.25rem 0.25rem 0 0;
+  clip-path: polygon(1.6rem 0, calc(100% - 1.6rem) 0, 100% 100%, 0 100%);
 }
 
 .card_type.cartes {
   background-color: var(--violet-neon);
   color: var(--fond-sombre);
   border: 1px solid var(--violet-neon);
-  clip-path: polygon(6% 0%, 16% 0%, 20% 50%, 100% 50%, 100% 100%, 0% 100%, 0% 50%, 2% 50%);
-  padding: 0.5rem 1rem 0.5rem 5.8%;
 }
 
 .card_type.société {
   background-color: #1ac5b0;
   color: var(--fond-sombre);
   border: 1px solid #1ac5b0;
-  padding: 0.5rem 1rem 0.5rem 23.6%;
-  clip-path: polygon(24% 0%, 35% 0%, 39% 50%, 100% 50%, 100% 100%, 0% 100%, 0% 50%, 20% 50%);
 }
 
 .card_type.réflexion {
   background-color: var(--jaune-neon);
   color: var(--fond-sombre);
   border: 1px solid var(--jaune-neon);
-  padding: 0.5rem 1rem 0.5rem 42.8%;
-  clip-path: polygon(43% 0%, 57% 0%, 61% 50%, 100% 50%, 100% 100%, 0% 100%, 0% 50%, 39% 50%);
 }
 
 .card img {
@@ -110,4 +125,3 @@
   width: 12rem;
   height: 100%;
 }
-

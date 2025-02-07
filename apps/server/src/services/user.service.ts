@@ -5,6 +5,10 @@ import { wait } from '../utils/wait.util'
 type TCreateUserDto = {
   name: string
   email: string
+  phone: string
+  street: string
+  'postal-code': number
+  city: string
   password: string
 }
 
@@ -37,7 +41,11 @@ const UserService = () => {
         id: database.users.length.toString(),
         name: dto.name,
         email: dto.email,
-        password: dto.password
+        phone: dto.phone,
+        password: dto.password,
+        street: dto.street,
+        'postal-code': dto['postal-code'],
+        city: dto.city
       }
       database.users.push(user)
       return user
