@@ -5,6 +5,7 @@
 
 .filter-bar {
   display: flex;
+  align-items: end;
   justify-content: center;
   gap: 15px;
   margin: 20px 0;
@@ -17,9 +18,7 @@
   background-color: var(--fond-sombre);
   color: var(--texte-clair);
   font-size: 1rem;
-  transition:
-    border-color 0.3s ease,
-    box-shadow 0.3s ease;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .filter-bar select:focus {

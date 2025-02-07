@@ -28,7 +28,7 @@ export default function Home() {
           {/* Carte présentant la carte des boissons et snacks */}
           <Card
             title="Notre Carte"
-            href="carte"
+            href="bar"
             cover="./images/bar2.png"
             alt="cover"
           >

@@ -12,9 +12,7 @@
   font-family: 'Orbitron', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
     'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   cursor: pointer;
-  transition:
-    background-color 0.3s ease,
-    box-shadow 0.3s ease;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .button::after,
@@ -46,7 +44,7 @@
 }
 
 .button:hover {
-  box-shadow: 0 0 20px rgba(from var(--violet-neon) r g b/0.2);
+  box-shadow: 0 0 20px rgba(from var(--violet-neon) r g b / 0.2);
 }
 
 .button:hover,

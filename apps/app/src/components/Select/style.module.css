@@ -1,17 +1,56 @@
-
 .custom-dropdown {
+  display: grid;
   position: relative;
-  width: 200px;
-  font-family: 'Cyberpunk', sans-serif; /* Police futuriste si dispo */
+  min-width: 15ch;
+  margin-bottom: 0.5rem;
+  font-weight: 800;
+  font-size: 1rem;
+  height: 3rem;
+  line-height: 1.8rem;
+  user-select: none;
+
+  & > span {
+    position: absolute;
+    bottom: 100%;
+    display: flex;
+    width: fit-content;
+    padding: 0.25rem 2rem;
+    font-size: 1rem;
+    text-wrap: nowrap;
+    line-height: 0.8rem;
+    clip-path: polygon(1.05rem 0, calc(100% - 1.05rem) 0, 100% 100%, 0 100%);
+    text-transform: capitalize;
+    color: var(--fond-sombre);
+    background-color: var(--bleu-neon);
+    font-weight: 500;
+    transition: background-color 0.3s cubic-bezier(0, 0.28, 0.4, 0.66);
+  }
+}
+
+.custom-dropdown::after {
+  position: absolute;
+  display: grid;
+  bottom: -0.5rem;
+  content: '';
+  height: 0.5rem;
+  width: 100%;
+  clip-path: polygon(0 0, 50% 0, calc(50% - 0.5rem) 100%, 0.5rem 100%);
+  background-color: var(--bleu-neon);
+  transition: background-color 0.3s cubic-bezier(0, 0.28, 0.4, 0.66);
 }
 
 .selected {
-  background:var(--bleu-neon);
-  color: var(--violet-neon);
-  padding: 10px;
-  border: 1px solid var(--violet-neon);
+  background: transparent;
+  display: flex;
+  justify-content: space-between;
+  color: var(--texte-sombre);
+  padding: 0.5rem 1rem;
+  height: 100%;
+  border: 1px solid var(--bleu-neon);
   cursor: pointer;
   text-transform: uppercase;
+  font-family: 'Orbitron', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
+    'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 }
 
 .dropdown-list {
@@ -19,47 +58,85 @@
   top: 100%;
   left: 0;
   width: 100%;
-  background:var(--bleu-neon);
-  border: 1px solid var(--violet-neon);
+  z-index: 3;
+  background: var(--bleu-neon);
+  clip-path: polygon(
+    0 -10px,
+    100% 0,
+    100% calc(100% - 10px),
+    calc(100% - 10px) 100%,
+    80% 110%,
+    0 110%
+  );
   list-style: none;
   padding: 0;
   margin: 0;
   display: none;
 }
 
+.dropdown-list::after {
+  position: absolute;
+  display: grid;
+  top: 100%;
+  content: '';
+  height: 0.5rem;
+  width: 100%;
+  clip-path: polygon(0 0, 50% 0, calc(50% - 0.5rem) 100%, 0.5rem 100%);
+  background-color: var(--bleu-neon);
+  transition: background-color 0.3s cubic-bezier(0, 0.28, 0.4, 0.66);
+}
+
 .dropdown-list li {
-  padding: 10px;
-  border: 1px solid var(--violet-neon);
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--bleu-neon);
   border-top: none;
   position: relative;
   cursor: pointer;
-  color: var(--violet-neon);
-  background: var(--bleu-neon);
+  color: var(--texte-sombre);
+  background: var(--fond-sombre);
+  font-family: 'Orbitron', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
+    'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 }
 
 /* Effet de découpe : Bordure en forme de pic */
 .dropdown-list li::before {
-  content: "";
+  z-index: 4;
+  content: '';
   position: absolute;
   top: -6px; /* Ajuste pour aligner parfaitement */
   left: -5px;
-  width: 8px;
-  height: 8px;
-  background: var(--bleu-neon); /* Même couleur que le fond */
-  border-left: 1px solid var(--violet-neon);
-  border-top: 1px solid var(--violet-neon);
+  width: 10px;
+  height: 10px;
+  background: var(--fond-sombre); /* Même couleur que le fond */
+  border-left: 1px solid var(--bleu-neon);
+  border-top: 1px solid var(--bleu-neon);
   transform: rotate(45deg);
   clip-path: polygon(100% 0%, 0% 0%, 100% 100%);
 }
 
+/* Effet de découpe : Bordure en forme de pic */
+.dropdown-list li:last-child::after {
+  content: '';
+  position: absolute;
+  bottom: -8px; /* Ajuste pour aligner parfaitement */
+  right: -8px;
+  width: 15px;
+  height: 15px;
+  background: var(--fond-sombre); /* Même couleur que le fond */
+  border: 1px solid var(--bleu-neon);
+  transform: rotate(-45deg);
+}
+
 /* Effet hover pour le style Cyberpunk */
 .dropdown-list li:hover {
-  background: var(--jaune-neon);
-  color: black;
+  background: var(--accent);
+  color: var(--texte-clair);
+  text-shadow: 0 0 30px rgba(from var(--violet-neon) r g b / 1), 0 0 10px
+    rgba(from var(--violet-neon) r g b / 1);
 }
 
 .dropdown-list li:hover::before {
-  background: var(--jaune-neon);
+  background: var(--accent);
 }
 
 /* Afficher la liste quand on clique */

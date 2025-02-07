@@ -110,7 +110,8 @@ h1 {
   margin-bottom: 30px;
 }
 
-#search-bar, #filter {
+#search-bar,
+#filter {
   padding: 10px;
   border: 2px solid var(--violet-neon);
   border-radius: 5px;

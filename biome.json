@@ -1,11 +1,21 @@
 {
-  "$schema": "node_modules/@biomejs/biome/configuration_schema.json",
+  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
   "files": {
-    "ignore": ["**/node_modules/**", "**/css/**"]
+    "ignore": [
+      "**/node_modules/**",
+      "**/.output/**",
+      "**/.vinxi/**",
+      "**/css/**"
+    ]
   },
   "formatter": {
     "enabled": true,
-    "ignore": ["**/node_modules/**", "**/css/**"],
+    "ignore": [
+      "**/node_modules/**",
+      "**/.output/**",
+      "**/.vinxi/**",
+      "**/css/**"
+    ],
     "formatWithErrors": false,
     "indentStyle": "space",
     "indentWidth": 2,
@@ -16,7 +26,13 @@
   "organizeImports": { "enabled": true },
   "linter": {
     "enabled": true,
-    "ignore": ["**/node_modules/**", "**/css/**", "*.js"],
+    "ignore": [
+      "**/node_modules/**",
+      "**/.output/**",
+      "**/.vinxi/**",
+      "**/css/**",
+      "*.js"
+    ],
     "rules": {
       "recommended": true,
       "correctness": { "noUnusedImports": { "level": "warn", "fix": "safe" } },
@@ -48,6 +64,10 @@
     "parser": {
       "allowComments": true
     }
+  },
+  "css": {
+    "parser": { "cssModules": true },
+    "formatter": { "quoteStyle": "single" }
   },
   "vcs": {
     "enabled": true,
