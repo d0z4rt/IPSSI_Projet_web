@@ -6,6 +6,11 @@ import Button from '../Button'
 import Card from '../Card'
 import styles from './style.module.css'
 
+/**
+ * Creates a new booking
+ * @param bookingFields
+ * @returns
+ */
 const handleBooking = async (bookingFields: {
   userId: string
   concertId: string
@@ -26,10 +31,15 @@ const handleBooking = async (bookingFields: {
 
 const BookingForm: Component<{ concert?: TConcert }> = (props) => {
   const authStore = useAuthState()
+
+  // request handling
   const [error, setError] = createSignal('')
   const [success, setSuccess] = createSignal(false)
   const [isLoading, setIsLoading] = createSignal(false)
 
+  /**
+   * Handle booking create request
+   */
   const handleSubmit = async () => {
     setIsLoading(true)
     setError('')
@@ -46,7 +56,7 @@ const BookingForm: Component<{ concert?: TConcert }> = (props) => {
       })
       setSuccess(true)
     } catch (error) {
-      // ! Yeah ugly stuff...
+      // ! We know the format of the error since it comes from our api
       setError((error as { message: string }).message)
     }
     setIsLoading(false)

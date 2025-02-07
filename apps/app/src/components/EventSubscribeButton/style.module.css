@@ -1,0 +1,48 @@
+.success {
+  text-align: center;
+  padding: 0.5rem;
+  width: 100%;
+  border-radius: 0.2rem;
+  background-color: rgb(73, 216, 45);
+
+  h3 {
+    margin: 0;
+    padding: 0 0 0.5rem 0;
+  }
+
+  p {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.loading {
+  text-align: center;
+  padding: 0.5rem;
+  width: 100%;
+  border-radius: 0.2rem;
+  background-color: rgb(216, 185, 45);
+
+  h3 {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.error {
+  text-align: center;
+  padding: 0.5rem;
+  width: 100%;
+  border-radius: 0.2rem;
+  background-color: rgb(216, 45, 45);
+
+  h3 {
+    margin: 0;
+    padding: 0 0 0.5rem 0;
+  }
+
+  p {
+    margin: 0;
+    padding: 0;
+  }
+}

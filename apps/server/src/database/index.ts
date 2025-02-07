@@ -9,6 +9,7 @@
  * Import MOCK data
  */
 import { concerts } from './MOCK/concerts'
+import { events } from './MOCK/events'
 
 /**
  * User data format
@@ -46,12 +47,34 @@ export type TBooking = {
 }
 
 /**
+ * Event data format
+ */
+export type TEvent = {
+  id: string
+  name: string
+  info: string
+  img: string
+  date: string
+}
+
+/**
+ * Event Subscription data format
+ */
+export type TEventSubscription = {
+  id: string
+  userId: string
+  eventId: string
+}
+
+/**
  * Database data format
  */
 type TDatabase = {
   users: TUser[]
   concerts: TConcert[]
   bookings: TBooking[]
+  events: TEvent[]
+  eventsSubscriptions: TEventSubscription[]
 }
 
 /**
@@ -59,9 +82,22 @@ type TDatabase = {
  * ! cleared everytime the server is stopped
  */
 const database: TDatabase = {
-  users: [],
+  users: [
+    {
+      id: '0',
+      name: 'Admin',
+      email: 'admin@lecarredas.com',
+      password: 'adminCRODE_PWOA',
+      phone: '00 00 00 00 00',
+      street: '123 Rue des Stratèges',
+      'postal-code': 75000,
+      city: 'Paris'
+    }
+  ],
   concerts: concerts,
-  bookings: []
+  bookings: [],
+  events: events,
+  eventsSubscriptions: []
 }
 
 export default database

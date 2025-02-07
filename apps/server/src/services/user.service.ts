@@ -12,17 +12,22 @@ type TCreateUserDto = {
   password: string
 }
 
+/**
+ * Provides methods for manipulating the users database
+ * @returns
+ */
 const UserService = () => {
   return {
     /**
-     *
+     * Create an user
      * @param dto
-     * @returns
+     * @returns the created user
      */
     create: async (dto: TCreateUserDto) => {
-      //! fake delay
+      //! FIXME fake delay DEV ONLY
       await wait()
 
+      // check email format
       if (!validateEmail(dto.email)) {
         throw new Error('Wrong email format')
       }
@@ -36,7 +41,7 @@ const UserService = () => {
       // hash the password (fake)
       dto.password += 'CRODE_PWOA'
 
-      // ! not using spread operator to avoid unwanted properties
+      // ! not using the spread operator to avoid unwanted properties
       const user: TUser = {
         id: database.users.length.toString(),
         name: dto.name,
@@ -47,17 +52,19 @@ const UserService = () => {
         'postal-code': dto['postal-code'],
         city: dto.city
       }
+
+      // add the user
       database.users.push(user)
       return user
     },
 
     /**
-     *
+     * Find one user by id
      * @param id
-     * @returns
+     * @returns user
      */
     findOneById: async (id: string) => {
-      //! fake delay
+      //! FIXME fake delay DEV ONLY
       await wait()
 
       const user = database.users.find((u) => u.id === id)
@@ -66,12 +73,12 @@ const UserService = () => {
     },
 
     /**
-     *
+     * Find on user by email
      * @param email
-     * @returns
+     * @returns user
      */
     findOneByEmail: async (email: string) => {
-      //! fake delay
+      //! FIXME fake delay DEV ONLY
       await wait()
 
       const user = database.users.find((u) => u.email === email)
@@ -80,7 +87,8 @@ const UserService = () => {
     },
 
     /**
-     *
+     * Check a clear password agaisnt a hashed one
+     * ! FIXME: need to implement bcrypt or argon2
      * @param clearPassword
      * @param hashedPassword
      * @returns

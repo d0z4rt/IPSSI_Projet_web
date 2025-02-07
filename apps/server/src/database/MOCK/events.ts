@@ -1,4 +1,4 @@
-export const blog = [
+export const events = [
   {
     id: '1',
     name: 'Tournoi de Beer Pong',

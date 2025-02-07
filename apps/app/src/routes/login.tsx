@@ -43,7 +43,7 @@ const Login = () => {
       setUser(user)
       navigate('/')
     } catch (error) {
-      // ! Yeah ugly stuff...
+      // ! We know the format of the error since it comes from our api
       setError((error as { message: string }).message)
     }
     setIsLoading(false)
