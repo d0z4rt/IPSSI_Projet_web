@@ -1,30 +1,27 @@
 .main-content {
-  padding: 40px 20px;
+  padding: 0 1rem 2rem 1rem;
   text-align: left;
 }
 
 .filter-bar {
   display: flex;
-  align-items: end;
   justify-content: center;
-  gap: 15px;
-  margin: 20px 0;
-}
+  align-items: end;
+  margin: 0;
+  padding: 3rem 0;
+  gap: 1rem;
 
-.filter-bar select {
-  padding: 12px 15px;
-  border: 2px solid var(--jaune-neon);
-  border-radius: 8px;
-  background-color: var(--fond-sombre);
-  color: var(--texte-clair);
-  font-size: 1rem;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
+  h1 {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 0.25rem;
+    font-size: 3rem;
+    text-wrap: nowrap;
+  }
 
-.filter-bar select:focus {
-  outline: none;
-  border-color: var(--bleu-neon);
-  box-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
+  input {
+    height: 3rem;
+  }
 }
 
 .events-grid {
@@ -43,4 +40,12 @@
 
 .card:hover {
   transform: scale(1.05);
+}
+
+@media (max-width: 900px) {
+  .filter-bar {
+    display: grid;
+    grid-template-rows: auto;
+    gap: 2rem;
+  }
 }

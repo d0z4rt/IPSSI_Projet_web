@@ -1,20 +1,27 @@
 .main-content {
-  padding: 40px 20px;
+  padding: 0 1rem 2rem 1rem;
   text-align: left;
-
-  h1 {
-    color: var(--jaune-neon);
-    margin-bottom: 20px;
-  }
 }
 
 .filter-bar {
   display: flex;
   justify-content: center;
   align-items: end;
-  gap: 15px;
-  margin: 20px 0;
-  padding: 15px;
+  margin: 0;
+  padding: 3rem 0;
+  gap: 1rem;
+
+  h1 {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 0.25rem;
+    font-size: 3rem;
+    text-wrap: nowrap;
+  }
+
+  input {
+    height: 3rem;
+  }
 }
 
 .filter-bar select {
@@ -61,6 +68,11 @@
 }
 
 @media (max-width: 1000px) {
+  .filter-bar {
+    display: grid;
+    grid-template-rows: auto;
+    gap: 2rem;
+  }
   .concerts-grid {
     grid-template-columns: repeat(1, 1fr);
     gap: 1rem;
