@@ -11,7 +11,7 @@ const handleRegister = async (registerFields: {
   password: string
   'repeat-password': string
 }) => {
-  const res = await fetch('http://127.0.0.1:4000/auth/register', {
+  const res = await fetch('http://localhost:4000/auth/register', {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json'
@@ -51,7 +51,7 @@ const Register = () => {
       await handleRegister(registerFields)
       navigate('/login')
     } catch (error) {
-      // ! Yeah ugly stuff...
+      // ! We know the format of the error since it comes from our api
       setError((error as { message: string }).message)
     }
     setIsLoading(false)

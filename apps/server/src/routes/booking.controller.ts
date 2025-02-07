@@ -4,7 +4,7 @@ import type { FastifyTypebox } from '../utils/types'
 
 /**
  * Booking routes
- * @param {FastifyTypebox} fastify ncapsulated Fastify Instance
+ * @param {FastifyTypebox} fastify encapsulated Fastify Instance
  */
 const bookingController = async (fastify: FastifyTypebox) => {
   const bookingService = BookingService()

@@ -1,6 +1,7 @@
 import {
   For,
   type ParentComponent,
+  Suspense,
   createResource,
   createSignal
 } from 'solid-js'
@@ -18,7 +19,7 @@ const Concerts: ParentComponent = (props) => {
   const [selectedDate, setSelectedDate] = createSignal('') // Stocke la date sélectionnée
   const [selectedGenre, setSelectedGenre] = createSignal('') // Stocke le genre musical sélectionné
   const [concerts, { refetch }] = createResource(async () => {
-    const response = await fetch('http://127.0.0.1:4000/concerts/')
+    const response = await fetch('http://localhost:4000/concerts/')
     return (await response.json()) as TConcert[]
   })
 
@@ -77,26 +78,28 @@ const Concerts: ParentComponent = (props) => {
 
       {/* Grille des concerts filtrés */}
       <section class={styles['concerts-grid']} id="concerts-list">
-        {/* Utilisation de <For> pour un rendu performant */}
-        <For each={filteredConcerts()}>
-          {(concert) => (
-            <Card
-              href={concert.id}
-              horizontal
-              title={concert.name}
-              cover={`/${concert.img}`} // Image associée au concert
-              alt={concert.name}
-            >
-              <p>{concert.info}</p>
-              <p>
-                <strong>{concert.date}</strong>
-              </p>
-              <Button type="button" class={styles['btn-buy']}>
-                Acheter des billets
-              </Button>
-            </Card>
-          )}
-        </For>
+        <Suspense fallback={<div>Loading...</div>}>
+          {/* Utilisation de <For> pour un rendu performant */}
+          <For each={filteredConcerts()}>
+            {(concert) => (
+              <Card
+                href={concert.id}
+                horizontal
+                title={concert.name}
+                cover={`/${concert.img}`} // Image associée au concert
+                alt={concert.name}
+              >
+                <p>{concert.info}</p>
+                <p>
+                  <strong>{concert.date}</strong>
+                </p>
+                <Button type="button" class={styles['btn-buy']}>
+                  Acheter des billets
+                </Button>
+              </Card>
+            )}
+          </For>
+        </Suspense>
       </section>
     </main>
   )

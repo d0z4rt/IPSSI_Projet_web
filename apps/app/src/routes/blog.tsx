@@ -1,26 +1,37 @@
-import { For, type ParentComponent, createSignal } from 'solid-js'
-import Button from '../components/Button'
+import {
+  For,
+  type ParentComponent,
+  Suspense,
+  createResource,
+  createSignal
+} from 'solid-js'
 import Card from '../components/Card'
+import EventSubscribeButton from '../components/EventSubscribeButton'
 import FormInput from '../components/FormInput'
 import Select from '../components/Select'
-import { blog } from '../data/blog'
+import type { TEvent } from '../entities/event.entity'
 import styles from './blog.module.css'
 
-// États pour gérer les filtres
-const [searchValue, setSearchValue] = createSignal('')
-const [selectedDate, setSelectedDate] = createSignal('')
-
-// Fonction pour filtrer les événements
-const filteredEvents = () =>
-  blog.filter((event) => {
-    const nameMatch = event.name.toLowerCase().includes(searchValue())
-    const eventDateMatch =
-      event.date.toLowerCase().includes(selectedDate()) || selectedDate() === ''
-
-    return nameMatch && eventDateMatch
+const Blog: ParentComponent = (props) => {
+  // États pour gérer les filtres
+  const [searchValue, setSearchValue] = createSignal('')
+  const [selectedDate, setSelectedDate] = createSignal('')
+  const [events, { refetch }] = createResource(async () => {
+    const response = await fetch('http://localhost:4000/events/')
+    return (await response.json()) as TEvent[]
   })
 
-const Blog: ParentComponent = (props) => {
+  // Fonction pour filtrer les événements
+  const filteredEvents = () =>
+    events()?.filter((event) => {
+      const nameMatch = event.name.toLowerCase().includes(searchValue())
+      const eventDateMatch =
+        event.date.toLowerCase().includes(selectedDate()) ||
+        selectedDate() === ''
+
+      return nameMatch && eventDateMatch
+    })
+
   return (
     <main class={styles['main-content']}>
       {/* Barre de filtres */}
@@ -52,19 +63,19 @@ const Blog: ParentComponent = (props) => {
 
       {/* Grille des événements */}
       <section class={styles['events-grid']} id="events-list">
-        <For each={filteredEvents()}>
-          {(event) => (
-            <Card title={event.name} cover={`/${event.img}`} alt={event.name}>
-              <p>{event.info}</p>
-              <p>
-                <strong>{event.date}</strong>
-              </p>
-              <Button type="button" class={styles['btn-reserve']}>
-                S'inscrire
-              </Button>
-            </Card>
-          )}
-        </For>
+        <Suspense fallback={<div>Loading...</div>}>
+          <For each={filteredEvents()}>
+            {(event) => (
+              <Card title={event.name} cover={`/${event.img}`} alt={event.name}>
+                <p>{event.info}</p>
+                <p>
+                  <strong>{event.date}</strong>
+                </p>
+                <EventSubscribeButton eventId={event.id} />
+              </Card>
+            )}
+          </For>
+        </Suspense>
       </section>
     </main>
   )

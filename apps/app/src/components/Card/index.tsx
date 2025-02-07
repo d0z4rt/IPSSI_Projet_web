@@ -2,6 +2,12 @@ import { A } from '@solidjs/router'
 import { type ParentComponent, Show } from 'solid-js'
 import styles from './style.module.css'
 
+/**
+ * Clickable card
+ * The link is optional, if not specified ot won't trigger any navigation events
+ * @param props
+ * @returns
+ */
 const Card: ParentComponent<{
   title?: string
   href?: string

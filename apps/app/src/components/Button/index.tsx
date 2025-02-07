@@ -1,13 +1,22 @@
 import type { JSX, ParentComponent } from 'solid-js'
 import styles from './style.module.css'
 
-const Button: ParentComponent<JSX.ButtonHTMLAttributes<HTMLButtonElement>> = (
-  props
-) => {
+/**
+ * Button component based of HTMLButtonElement
+ * @param props
+ * @returns
+ */
+const Button: ParentComponent<{
+  class?: string
+  type?: JSX.ButtonHTMLAttributes<HTMLButtonElement>['type']
+  onClick?: JSX.ButtonHTMLAttributes<HTMLButtonElement>['onClick']
+  style?: JSX.ButtonHTMLAttributes<HTMLButtonElement>['style']
+}> = (props) => {
   return (
     <button
       class={`${styles.button} ${props.class ? props.class : ''}`}
-      type={props.type}
+      // Forcing good practice
+      type={props.type || 'button'}
       onClick={props.onClick}
       style={props.style}
     >

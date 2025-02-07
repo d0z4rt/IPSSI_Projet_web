@@ -4,6 +4,8 @@ import fastify from 'fastify'
 import authController from './routes/auth.controller'
 import bookingController from './routes/booking.controller'
 import concertController from './routes/concert.controller'
+import eventSubscriptionController from './routes/event-subscription.controller'
+import eventController from './routes/event.controller'
 
 /**
  * Create the fastify instance with correct typings
@@ -12,7 +14,7 @@ const server = fastify({ logger: true }).withTypeProvider<TypeBoxTypeProvider>()
 
 /**
  * Set cors for the server
- * ! for now accept all domains but you need to restrict it in prod
+ * ! FIXME: for now accept all domains but you need to restrict it in prod
  */
 server.register(cors, {
   origin: true, // Allow all origins
@@ -38,6 +40,10 @@ server.get('/', async (request, reply) => {
 server.register(authController, { prefix: '/auth' })
 server.register(concertController, { prefix: '/concerts' })
 server.register(bookingController, { prefix: '/bookings' })
+server.register(eventController, { prefix: '/events' })
+server.register(eventSubscriptionController, {
+  prefix: '/events-subscriptions'
+})
 
 /**
  * Start the server

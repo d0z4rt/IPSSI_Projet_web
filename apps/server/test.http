@@ -23,6 +23,10 @@ GET http://127.0.0.1:4000/concerts
 
 ###
 
+GET http://127.0.0.1:4000/concerts/0
+
+### 
+
 PUT http://127.0.0.1:4000/bookings
 Content-Type: application/json
 
@@ -34,3 +38,7 @@ Content-Type: application/json
 ###
 
 GET http://127.0.0.1:4000/bookings/0
+
+###
+
+DELETE http://127.0.0.1:4000/bookings/0
