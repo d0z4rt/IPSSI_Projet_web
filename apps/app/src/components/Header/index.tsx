@@ -23,16 +23,24 @@ const Header = () => {
             <A href="/">Accueil</A>
           </li>
           <li>
-            <A href="/bar">Bar</A>
+            <A href="/bar" activeClass={styles.active}>
+              Bar
+            </A>
           </li>
           <li>
-            <A href="/jeux">Jeux</A>
+            <A href="/jeux" activeClass={styles.active}>
+              Jeux
+            </A>
           </li>
           <li>
-            <A href="/concerts">Concerts</A>
+            <A href="/concerts" activeClass={styles.active}>
+              Concerts
+            </A>
           </li>
           <li>
-            <A href="/blog">Blog</A>
+            <A href="/blog" activeClass={styles.active}>
+              Blog
+            </A>
           </li>
         </ul>
         <Show
@@ -89,16 +97,24 @@ const Header = () => {
                 <A href="/">Accueil</A>
               </li>
               <li>
-                <A href="/bar">Bar</A>
+                <A href="/bar" activeClass={styles.active}>
+                  Bar
+                </A>
               </li>
               <li>
-                <A href="/jeux">Jeux</A>
+                <A href="/jeux" activeClass={styles.active}>
+                  Jeux
+                </A>
               </li>
               <li>
-                <A href="/concerts">Concerts</A>
+                <A href="/concerts" activeClass={styles.active}>
+                  Concerts
+                </A>
               </li>
               <li>
-                <A href="/blog">Blog</A>
+                <A href="/blog" activeClass={styles.active}>
+                  Blog
+                </A>
               </li>
             </ul>
           </nav>

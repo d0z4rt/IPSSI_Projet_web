@@ -1,4 +1,3 @@
-
 .custom-dropdown {
   position: relative;
   width: 200px;
@@ -6,7 +5,7 @@
 }
 
 .selected {
-  background:var(--bleu-neon);
+  background: var(--bleu-neon);
   color: var(--violet-neon);
   padding: 10px;
   border: 1px solid var(--violet-neon);
@@ -19,7 +18,7 @@
   top: 100%;
   left: 0;
   width: 100%;
-  background:var(--bleu-neon);
+  background: var(--bleu-neon);
   border: 1px solid var(--violet-neon);
   list-style: none;
   padding: 0;
@@ -39,7 +38,7 @@
 
 /* Effet de découpe : Bordure en forme de pic */
 .dropdown-list li::before {
-  content: "";
+  content: '';
   position: absolute;
   top: -6px; /* Ajuste pour aligner parfaitement */
   left: -5px;

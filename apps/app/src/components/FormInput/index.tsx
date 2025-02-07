@@ -10,7 +10,7 @@ import styles from './style.module.css'
  * @returns
  */
 const FormInput: Component<{
-  name: string
+  name?: string
   id?: string
   placeholder?: string
   value?: HTMLInputElement['value']

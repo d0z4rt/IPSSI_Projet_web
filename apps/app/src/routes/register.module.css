@@ -10,14 +10,12 @@
 
   a {
     color: var(--bleu-neon);
-    transition:
-      color 0.3s ease,
-      text-shadow 0.3s ease;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
   }
 
   a:hover {
     color: var(--jaune-neon);
-    text-shadow: 0px 0px 10px rgba(from var(--jaune-neon) r g b/0.9);
+    text-shadow: 0px 0px 10px rgba(from var(--jaune-neon) r g b / 0.9);
   }
 }
 
@@ -25,7 +23,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgba(from var(--fond-sombre) r g b/0.9);
+  background-color: rgba(from var(--fond-sombre) r g b / 0.9);
   height: 100%;
   display: flex;
   flex-direction: column;

@@ -3,7 +3,7 @@
 - DAUDEL Clarisse
 - RANQUE Yanis
 - CASTEL Maxime
-- TONELO Hugo
+- TONELLO Hugo
 
 ## Requirements
 

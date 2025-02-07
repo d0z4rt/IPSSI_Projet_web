@@ -1,4 +1,4 @@
-import { For, ParentComponent, createSignal } from 'solid-js'
+import { For, type ParentComponent, createSignal } from 'solid-js'
 import Button from '../components/Button'
 import Card from '../components/Card'
 import FormInput from '../components/FormInput'

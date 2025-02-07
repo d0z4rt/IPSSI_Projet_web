@@ -1,7 +1,7 @@
 import { useParams } from '@solidjs/router'
 import { Suspense, createResource } from 'solid-js'
 import BookingForm from '../../components/BookingForm'
-import { TConcert } from '../../entities/concert.entity'
+import type { TConcert } from '../../entities/concert.entity'
 import styles from './id.module.css'
 
 type Params = {

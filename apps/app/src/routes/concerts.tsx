@@ -1,8 +1,13 @@
-import { For, ParentComponent, createResource, createSignal } from 'solid-js'
+import {
+  For,
+  type ParentComponent,
+  createResource,
+  createSignal
+} from 'solid-js'
 import Button from '../components/Button'
 import Card from '../components/Card'
 import FormInput from '../components/FormInput'
-import { TConcert } from '../entities/concert.entity'
+import type { TConcert } from '../entities/concert.entity'
 import styles from './concerts.module.css'
 
 // Composant affichant la liste des concerts avec des filtres de recherche

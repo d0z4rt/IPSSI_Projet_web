@@ -56,7 +56,7 @@ const BookingForm: Component<{ concert?: TConcert }> = (props) => {
     <div class={styles.wrapper}>
       <div class={styles.header}>
         <h2>Reserver</h2>
-        <A href="/concerts">x</A>
+        <A href="/concerts">✕</A>
       </div>
       <div class={styles.concert_infos}>
         <Show when={props.concert} fallback="Concert inexistant">
