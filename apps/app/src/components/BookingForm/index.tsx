@@ -10,7 +10,7 @@ const handleBooking = async (bookingFields: {
   userId: string
   concertId: string
 }) => {
-  const res = await fetch('http://127.0.0.1:4000/bookings', {
+  const res = await fetch('http://localhost:4000/bookings', {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json'

@@ -7,7 +7,7 @@ import type { TConcert } from '../entities/concert.entity'
 import styles from './profile.module.css'
 
 const handleDeleteBooking = async (bookingId: string) => {
-  const res = await fetch(`http://127.0.0.1:4000/bookings/${bookingId}`, {
+  const res = await fetch(`http://localhost:4000/bookings/${bookingId}`, {
     method: 'DELETE'
   })
   const resBody = await res.json()
@@ -26,7 +26,7 @@ const Profile = () => {
   const [isLoading, setIsLoading] = createSignal(false)
   const [bookings, { refetch }] = createResource(async () => {
     const response = await fetch(
-      `http://127.0.0.1:4000/bookings/${authStore.user?.id}`
+      `http://localhost:4000/bookings/${authStore.user?.id}`
     )
     return (await response.json()) as {
       id: string

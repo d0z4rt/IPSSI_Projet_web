@@ -18,7 +18,7 @@ const Concerts: ParentComponent = (props) => {
   const [selectedDate, setSelectedDate] = createSignal('') // Stocke la date sélectionnée
   const [selectedGenre, setSelectedGenre] = createSignal('') // Stocke le genre musical sélectionné
   const [concerts, { refetch }] = createResource(async () => {
-    const response = await fetch('http://127.0.0.1:4000/concerts/')
+    const response = await fetch('http://localhost:4000/concerts/')
     return (await response.json()) as TConcert[]
   })
 

@@ -11,7 +11,7 @@ type Params = {
 const Booking = () => {
   const params = useParams<Params>()
   const [concert] = createResource(async () => {
-    const response = await fetch(`http://127.0.0.1:4000/concerts/${params.id}`)
+    const response = await fetch(`http://localhost:4000/concerts/${params.id}`)
     return (await response.json()) as TConcert
   })
 
