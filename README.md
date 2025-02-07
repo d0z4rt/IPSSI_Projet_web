@@ -2,10 +2,10 @@
 
 ![screenshot](./docs/screenshot.png)
 
-- DAUDEL Clarisse
-- RANQUE Yanis
-- CASTEL Maxime
-- TONELLO Hugo
+- DAUDEL Clarisse => Receiro
+- RANQUE Yanis => Ricoland0
+- CASTEL Maxime => d0z4rt
+- TONELLO Hugo => pas présent sur le repo
 
 ## Requirements
 
