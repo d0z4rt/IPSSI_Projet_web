@@ -2,6 +2,7 @@ import { For, type ParentComponent, createSignal } from 'solid-js'
 import Button from '../components/Button'
 import Card from '../components/Card'
 import FormInput from '../components/FormInput'
+import Select from '../components/Select'
 import { blog } from '../data/blog'
 import styles from './blog.module.css'
 
@@ -33,16 +34,19 @@ const Blog: ParentComponent = (props) => {
         />
 
         {/* Sélecteur de date */}
-        <select
-          onChange={(e) => setSelectedDate(e.currentTarget.value.toLowerCase())}
-        >
-          <option value="">📅 Date</option>
-          <option value="6 février 2025">6 février 2025</option>
-          <option value="13 février 2025">13 février 2025</option>
-          <option value="14 février 2025">14 février 2025</option>
-          <option value="22 février 2025">22 février 2025</option>
-          <option value="27 février 2025">27 février 2025</option>
-        </select>
+        <Select
+          name="📅 Date"
+          minWidth="22ch"
+          options={[
+            '6 février 2025',
+            '13 février 2025',
+            '14 février 2025',
+            '22 février 2025',
+            '27 février 2025'
+          ]}
+          activeOption={selectedDate()}
+          setActiveOption={setSelectedDate}
+        />
       </div>
 
       {/* Grille des événements */}

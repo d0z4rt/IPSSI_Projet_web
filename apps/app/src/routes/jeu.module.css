@@ -20,7 +20,7 @@
 .cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
+  gap: 3rem 2rem;
   padding: 1rem;
 }
 
@@ -33,7 +33,7 @@
 @media (max-width: 1800px) {
   .cards {
     grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
+    gap: 2rem 1rem;
     padding: 0.5rem;
   }
 }
@@ -41,7 +41,6 @@
 @media (max-width: 1000px) {
   .cards {
     grid-template-columns: repeat(1, 1fr);
-    gap: 1rem;
     padding: 0.5rem;
   }
 }
@@ -49,7 +48,7 @@
 .filter-bar {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: end;
   margin: 70px 0 80px;
   padding: 8px;
   height: 47px;
@@ -159,4 +158,10 @@
 
 .subTag {
   background-color: #9370db;
+}
+
+.filter_btn {
+  height: 3rem;
+  align-items: center;
+  margin-bottom: 0.5rem;
 }

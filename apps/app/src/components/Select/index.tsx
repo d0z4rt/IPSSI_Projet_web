@@ -1,53 +1,88 @@
-import { createSignal, onCleanup } from 'solid-js'
+import {
+  type Component,
+  For,
+  type Setter,
+  createSignal,
+  onCleanup,
+  onMount
+} from 'solid-js'
 import styles from './style.module.css'
 
-const Select = () => {
+const Select: Component<{
+  name?: string
+  options: string[]
+  activeOption?: string
+  minWidth?: string
+  setActiveOption: Setter<string>
+}> = (props) => {
   const [isOpen, setIsOpen] = createSignal(false)
-  const [selectedValue, setSelectedValue] = createSignal('')
-  const [activeOption, setActiveOption] = createSignal(null)
 
   const toggleDropdown = () => setIsOpen(!isOpen())
-  const selectOption = (option) => {
-    setSelectedValue(option.textContent)
-    setActiveOption(option)
+
+  const selectOption = (option: string) => {
+    props.setActiveOption(option)
     setIsOpen(false)
   }
 
-  const handleClickOutside = (e) => {
-    if (!e.target.closest(`.${styles['custom-dropdown']}`)) {
+  const handleClear = (e: MouseEvent) => {
+    e.stopPropagation()
+    setIsOpen(false)
+    props.setActiveOption('')
+  }
+
+  const handleClickOutside = (e: MouseEvent) => {
+    // ! we need to infer the type HTMLElement for closest to be recognized
+    if (!(e.target as HTMLElement)?.closest(`.${styles['custom-dropdown']}`)) {
       setIsOpen(false)
     }
   }
 
-  document.addEventListener('click', handleClickOutside)
+  onMount(() => {
+    document.addEventListener('click', handleClickOutside)
 
-  onCleanup(() => {
-    document.removeEventListener('click', handleClickOutside)
+    onCleanup(() => {
+      if (document) {
+        document.removeEventListener('click', handleClickOutside)
+      }
+    })
   })
 
   return (
-    <div class={`${styles['custom-dropdown']} ${isOpen() ? styles.open : ''}`}>
+    <div
+      class={`${styles['custom-dropdown']} ${isOpen() ? styles.open : ''}`}
+      style={{
+        'min-width': props.minWidth ? props.minWidth : '15ch'
+      }}
+    >
+      <span>{props.name}</span>
       <div
         class={styles.selected}
         onClick={toggleDropdown}
         onKeyUp={(e) => e.key === 'Enter' && toggleDropdown()}
       >
-        {selectedValue()}
+        <span>{props.activeOption || 'Select'}</span>
+        {/* biome-ignore lint/a11y/useKeyWithClickEvents: Using this for now, might need to fix it using a button */}
+        <span style={{ 'margin-left': '1ch' }} onClick={handleClear}>
+          {props.activeOption && '✕'}
+        </span>
       </div>
       <ul class={styles['dropdown-list']}>
-        {prop.options.map((value) => (
-          <li
-            value={value}
-            class={
-              activeOption() && activeOption().textContent === value
-                ? styles.active
-                : ''
-            }
-            onClick={(e: MouseEvent) => selectOption(e.target as HTMLElement)}
-          >
-            {value}
-          </li>
-        ))}
+        <For each={props.options}>
+          {(option) => (
+            // biome-ignore lint/a11y/useKeyWithClickEvents: Using this for now, might need to fix it using a button
+            <li
+              value={option}
+              class={
+                props.activeOption && props.activeOption === option
+                  ? styles.active
+                  : ''
+              }
+              onClick={() => selectOption(option)}
+            >
+              {option}
+            </li>
+          )}
+        </For>
       </ul>
     </div>
   )

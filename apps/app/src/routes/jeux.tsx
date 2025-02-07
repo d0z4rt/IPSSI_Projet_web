@@ -2,6 +2,7 @@ import { For, Show, createMemo, createSignal } from 'solid-js'
 import Button from '../components/Button'
 import Card from '../components/Card'
 import FormInput from '../components/FormInput'
+import Select from '../components/Select'
 import { jeux } from '../data/jeu'
 import styles from './jeu.module.css'
 
@@ -66,6 +67,7 @@ const Jeu = () => {
       <div class={styles['filter-bar']}>
         <FormInput
           type="text"
+          name="Recherche"
           id={styles.search}
           onInput={(e) => setSearchValue(e.currentTarget.value.toLowerCase())}
           placeholder="🔍 Rechercher un jeu..."
@@ -79,18 +81,12 @@ const Jeu = () => {
           Filtres
         </Button>
 
-        <select
-          id="sort"
-          aria-label="sort"
-          class={styles.filter_select}
-          onChange={(e) => setSortCriteria(e.currentTarget.value)}
-        >
-          <option value="default" disabled selected hidden>
-            Trier par
-          </option>
-          <option value="name">Nom</option>
-          <option value="time">Temps</option>
-        </select>
+        <Select
+          name="Trier par"
+          options={['name', 'time']}
+          activeOption={sortCriteria()}
+          setActiveOption={setSortCriteria}
+        />
       </div>
 
       {/* Page de filtre */}
