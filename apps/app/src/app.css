@@ -118,3 +118,17 @@ img {
     max-width: none;
   }
 }
+
+* {
+  cursor: url("./Decorators/normal-select.cur"), auto;
+}
+
+/* Ajout des styles pour les autres types de curseurs */
+a, button, A, Button {
+  cursor: url("./Decorators/link-select.cur"), pointer;
+}
+
+textarea, input, select,ul,li {
+  cursor: url("./Decorators/handwriting.cur"), text;
+}
+
