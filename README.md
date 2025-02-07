@@ -19,7 +19,7 @@
 - back (`apps/server`)
   - [fastify](https://fastify.dev/) - Web framwork pour NodeJS
   - `ATTENTION`: La base de donnée n'est pas persistante, elle s'efface a chaque arret du serveur, il y a un utilisateur par defaut: `admin@lecarredas.com` - `admin`
-  - Vous pouvez debug le server avec l'extension `rest-client` dans VSCode (elle est dans les suggestions du repo), il y a un fichier `/apps/server/test.http` avec quelques requetes
+  - Vous pouvez debug le server avec l'extension `rest-client` dans VSCode (elle est dans les suggestions du repo), il y a un fichier `apps/server/test.http` avec quelques requetes
 - integration (`apps/client`)
   - Site en HTML/CSS "vanilla" pour faciliter l'integration des differentes productions dans SolidStart (`app`)
 
@@ -46,3 +46,9 @@ pnpm build
 ```bash
 pnpm start
 ```
+
+## Docs
+
+![alt text](./docs/chart.png)
+
+![alt text](./docs/flow_chart.png)
